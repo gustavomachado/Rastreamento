@@ -1,0 +1,237 @@
+2015-04-21 18:09:06 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\wamp\www\AmazonTrace\app\View\Chips\index.ctp, line 49]
+2015-04-21 18:09:06 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 49)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 49, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 49, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 18:18:39 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`chips`, CONSTRAINT `FK_chips_rastreadores` FOREIGN KEY (`rastreador_id`) REFERENCES `rastreadors` (`id`))
+Request URL: /AmazonTrace/Chips/add
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Chip), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\ChipsController.php(51): Model->save(Array)
+#6 [internal function]: ChipsController->add()
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2015-04-21 18:28:24 Error: Fatal Error (1): Call to undefined method View::link() in [C:\wamp\www\AmazonTrace\app\View\Chips\index.ctp, line 59]
+2015-04-21 18:28:24 Error: [FatalErrorException] Call to undefined method View::link()
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 59, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 59, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 19:02:19 Error: [MissingModelException] Chips
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\Controller\ChipsController.php(30): PaginatorComponent->paginate('Chips', Array)
+#1 [internal function]: ChipsController->index()
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#5 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-04-21 19:02:53 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'limit' in 'where clause'
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Chip`.`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Chip`.`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Chip`.`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Chip), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\ChipsController.php(30): PaginatorComponent->paginate(Array)
+#8 [internal function]: ChipsController->index()
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-04-21 19:03:31 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'limit' in 'where clause'
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Chip`.`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Chip`.`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Chip`.`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Chip), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\ChipsController.php(30): PaginatorComponent->paginate(NULL, Array)
+#8 [internal function]: ChipsController->index()
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-04-21 19:04:52 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'limit' in 'where clause'
+Request URL: /AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Chip`.`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Chip`.`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Chip`.`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Chip), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\ChipsController.php(30): PaginatorComponent->paginate(NULL, Array)
+#8 [internal function]: ChipsController->index()
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-04-21 19:31:00 Error: Fatal Error (4): syntax error, unexpected ';' in [C:\wamp\www\AmazonTrace\app\View\Chips\index.ctp, line 55]
+2015-04-21 19:31:00 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /AmazonTrace/Chips/index/8
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 19:32:52 Error: Fatal Error (4): syntax error, unexpected 'array' (T_ARRAY), expecting ')' in [C:\wamp\www\AmazonTrace\app\View\Chips\index.ctp, line 55]
+2015-04-21 19:32:52 Error: [FatalErrorException] syntax error, unexpected 'array' (T_ARRAY), expecting ')'
+Request URL: /AmazonTrace/Chips/index/8
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 55, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 21:49:17 Error: [MissingControllerException] Controller class EnderecosController could not be found.
+Exception Attributes: array (
+  'class' => 'EnderecosController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/enderecos/add
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-21 22:00:51 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /AmazonTrace/Clientes/index/0
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Cliente), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#7 [internal function]: ClientesController->index('0')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-21 22:13:36 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\wamp\www\AmazonTrace\app\View\Clientes\index.ctp, line 40]
+2015-04-21 22:13:36 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /AmazonTrace/Clientes/index/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 22:16:03 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\wamp\www\AmazonTrace\app\View\Clientes\index.ctp, line 40]
+2015-04-21 22:16:03 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /AmazonTrace/Clientes/index/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 40, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 23:13:38 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Users
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-21 23:16:26 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Users/index
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-21 23:21:12 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Users/index
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-21 23:22:09 Error: Fatal Error (4): syntax error, unexpected 'Nome' (T_STRING) in [C:\wamp\www\AmazonTrace\app\View\Elements\navigation.ctp, line 28]
+2015-04-21 23:22:09 Error: [FatalErrorException] syntax error, unexpected 'Nome' (T_STRING)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 28)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 28, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 28, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 23:22:47 Error: Fatal Error (4): syntax error, unexpected '?>' in [C:\wamp\www\AmazonTrace\app\View\Elements\navigation.ctp, line 25]
+2015-04-21 23:22:47 Error: [FatalErrorException] syntax error, unexpected '?>'
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 23:26:03 Error: Fatal Error (4): syntax error, unexpected ''Nome do usuario( PERFIL )'' (T_CONSTANT_ENCAPSED_STRING) in [C:\wamp\www\AmazonTrace\app\View\Elements\navigation.ctp, line 25]
+2015-04-21 23:26:03 Error: [FatalErrorException] syntax error, unexpected ''Nome do usuario( PERFIL )'' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 23:27:22 Error: Fatal Error (4): syntax error, unexpected 'echo' (T_ECHO) in [C:\wamp\www\AmazonTrace\app\View\Elements\navigation.ctp, line 25]
+2015-04-21 23:27:22 Error: [FatalErrorException] syntax error, unexpected 'echo' (T_ECHO)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 25, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-21 23:28:05 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Users/index
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
