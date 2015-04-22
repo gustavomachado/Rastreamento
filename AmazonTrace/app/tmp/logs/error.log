@@ -235,3 +235,74 @@ Request URL: /AmazonTrace/Users/index
 Stack Trace:
 #0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-04-22 08:44:14 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'db_am_trace\'',
+  'enabled' => true,
+)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3613): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1155): Model->setDataSource('default')
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#12 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
+#13 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#14 [internal function]: ClientesController->index()
+#15 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#16 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#17 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#18 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2015-04-22 08:54:02 Error: [MissingTableException] Table enderecos for model Endereco was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'enderecos',
+  'class' => 'Endereco',
+  'ds' => 'default',
+)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#8 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
+#9 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#10 [internal function]: ClientesController->index()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#12 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#13 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#14 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2015-04-22 08:55:03 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php, line 66]
+2015-04-22 08:55:03 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-22 11:03:46 Error: [MissingControllerException] Controller class UsersController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Users/index
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

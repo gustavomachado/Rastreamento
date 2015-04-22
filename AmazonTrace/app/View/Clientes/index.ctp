@@ -37,7 +37,7 @@
                 <?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
                 <?php echo $this->Form->input('id',array('type'=>'hidden')); ?>
                 <div class="form-group col-md-2">
-                    <?php echo $this->Form->select('tipo', array(  'F'=>'Pessoa Fisica','J'=>'Pessoa Juridica') );?>
+                    <?php echo $this->Form->input('tipo', array('options'=>array('F'=>'Pessoa Fisica','J'=>'Pessoa Juridica'),'class'=>'form-control' ) );?>
                 </div>
                 <div class="form-group col-md-3">
                     <?php echo $this->Form->input('cpf_cnpj', array('class' => 'form-control cpf', 'placeholder' => 'Cpf'));?>

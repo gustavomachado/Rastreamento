@@ -57,20 +57,7 @@ class Cliente extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Endereco' => array(
-			'className' => 'Endereco',
-			'foreignKey' => 'cliente_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
+		), 
 		'Veiculo' => array(
 			'className' => 'Veiculo',
 			'foreignKey' => 'cliente_id',

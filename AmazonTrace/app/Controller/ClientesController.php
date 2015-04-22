@@ -63,7 +63,6 @@ class ClientesController extends AppController {
                 $this->Session->setFlash(__('The cliente could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         }
-        $enderecos = $this->Cliente->Endereco->find('list');
         $this->set(compact('enderecos'));
     }
 
@@ -89,7 +88,7 @@ class ClientesController extends AppController {
             $options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
             $this->request->data = $this->Cliente->find('first', $options);
         }
-        $enderecos = $this->Cliente->Endereco->find('list');
+       
         $this->set(compact('enderecos'));
     }
 
