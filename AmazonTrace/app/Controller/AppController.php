@@ -32,9 +32,6 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-    public $helpers = array("Js");
-    public $components = array("RequestHandler");
-    
    public  function beforeFilter(){
         $this->layout = 'bootstrap';
     }

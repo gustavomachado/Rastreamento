@@ -17,6 +17,7 @@ and open the template in the editor.
 .navbar{
     background: #e4e4e4;
     height: 70px;
+    padding: 0px !important;
 }
 .navbar li{
     padding-left:  3px;
@@ -25,62 +26,29 @@ and open the template in the editor.
 }
 .navbar li a{
     height: 70px;
-    border: 1px solid #245269;
+    border: none;
     color: #ddd;
     font-weight: bold;
     background-color: #46b8da;
     transition: all .5s; 
 }
+.navbar li a [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-size: 30px;
+}
 
 .navbar li a:hover{
     background-color: #68dafc;
-    color: #aaa;
-    border: 1px solid #00d ;
+    color: #00d;
+    border: none ;
 }
 .navbar img{
     margin-top: 5px;
     width: 60px;
 }
- /*****************************************************************************
+/*****************************************************************************
 **                                                                          **
 **                                                                          **
 **                          CSS para NAVBAR                                 **
 **                                                                          **
 **                               FIM                                        **
-*******************************************************************************/
- /*****************************************************************************
-**                                                                          **
-**                                                                          **
-**                          CSS para ADDONS                                 **
-**                                                                          **
-**                               INICIO                                     **
-*******************************************************************************/
- .busca-cep:hover{
-     cursor: pointer;
- }
-  /*****************************************************************************
-**                                                                          **
-**                                                                          **
-**                          CSS para ADDONS                                 **
-**                                                                          **
-**                               FIM                                        **
-*******************************************************************************/
-  
-/*****************************************************************************
-**                                                                          **
-**                                                                          **
-**                          CSS para AJAX                                   **
-**                                                                          **
-**                               INICIO                                     **
-*******************************************************************************/
-
-.loading{
-    display: none;
-}
- /*****************************************************************************
-**                                                                          **
-**                                                                          **
-**                          CSS para AJAX                                   **
-**                                                                          **
-**                               FIM                                         **
 *******************************************************************************/

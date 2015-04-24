@@ -235,35 +235,653 @@ Request URL: /AmazonTrace/Users/index
 Stack Trace:
 #0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
-2015-04-22 08:44:14 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+2015-04-22 16:01:11 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
 Exception Attributes: array (
   'class' => 'Mysql',
   'message' => 'SQLSTATE[HY000] [1049] Unknown database \'db_am_trace\'',
   'enabled' => true,
 )
+Request URL: /GitHub/Rastreamento/trunk/AmazonTrace/Chips
+Stack Trace:
+#0 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3613): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1155): Model->setDataSource('default')
+#4 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('rastreadors')
+#5 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#6 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#7 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#8 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#9 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#10 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#11 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#12 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\Controller\ChipsController.php(68): Model->find('list')
+#13 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\Controller\ChipsController.php(31): ChipsController->add()
+#14 [internal function]: ChipsController->index()
+#15 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChipsController), Array)
+#16 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#17 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#18 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2015-04-22 16:01:25 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'db_am_trace\'',
+  'enabled' => true,
+)
+Request URL: /GitHub/Rastreamento/trunk/AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3613): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1155): Model->setDataSource('default')
+#4 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
+#5 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#6 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#7 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#8 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#9 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#10 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#11 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#12 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
+#13 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#14 [internal function]: ClientesController->index()
+#15 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#16 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#17 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#18 C:\wamp\www\GitHub\Rastreamento\trunk\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#19 {main}
+2015-04-22 18:41:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:41:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:41:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:41:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:41:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:41:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:43:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:43:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:44:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:44:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:46:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:46:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:46:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:46:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:48:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:48:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:49:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:49:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:49:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:49:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:50:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:50:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:50:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:50:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:51:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:53:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:53:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:53:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:53:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:54:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:55:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:55:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:58:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-22 18:58:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/css/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-23 02:09:23 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`rastreadors`, CONSTRAINT `FK_rastreadores_veiculos` FOREIGN KEY (`veiculo_id`) REFERENCES `veiculos` (`id`))
+Request URL: /AmazonTrace/Rastreadors
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:09:26 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`rastreadors`, CONSTRAINT `FK_rastreadores_veiculos` FOREIGN KEY (`veiculo_id`) REFERENCES `veiculos` (`id`))
+Request URL: /AmazonTrace/Rastreadors
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:10:34 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`rastreadors`, CONSTRAINT `FK_rastreadores_veiculos` FOREIGN KEY (`veiculo_id`) REFERENCES `veiculos` (`id`))
+Request URL: /AmazonTrace/Rastreadors
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:14:16 Error: [NotFoundException] Invalid rastreador
+Request URL: /AmazonTrace/Rastreadors/delete/0
+Stack Trace:
+#0 [internal function]: RastreadorsController->delete('0')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-23 02:17:48 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`clientes`, CONSTRAINT `FK_clientes_enderecos` FOREIGN KEY (`endereco_id`) REFERENCES `enderecos` (`id`))
 Request URL: /AmazonTrace/Clientes
 Stack Trace:
-#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
-#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
-#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3613): ConnectionManager::getDataSource('default')
-#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1155): Model->setDataSource('default')
-#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
-#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
-#6 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
-#7 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
-#8 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
-#9 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
-#10 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
-#11 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
-#12 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
-#13 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
-#14 [internal function]: ClientesController->index()
-#15 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
-#16 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
-#17 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
-#18 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#19 {main}
-2015-04-22 08:54:02 Error: [MissingTableException] Table enderecos for model Endereco was not found in datasource default.
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Cliente), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#7 [internal function]: ClientesController->index()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:19:49 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /AmazonTrace/Rastreadors/index/0
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index('0')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:19:59 Error: [NotFoundException] Invalid rastreador
+Request URL: /AmazonTrace/Rastreadors/index/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(27): RastreadorsController->edit('1')
+#1 [internal function]: RastreadorsController->index('1')
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#5 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-04-23 02:20:11 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /AmazonTrace/Rastreadors/index/0
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index('0')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:20:52 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+Request URL: /AmazonTrace/Rastreadors/
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Rastreador), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(59): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RastreadorsController.php(29): RastreadorsController->add()
+#7 [internal function]: RastreadorsController->index()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-04-23 02:29:14 Error: [NotFoundException] Invalid rastreador
+Request URL: /AmazonTrace/Rastreadors/delete/0
+Stack Trace:
+#0 [internal function]: RastreadorsController->delete('0')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-23 02:34:29 Error: [MissingControllerException] Controller class RastreadorsController could not be found.
+Exception Attributes: array (
+  'class' => 'RastreadorsController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Rastreadors/
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-23 02:34:30 Error: [MissingControllerException] Controller class RastreadorsController could not be found.
+Exception Attributes: array (
+  'class' => 'RastreadorsController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Rastreadors/
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-23 02:34:30 Error: [MissingControllerException] Controller class RastreadorsController could not be found.
+Exception Attributes: array (
+  'class' => 'RastreadorsController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Rastreadors/
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-23 02:41:16 Error: [NotFoundException] Invalid rastreador
+Request URL: /AmazonTrace/Rastreadors/delete/0
+Stack Trace:
+#0 [internal function]: RastreadorsController->delete('0')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RastreadorsController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RastreadorsController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-23 18:33:12 Error: [MissingTableException] Table enderecos for model Endereco was not found in datasource default.
 Exception Attributes: array (
   'table' => 'enderecos',
   'class' => 'Endereco',
@@ -287,49 +905,51 @@ Stack Trace:
 #13 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
 #14 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #15 {main}
-2015-04-22 08:55:03 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php, line 66]
-2015-04-22 08:55:03 Error: [FatalErrorException] Call to a member function find() on a non-object
-Request URL: /AmazonTrace/Clientes
-Stack Trace:
-#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66)
-#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66, Array)
-#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 66, Array)
-#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
-#5 {main}
-2015-04-22 11:03:46 Error: [MissingControllerException] Controller class UsersController could not be found.
+2015-04-23 18:33:17 Error: [MissingTableException] Table enderecos for model Endereco was not found in datasource default.
 Exception Attributes: array (
-  'class' => 'UsersController',
-  'plugin' => NULL,
-)
-Request URL: /AmazonTrace/Users/index
-Stack Trace:
-#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#1 {main}
-2015-04-23 13:52:18 Error: [MissingControllerException] Controller class RastreadorsController could not be found.
-Exception Attributes: array (
-  'class' => 'RastreadorsController',
-  'plugin' => NULL,
-)
-Request URL: /AmazonTrace/Rastreadors
-Stack Trace:
-#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#1 {main}
-2015-04-23 15:41:48 Error: [MissingHelperException] Helper class ContatoHelper could not be found.
-Exception Attributes: array (
-  'class' => 'ContatoHelper',
-  'plugin' => false,
+  'table' => 'enderecos',
+  'class' => 'Endereco',
+  'ds' => 'default',
 )
 Request URL: /AmazonTrace/Clientes
 Stack Trace:
-#0 C:\wamp\www\AmazonTrace\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Contato')
-#1 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(848): HelperCollection->__isset('Contato')
-#2 C:\wamp\www\AmazonTrace\app\View\Clientes\index.ctp(218): View->__get('Contato')
-#3 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(961): include('C:\\wamp\\www\\Ama...')
-#4 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(923): View->_evaluate('C:\\wamp\\www\\Ama...', Array)
-#5 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(473): View->_render('C:\\wamp\\www\\Ama...')
-#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
-#7 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
-#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
-#9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#10 {main}
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#8 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
+#9 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#10 [internal function]: ClientesController->index()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#12 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#13 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#14 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2015-04-23 18:33:54 Error: [MissingTableException] Table enderecos for model Endereco was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'enderecos',
+  'class' => 'Endereco',
+  'ds' => 'default',
+)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3640): Model->setSource('enderecos')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1479): Model->schema()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1466): Model->hasField('title', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(907): Model->hasField(Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3186): Model->__get('displayField')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3051): Model->_findList('before', Array)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2985): Model->buildQuery('list', Array)
+#8 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(66): Model->find('list')
+#9 C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php(29): ClientesController->add()
+#10 [internal function]: ClientesController->index()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ClientesController), Array)
+#12 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#13 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#14 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
