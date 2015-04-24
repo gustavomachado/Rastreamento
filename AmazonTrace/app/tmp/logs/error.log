@@ -306,3 +306,30 @@ Request URL: /AmazonTrace/Users/index
 Stack Trace:
 #0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-04-23 13:52:18 Error: [MissingControllerException] Controller class RastreadorsController could not be found.
+Exception Attributes: array (
+  'class' => 'RastreadorsController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Rastreadors
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-04-23 15:41:48 Error: [MissingHelperException] Helper class ContatoHelper could not be found.
+Exception Attributes: array (
+  'class' => 'ContatoHelper',
+  'plugin' => false,
+)
+Request URL: /AmazonTrace/Clientes
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Contato')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(848): HelperCollection->__isset('Contato')
+#2 C:\wamp\www\AmazonTrace\app\View\Clientes\index.ctp(218): View->__get('Contato')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(961): include('C:\\wamp\\www\\Ama...')
+#4 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(923): View->_evaluate('C:\\wamp\\www\\Ama...', Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(473): View->_render('C:\\wamp\\www\\Ama...')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
