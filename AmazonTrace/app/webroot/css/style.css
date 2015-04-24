@@ -29,7 +29,7 @@ and open the template in the editor.
     border: none;
     color: #ddd;
     font-weight: bold;
-    background-color: #46b8da;
+    background-color: #0099cc;
     transition: all .5s; 
 }
 .navbar li a [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
@@ -37,8 +37,8 @@ and open the template in the editor.
 }
 
 .navbar li a:hover{
-    background-color: #68dafc;
-    color: #00d;
+    background-color: #ddd;
+    color: #0099cc;
     border: none ;
 }
 .navbar img{
@@ -52,3 +52,27 @@ and open the template in the editor.
 **                                                                          **
 **                               FIM                                        **
 *******************************************************************************/
+
+table thead th {
+    color: white !important;
+    background-color: #0099cc !important;
+}
+table thead th a {
+    color: white !important;
+    background-color: #0099cc !important;
+    text-decoration: underline;
+}
+
+.alert {
+    position: absolute;
+    min-width: 250px;
+    max-width: 380px;
+    right: 0px;
+    margin: 10px;
+}
+.alert button{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+
