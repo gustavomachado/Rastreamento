@@ -1,7 +1,5 @@
 
-
 $(document).ready(function () {
-
 
     if (typeof ($(".tel")) !== undefined) {
         $(".tel").mask("(99)99999-9999");
@@ -11,9 +9,7 @@ $(document).ready(function () {
     }
     if (typeof ($(".cnpj")) !== undefined) {
         $(".cnpj").mask("99.999.999/9999-99");
-    }
-
-    
+    }    
 
     $("select").change(function () {
         var value = $(this).val();

@@ -23,10 +23,8 @@ class ChipsController extends AppController {
      * @return void
      */
     public function index($id = null) {
-        
         if ($id) {
-            $this->edit($id);
-            
+            $this->edit($id);            
         } else {
             $this->add();
         }
