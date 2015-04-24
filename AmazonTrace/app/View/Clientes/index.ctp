@@ -73,7 +73,9 @@
                     ?>
                 </div>
                 <div class="form-group  col-md-2">
-                    <button type="button" data-toggle="modal" data-target="#modal-contato" class="btn btn-default">Add Contato</button>
+                    <button type="button" data-toggle="modal" data-target="#modal-contato" class="btn btn-default">Add Contato
+                       <span class="glyphicon glyphicon-plus"></span>
+                    </button>
                 </div>
                 <div class="form-group  col-md-9">
                     <?php echo $this->Form->input('medidas_panico', array('class' => 'form-control', 'placeholder' => 'Medidas Panico')); ?>
@@ -217,15 +219,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Adicionar Contato</h4>
             </div>
-            <div class="modal-body  ">
+            <div class="modal-body modal-body-contato ">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label>Nome</label>
-                        <input class="form-control" type="text" name="nome">
+                        <input class="form-control" type="text" name="nome" >
                     </div>
                     <div class="form-group col-md-6">
                         <label>e-Mail</label>
-                        <input class="form-control" type="email" name="setor">
+                        <input class="form-control" type="email" name="email">
                     </div>
                     <div class="form-group col-md-4 ">
                         <label>Telefone</label>
@@ -233,10 +235,9 @@
                     </div>
                     <div class="form-group col-md-4 ">
                         <label>Celular</label>
-                        <input class="form-control tel" type="text" name="telefone">
+                        <input class="form-control tel" type="text" name="celular">
                     </div>
-                    
-                    <div class="form-group col-md-5">	
+                    <div class="form-group col-md-4">	
                         <label for="datainicio">Data nascimento</label>
                         <div class='input-group date datetimepicker'>
                             <input class="data form-control dtinicio" type="text"     data-date-format="DD/MM/YYYY" placeholder="DD/MM/YYYY" name="data_nascimento">
@@ -245,17 +246,30 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-5">
                         <label>Setor</label>
                         <input class="form-control" type="text" name="setor">
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-offset-2 col-md-5">
                         <label>Cargo</label>
                         <input class="form-control" type="text" name="cargo">
                     </div>
                 </div>
             </div>
             <div class="modal-footer  ">
+                <div class="row">
+                    <div class="msg-area col-md-7" style="border: 1px solid red;">
+                        
+                    </div>
+                    <div class="col-md-5" style="border: 1px solid black;">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button  type="button" class="btn btn-success add-contato" data-target="#modal-contato">Adicionar
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
