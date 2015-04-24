@@ -16,7 +16,6 @@ $(document).ready(function () {
             $(".loading").css("display", "block");
             var cep = $(".cep").val();
             var rexp = /[\d]{5,5}\-[\d]{3,3}/;
-           
             if (rexp.test(cep)) {
                 $.ajax({
                     type: 'get',
@@ -29,18 +28,12 @@ $(document).ready(function () {
                         $("#ClienteComplemento").val(data['complemento']);
                         $("#ClienteCidade").val(data['localidade']);
                         $("#ClienteUf").val(data['uf']);
-                        $(".loading").css("display","none");
+                        $(".loading").css("display", "none");
                     }
                 });
             }
-         
-
-
         });
     }
-
-
-
 
     $("select").change(function () {
         var value = $(this).val();
@@ -53,5 +46,7 @@ $(document).ready(function () {
             $(".pj").prop("disabled", true).val('');
         }
     });
-
+    
+    $('.alert').append('<button type="button" class="close" data-dismiss="alert">×</button>');
+    
 });
