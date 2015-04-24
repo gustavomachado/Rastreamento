@@ -47,6 +47,6 @@ $(document).ready(function () {
         }
     });
     
-    $('.alert').append('<button type="button" class="close" data-dismiss="alert">×</button>');
+    $('.alert').append('<button class="close" data-dismiss="alert" ><span class="flaticon-cancel19" ></span></button>');
     
 });
