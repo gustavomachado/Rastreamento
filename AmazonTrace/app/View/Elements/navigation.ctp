@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">
+                <li class="active"><a href="/AmazonTrace/">
                         <span class='flaticon-home149'></span><br/>
                         Início</a></li>
                 <li><a href="/AmazonTrace/Cadastros">
@@ -29,12 +29,10 @@
                 </li>
             </ul>
             <div class="col-md-offset-9">
-                <?php
-                echo $this->Html->link(
-                        $this->Html->image('user.png', array('alt' => "teste", 'border' => '0')), "http://localhost/AmazonTrace/Users/index", array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-                );
-                echo '&nbsp;Nome do usuario ( PERFIL )';
-                ?> 
+                <div class="col-md-12 usuario-logado">
+                    <span class="flaticon-user158"></span><br>
+                    <?php echo $this->Html->link($user['User']['nome'] . ' [' . $user['Conta']['descricao'].']', array('controller' => 'Users', 'action'=>'index', $user['User']['id'])) ?>
+                </div>
             </div>
         </div><!--/.nav-collapse -->
 

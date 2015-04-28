@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="col-md-12">
-                    <?php echo $this->Form->label('Observa&ccedil;&otilde;es');?>
+                    <?php echo $this->Form->label('Observa&ccedil;&atilde;o');?>
                 </div>
                 <div class="form-group col-md-6">
 

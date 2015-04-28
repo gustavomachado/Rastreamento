@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="form-group col-md-12">
-                <?php echo $this->Form->label('Observação') ?>
+                <?php echo $this->Form->label('Observa&ccedil;&atilde;o') ?>
                 <?php echo $this->Form->textarea('obs', array('class' => 'form-control', 'placeholder' => 'Obs'));?>
             </div>
             <div class="form-group col-md-offset-10  col-md-1">
