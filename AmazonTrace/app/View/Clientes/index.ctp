@@ -40,7 +40,7 @@
                 <?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
                 <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
                 <div class="form-group col-md-2">
-                    <?php echo $this->Form->input('tipo', array('options' => array('F' => 'Pessoa Fisica', 'J' => 'Pessoa Juridica'), 'empty' => 'Selecione o Tipo', 'class' => 'form-control',)); ?>
+                    <?php echo $this->Form->input('tipo', array('options' => array('F' => 'Pessoa Fisica', 'J' => 'Pessoa Juridica'), 'empty' => 'Selecione o Tipo', 'class' => 'form-control','required')); ?>
                 </div>
                 <div class="form-group col-md-3">
                     <?php echo $this->Form->input('cpf_cnpj', array('class' => 'form-control cpf', 'placeholder' => 'Cpf')); ?>
@@ -258,10 +258,10 @@
             </div>
             <div class="modal-footer  ">
                 <div class="row">
-                    <div class="msg-area col-md-7" style="border: 1px solid red;">
+                    <div class="msg-area col-md-7" style="//border: 1px solid red;">
                         
                     </div>
-                    <div class="col-md-5" style="border: 1px solid black;">
+                    <div class="col-md-5" style="//border: 1px solid black;">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>

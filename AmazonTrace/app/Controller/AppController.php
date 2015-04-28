@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Application level Controller
  *
@@ -19,6 +18,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 App::uses('Controller', 'Controller');
 
 /**
@@ -31,47 +31,8 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-
-    var $uses = array('Pagina', 'Acesso');
-    public $components = array(
-        'Session',
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-            'loginError' => 'ERRO',
-            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'authError' => '<div class="alert alert-danger">É necessário realizar Login para acessar o sistema.</div>',
-        )
-    );
-
-    public function beforeFilter() {
-        $this->layout = 'bootstrap';
-        $this->set('logged_in', $this->Auth->loggedIn());
-        $this->set('user', $this->Auth->user());
-        /*if ($this->Auth->user()) {
-            if (!$this->permitirPagina()) {
-                $this->Session->setFlash('<span class="flaticon-locked57"></span>Acesso negado:<br>Você não têm acesso à página '.strtoupper($this->params['controller']), 'default', array('class' => 'alert alert-danger'));
-                $this->redirect(array('controller' => 'cadastros'));
-            }
-        }*/
-    }
     
-    public function converteArrayParaMauisculo($value) {
-        return strtoupper($value);
+   public  function beforeFilter(){
+        $this->layout = 'bootstrap';
     }
-    public function permitirPagina() {
-        $conta = $this->Auth->user()['Conta'];
-        $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $conta['id'])));
-        $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('id','url'), 'conditions' => array('id' => $acessos)));
-        $urlPaginas = array();
-        foreach ($paginas_permitidas as $page){
-            array_push($urlPaginas, strtoupper($page['Pagina']['url']));
-        }
-        $paginas = array_map($this->converteArrayParaMauisculo, $urlPaginas);
-        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' )) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 }

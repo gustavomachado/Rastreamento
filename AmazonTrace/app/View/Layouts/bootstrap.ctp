@@ -22,10 +22,10 @@
         echo $this->Html->script("jquery-1.11.2.min");
         echo $this->Html->script("jquery-ui");
         echo $this->Html->script("bootstrap.min");
-        echo $this->Html->script("jquery.mask");
+        echo $this->Html->script("jquery.mask");  
         echo $this->Html->script("moment");
         echo $this->Html->script("bootstrap-datetimepicker");
-
+      
         echo $this->Html->script("Calendar");
 
         echo $this->Html->script("functions.js");
@@ -51,6 +51,7 @@
         <style type="text/css">
             body{ padding: 70px 0px; }
         </style>
+
     </head>
 
     <body>

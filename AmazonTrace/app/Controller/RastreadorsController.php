@@ -15,7 +15,6 @@ class RastreadorsController extends AppController {
      *
      * @var array
      */
-    
     public $components = array('Paginator');
 
     /**
@@ -29,13 +28,9 @@ class RastreadorsController extends AppController {
         } else {
             $this->add();
         }
-        $this->Rastreador->recursive = 0;
+        $this->Rastreador->recursive = 0;        
         $this->paginate = array('limit' => 10);
         $this->set('rastreadors', $this->Paginator->paginate());
-        $chipsInRastreador = $this->Rastreador->Chip->find('all', array('conditions' => array('rastreador_id' => $id, 'rastreador_id is not null')));
-        $chips = $this->Rastreador->Chip->find('all', array('order'=>array('Chip.id ASC')));
-        $this->set(compact('chips'));
-        $this->set(compact('chipsInRastreador'));
     }
 
     /**
@@ -52,7 +47,7 @@ class RastreadorsController extends AppController {
         $options = array('conditions' => array('Rastreador.' . $this->Rastreador->primaryKey => $id));
         $this->set('rastreador', $this->Rastreador->find('first', $options));
     }
-    
+
     /**
      * add method
      *
@@ -62,10 +57,10 @@ class RastreadorsController extends AppController {
         if ($this->request->is('post')) {
             $this->Rastreador->create();
             if ($this->Rastreador->save($this->request->data)) {
-                $this->Session->setFlash(__('Rastreador salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash(__('The rastreador has been saved.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('Rastreador não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash(__('The rastreador could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         }
         $veiculos = $this->Rastreador->Veiculo->find('list');
@@ -81,14 +76,14 @@ class RastreadorsController extends AppController {
      */
     public function edit($id = null) {
         if (!$this->Rastreador->exists($id)) {
-            throw new NotFoundException(__('Rastreador inválido!'));
+            throw new NotFoundException(__('Invalid rastreador'));
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Rastreador->save($this->request->data)) {
-                $this->Session->setFlash(__('Rastreador salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash(__('The rastreador has been saved.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('O Rastreador não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash(__('The rastreador could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('Rastreador.' . $this->Rastreador->primaryKey => $id));
@@ -108,13 +103,13 @@ class RastreadorsController extends AppController {
     public function delete($id = null) {
         $this->Rastreador->id = $id;
         if (!$this->Rastreador->exists()) {
-            throw new NotFoundException(__('Rastreador inválido.'));
+            throw new NotFoundException(__('Invalid rastreador'));
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Rastreador->delete()) {
-            $this->Session->setFlash(__('Rastreador excluído com sucesso.'), 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash(__('The rastreador has been deleted.'), 'default', array('class' => 'alert alert-success'));
         } else {
-            $this->Session->setFlash(__('O Rastreador não pôde ser excluído. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
+            $this->Session->setFlash(__('The rastreador could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
         }
         return $this->redirect(array('action' => 'index'));
     }

@@ -11,6 +11,44 @@ $(document).ready(function () {
     if (typeof ($(".cep")) !== undefined) {
         $(".cep").mask("99999-999");
     }
+    if (typeof ($(".datetimepicker")) !== undefined) {
+        $(".datetimepicker").datetimepicker({
+            pickTime: false
+        });
+        $(".datetimepicker span").click(function () {
+            $(".datetimepicker").removeClass("has-error");
+        });
+    }
+
+
+    if (typeof ($(".add-contato")) !== undefined) {
+        $(".add-contato").click(function () {
+
+            var input = ".modal-body-contato input[name=";
+
+            var nome = $(input + "nome]");
+            var telefone = $(input + "telefone]");
+            var celular = $(input + "celular]");
+            var email = $(input + "email]");
+            var setor = $(input + "setor]");
+            var cargo = $(input + "cargo]");
+            var dataNascimento = $(input + "data_nascimento]");
+
+            var contatos = countClassElements("contatos");
+            $("#contatos-container").append($("<div>").addClass("contatos").attr("id", "contato-" + contatos)
+                    .append($("<input>").attr("type", "hidden").val(nome.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][nome]"))
+                    .append($("<input>").attr("type", "hidden").val(telefone.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][telefone]"))
+                    .append($("<input>").attr("type", "hidden").val(celular.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][celular]"))
+                    .append($("<input>").attr("type", "hidden").val(email.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][email]"))
+                    .append($("<input>").attr("type", "hidden").val(setor.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][setor]"))
+                    .append($("<input>").attr("type", "hidden").val(cargo.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][cargo]"))
+                    .append($("<input>").attr("type", "hidden").val(dataNascimento.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][data_nascimento]"))
+                    );
+            $($(this).attr("data-target")).modal("hide");
+        });
+    }
+
+
     if (typeof ($(".busca-cep")) !== undefined) {
         $(".busca-cep").click(function () {
             $(".loading").css("display", "block");
@@ -31,9 +69,14 @@ $(document).ready(function () {
                         $(".loading").css("display", "none");
                     }
                 });
+            } else {
+                $(".loading").css("display", "none");
             }
         });
     }
+
+
+
 
     $("select").change(function () {
         var value = $(this).val();
@@ -46,8 +89,36 @@ $(document).ready(function () {
             $(".pj").prop("disabled", true).val('');
         }
     });
-    
+
     $('.alert').append('<button class="close" data-dismiss="alert" ><span class="flaticon-cancel19" ></span></button>');
-    
-    
+
 });
+
+
+
+function validaTelefone(telefone) {
+    var rexp = /\([\d]{2}\)[\d]{5}-[\d]{4}/;
+    return rexp.test(telefone);
+}
+function validaData(data) {
+    var rexp = new RegExp(/((0[1-9]|[12][0-9]|3[01])\/(0[13578]|1[02])\/[12][0-9]{3})|((0[1-9]|[12][0-9]|30)\/(0[469]|11)\/[12][0-9]{3})|((0[1-9]|1[0-9]|2[0-8])\/02\/[12][0-9]([02468][1235679]|[13579][01345789]))|((0[1-9]|[12][0-9])\/02\/[12][0-9]([02468][048]|[13579][26]))/gi);
+    return new String(data).match(rexp) !== null;
+}
+
+function putMessage(msg) {
+    $(".msg-area *").remove();
+    $(".msg-area").append($("<h4>").html(msg)).addClass("text-left");
+}
+function setHasError(selector) {
+    $(selector).focus().parent("div").addClass("has-error");
+}
+function listaByClass(nomeDaClasse) {
+
+    var lista = document.getElementsByClassName(nomeDaClasse);
+    return lista;
+}
+function countClassElements(nomeDaClasse) {
+
+    var lista = listaByClass(nomeDaClasse);
+    return lista.length;
+}

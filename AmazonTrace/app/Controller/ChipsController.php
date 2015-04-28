@@ -23,34 +23,14 @@ class ChipsController extends AppController {
      * @return void
      */
     public function index($id = null) {
-        if ($id) {            
-            $this->edit($id);
+        if ($id) {
+            $this->edit($id);            
         } else {
             $this->add();
         }
         $this->Chip->recursive = 0;
         $this->paginate = array('limit' => 10);
         $this->set('chips', $this->Paginator->paginate());
-    }
-
-    public function vincularChip() {
-        $this->render(false, false);
-        $this->request->data['Chip']['rastreador_id'] = $_REQUEST['rastreador_id'];
-        $this->request->data['Chip']['id'] = $_REQUEST['id'];
-        if ($this->Chip->save($this->request->data)) {
-            $options = array('conditions' => array('Chip.' . $this->Chip->primaryKey => $_REQUEST['id']));
-            $chip = $this->Chip->find('first', $options);
-            echo json_encode($chip);
-        }
-    }
-    
-    public function desvincularChip(){
-        $this->render(false, false);
-        $this->request->data['Chip']['rastreador_id'] = null;
-        $this->request->data['Chip']['id'] = $_REQUEST['id'];
-        if ($this->Chip->save($this->request->data)) {
-            echo 'sucess';
-        }
     }
 
     /**
