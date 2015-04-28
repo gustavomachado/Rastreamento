@@ -29,6 +29,7 @@ class AcessosController extends AppController {
             $this->add();
         }
         $this->Acesso->recursive = 0;
+        $this->paginate = array('limit' => 10);
         $this->set('acessos', $this->Paginator->paginate());
         $contas = $this->Acesso->Conta->find('list', array('fields' => array('id', 'descricao')));
         $paginas = $this->Acesso->Pagina->find('list', array('fields' => array('id', 'nome')));

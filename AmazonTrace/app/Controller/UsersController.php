@@ -29,6 +29,7 @@ class UsersController extends AppController {
             $this->add();
         }
         $this->User->recursive = 0;
+        $this->paginate = array('limit' => 10);
         $contas = $this->User->Conta->find('list', array('fields' => array('id', 'descricao')));
         $this->set('usuarios', $this->Paginator->paginate(), 'contas');
     }

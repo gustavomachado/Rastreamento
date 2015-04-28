@@ -39,7 +39,7 @@ class AppController extends Controller {
             'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'loginError' => 'ERRO',
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'authError' => '<div class="alert alert-danger">É necessário realizar Login para acessar o sistema.</div>',
+            'authError' => '<div class="alert alert-danger"><span class="flaticon-locked57"></span>É necessário realizar Login para acessar o sistema.</div>',
         )
     );
 
@@ -47,12 +47,12 @@ class AppController extends Controller {
         $this->layout = 'bootstrap';
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('user', $this->Auth->user());
-        /*if ($this->Auth->user()) {
+        if ($this->Auth->user()) {
             if (!$this->permitirPagina()) {
                 $this->Session->setFlash('<span class="flaticon-locked57"></span>Acesso negado:<br>Você não têm acesso à página '.strtoupper($this->params['controller']), 'default', array('class' => 'alert alert-danger'));
-                $this->redirect(array('controller' => 'cadastros'));
+           //     $this->redirect(array('controller' => 'cadastros'));
             }
-        }*/
+        }
     }
     
     public function converteArrayParaMauisculo($value) {
@@ -67,7 +67,7 @@ class AppController extends Controller {
             array_push($urlPaginas, strtoupper($page['Pagina']['url']));
         }
         $paginas = array_map($this->converteArrayParaMauisculo, $urlPaginas);
-        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' )) {
+        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' ) || strtoupper($this->params['controller'])  == 'PAGES') {
             return true;
         } else {
             return false;
