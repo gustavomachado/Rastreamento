@@ -54,7 +54,7 @@
 
                 <div class="form-group col-md-offset-1  col-md-1">
                      <?php echo $this->Html->link('Novo', array('action' => 'index' ), array('escape' => false ,'class'=>'btn btn-default')); ?>
-                
+
                 </div>
                 <div class="form-group     col-md-1">
                     <?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-success')); ?>
@@ -64,7 +64,7 @@
             <div class="col-md-12">
                 <hr>
             </div>
-            
+
             <div class="col-md-12">
                 <table cellpadding="0" cellspacing="0" class="table table-striped  ">
                     <thead>
@@ -80,11 +80,11 @@
                         </tr>
                     </thead>
                     <tbody>
-				<?php foreach ($chips as $chip): ?>
+                        <?php foreach ($chips as $chip): ?>
                         <tr > 
                             <td><?php echo h($chip['Chip']['id']); ?>&nbsp;</td>
                             <td>
-			<?php echo $this->Html->link($chip['Rastreador']['id'], array('controller' => 'rastreadors', 'action' => 'view', $chip['Rastreador']['id'])); ?>
+                                <?php echo $this->Html->link($chip['Rastreador']['id'].' - '.$chip['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'index', $chip['Rastreador']['id'])); ?>
                             </td>
                             <td><?php echo h($chip['Chip']['operadora']); ?>&nbsp;</td>
                             <td><?php echo h($chip['Chip']['numero_chip']); ?>&nbsp;</td>
@@ -97,7 +97,7 @@
                                 <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $chip['Chip']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $chip['Chip']['id'])); ?>
                             </td>
                         </tr>
-				<?php endforeach; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
