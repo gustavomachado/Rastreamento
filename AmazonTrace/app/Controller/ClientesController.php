@@ -59,11 +59,13 @@ class ClientesController extends AppController {
             if ($this->Cliente->save($this->request->data)) {
                 $contatos = $this->request->data['Cliente']['Contatos'];
                 $id = $this->Cliente->id;
-                foreach ($contatos as $key => $contato) {
-                    $contato['cliente_id'] = $id;
-                    $contatos[$key] = $contato;
+                if (count($contatos) > 0) {
+                    foreach ($contatos as $key => $contato) {
+                        $contato['cliente_id'] = $id;
+                        $contatos[$key] = $contato;
+                    }
+                    $this->Cliente->Contato->saveAll($contatos);
                 }
-                $this->Cliente->Contato->saveAll($contatos);
                 $this->Session->setFlash(__('The cliente has been saved.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
@@ -92,7 +94,13 @@ class ClientesController extends AppController {
             }
         } else {
             $options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
+            
+            $optionsContato = array('conditions' => array('Contato.cliente_id'=>$id));
+            $contatos = $this->Cliente->Contato->find('all',$optionsContato);
             $this->request->data = $this->Cliente->find('first', $options);
+         /*   var_dump( $this->request->data);
+            echo "aqui";
+            exit;*/
         }
     }
 
@@ -104,6 +112,7 @@ class ClientesController extends AppController {
      * @return void
      */
     public function delete($id = null) {
+         
         $this->Cliente->id = $id;
         if (!$this->Cliente->exists()) {
             throw new NotFoundException(__('Invalid cliente'));

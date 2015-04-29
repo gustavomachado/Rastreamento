@@ -26,7 +26,7 @@ echo $this->Session->flash('auth');
                     <?php echo $this->Form->input('nome', array('label' => 'Usuário', 'class' => 'form-control')); ?>
                 </div>
                 <div class="col-lg-12">
-                    <?php echo $this->Form->input('senha', array('label' => 'Senha', 'class' => 'form-control')); ?>
+                    <?php echo $this->Form->input('senha', array('label' => 'Senha','type'=>'password', 'class' => 'form-control')); ?>
                 </div>
                 <div class="col-lg-12">
                     <?php echo $this->Form->submit('Entrar', array('class' => 'btn btn-default', 'style' => 'width: 100%; margin-top: 15px')) ?>

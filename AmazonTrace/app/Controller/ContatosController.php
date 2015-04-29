@@ -92,7 +92,7 @@ class ContatosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function delete($id = null,$id_cliente=null) {
 		$this->Contato->id = $id;
 		if (!$this->Contato->exists()) {
 			throw new NotFoundException(__('Invalid contato'));
@@ -103,6 +103,10 @@ class ContatosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The contato could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index'));
+                if($id_cliente){
+                    return $this->redirect(array('controller'=>'clientes','action' => 'index',$id_cliente));
+                }else{
+                     return $this->redirect(array( 'action' => 'index'));
+                }
 	}
 }

@@ -44,7 +44,18 @@ $(document).ready(function () {
                     .append($("<input>").attr("type", "hidden").val(cargo.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][cargo]"))
                     .append($("<input>").attr("type", "hidden").val(dataNascimento.val()).attr("name", "data[Cliente][Contatos][" + contatos + "][data_nascimento]"))
                     );
-            $($(this).attr("data-target")).modal("hide");
+            $("#contatos-container-table").append($("<tr>").attr("id", "contato-" + contatos + "-table")
+                    .append($("<td>").html(nome.val()))
+                    .append($("<td>").html(email.val()))
+                    .append($("<td>").html(telefone.val()))
+                    .append($("<td>").html(cargo.val()))
+                    .append($("<td>").append($("<a>").click(function () {
+
+                        $("#contatos-container #contato-" + contatos + " , #contato-" + contatos + "-table ").remove();
+
+                    }).append($("<span>").addClass("glyphicon").addClass("glyphicon-remove")))
+                            ));
+            $(".modal-body-contato input").val('');
         });
     }
 

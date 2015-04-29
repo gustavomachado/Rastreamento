@@ -8,7 +8,11 @@
         </div><!-- end col md 12 -->
     </div><!-- end row -->
 
-
+    <?php
+    if (isset($this->request->data['Contato'])) {
+        $contatos = $this->request->data['Contato'];
+    }
+    ?>
 
     <div class="row">
         <!-- SIDEBAR
@@ -40,7 +44,7 @@
                 <?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
                 <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
                 <div class="form-group col-md-2">
-                    <?php echo $this->Form->input('tipo', array('options' => array('F' => 'Pessoa Fisica', 'J' => 'Pessoa Juridica'), 'empty' => 'Selecione o Tipo', 'class' => 'form-control','required')); ?>
+                    <?php echo $this->Form->input('tipo', array('options' => array('F' => 'Pessoa Fisica', 'J' => 'Pessoa Juridica'), 'empty' => 'Selecione o Tipo', 'class' => 'form-control', 'required')); ?>
                 </div>
                 <div class="form-group col-md-3">
                     <?php echo $this->Form->input('cpf_cnpj', array('class' => 'form-control cpf', 'placeholder' => 'Cpf')); ?>
@@ -74,7 +78,7 @@
                 </div>
                 <div class="form-group  col-md-2">
                     <button type="button" data-toggle="modal" data-target="#modal-contato" class="btn btn-default">Add Contato
-                       <span class="glyphicon glyphicon-plus"></span>
+                        <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </div>
                 <div class="form-group  col-md-9">
@@ -128,6 +132,30 @@
                 </div>
 
 
+                <div id="contatos-container">
+                    <?php
+                    if (isset($contatos) && count($contatos) > 0) {
+                        $i = 0;
+                        foreach ($contatos as $contato) {
+                            //  var_dump($contato);exit;
+                            ?>
+                            <div id="contato-<?= $i ?>" class="contatos">
+                                <input type="hidden" value="<?= $contato['id'] ?>" name="data[Cliente][Contatos][<?= $i ?>][id]" >
+                                <input type="hidden" value="<?= $contato['cliente_id'] ?>" name="data[Cliente][Contatos][<?= $i ?>][cliente_id]" >
+                                <input type="hidden" value="<?= $contato['nome'] ?>" name="data[Cliente][Contatos][<?= $i ?>][nome]" >
+                                <input type="hidden" value="<?= $contato['setor'] ?>" name="data[Cliente][Contatos][<?= $i ?>][setor]" >
+                                <input type="hidden" value="<?= $contato['cargo'] ?>" name="data[Cliente][Contatos][<?= $i ?>][cargo]" >
+                                <input type="hidden" value="<?= $contato['telefone'] ?>" name="data[Cliente][Contatos][<?= $i ?>][telefone]" >
+                                <input type="hidden" value="<?= $contato['celular'] ?>" name="data[Cliente][Contatos][<?= $i ?>][celular]" >
+                                <input type="hidden" value="<?= $contato['email'] ?>" name="data[Cliente][Contatos][<?= $i ?>][email]" >
+                                <input type="hidden" value="<?= $contato['data_nascimento'] ?>" name="data[Cliente][Contatos][<?= $i++ ?>][data_nascimento]" >
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+
                 <div class="form-group col-md-offset-10  col-md-1">
                     <?php echo $this->Html->link('Novo', array('action' => 'index'), array('escape' => false, 'class' => 'btn btn-default')); ?>
 
@@ -135,9 +163,7 @@
                 <div class="form-group col-md-1">
                     <?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-success')); ?>
                 </div>
-                <div id="contatos-container">
 
-                </div>
                 <?php echo $this->Form->end() ?>
 
             </div>
@@ -159,7 +185,7 @@
                             <th><?php echo $this->Paginator->sort('email_de_cobranca'); ?></th>
 
 
-                            <th class="actions"></th>
+                            <th class="actions">A&ccedil;&otilde;es</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -211,31 +237,23 @@
 </div><!-- end containing of content -->
 
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true" id="modal-contato">
-    <div class="modal-dialog bs-example-modal-sm">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header  ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Adicionar Contato</h4>
             </div>
             <div class="modal-body modal-body-contato ">
-                <div class="row">
-                    <div class="form-group col-md-6">
+                <div class=" row">
+                    <div class="form-group col-md-4">
                         <label>Nome</label>
                         <input class="form-control" type="text" name="nome" >
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label>e-Mail</label>
                         <input class="form-control" type="email" name="email">
-                    </div>
-                    <div class="form-group col-md-4 ">
-                        <label>Telefone</label>
-                        <input class="form-control tel" type="text" name="telefone">
-                    </div>
-                    <div class="form-group col-md-4 ">
-                        <label>Celular</label>
-                        <input class="form-control tel" type="text" name="celular">
                     </div>
                     <div class="form-group col-md-4">	
                         <label for="datainicio">Data nascimento</label>
@@ -246,28 +264,73 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-3 ">
+                        <label>Telefone</label>
+                        <input class="form-control tel" type="text" name="telefone">
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label>Celular</label>
+                        <input class="form-control tel" type="text" name="celular">
+                    </div>
+
+                    <div class="form-group col-md-3">
                         <label>Setor</label>
                         <input class="form-control" type="text" name="setor">
                     </div>
-                    <div class="form-group col-md-offset-2 col-md-5">
+                    <div class="form-group  col-md-3">
                         <label>Cargo</label>
                         <input class="form-control" type="text" name="cargo">
+                    </div>
+                    <div class="col-md-12">
+                        <button  type="button" class="btn btn-default add-contato pull-right" data-target="#modal-contato">Adicionar
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-12 ">
+                        <hr>
+                    </div>
+                    <div   class="col-md-12  scroll-content">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>e-Mail</th>
+                                    <th>Telefone</th>
+                                    <th>Cargo</th>
+                                    <th class="actions">A&ccedil;&otilde;es</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contatos-container-table">
+                                <?php
+                                if (isset($contatos) && count($contatos) > 0) {
+                                    foreach ($contatos as $contato) {
+                                        ?>
+                                    <tr id="contato-<?= $i ?>-table" class="contatos">
+                                        <td><?= $contato['nome'] ?></td>
+                                        <td><?= $contato['email'] ?></td>
+                                        <td><?= $contato['telefone'] ?></td>
+                                        <td><?= $contato['cargo'] ?></td>
+                                        <td><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('controller'=>'Contatos','action' => 'delete', $contato['id'],$contato['cliente_id']), array('escape' => false), __('Are you sure you want to delete # %s?',$contato['id'])); ?> </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
             <div class="modal-footer  ">
                 <div class="row">
                     <div class="msg-area col-md-7" style="//border: 1px solid red;">
-                        
+
                     </div>
                     <div class="col-md-5" style="//border: 1px solid black;">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Sair
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
-                        <button  type="button" class="btn btn-success add-contato" data-target="#modal-contato">Adicionar
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
+
                     </div>
                 </div>
             </div>
