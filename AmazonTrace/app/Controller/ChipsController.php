@@ -23,7 +23,7 @@ class ChipsController extends AppController {
      * @return void
      */
     public function index($id = null) {
-        if ($id) {            
+        if ($id) {
             $this->edit($id);
         } else {
             $this->add();
@@ -43,8 +43,8 @@ class ChipsController extends AppController {
             echo json_encode($chip);
         }
     }
-    
-    public function desvincularChip(){
+
+    public function desvincularChip() {
         $this->render(false, false);
         $this->request->data['Chip']['rastreador_id'] = null;
         $this->request->data['Chip']['id'] = $_REQUEST['id'];
@@ -77,10 +77,10 @@ class ChipsController extends AppController {
         if ($this->request->is('post')) {
             $this->Chip->create();
             if ($this->Chip->save($this->request->data)) {
-                $this->Session->setFlash(__('The chip has been saved.'), 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash(__('Chip salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The chip could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash(__('O Chip não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
             }
         }
         $rastreadors = $this->Chip->Rastreador->find('list');
@@ -96,14 +96,14 @@ class ChipsController extends AppController {
      */
     public function edit($id = null) {
         if (!$this->Chip->exists($id)) {
-            throw new NotFoundException(__('Invalid chip'));
+            throw new NotFoundException(__('Chip inválido'));
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Chip->save($this->request->data)) {
-                $this->Session->setFlash(__('The chip has been saved.'), 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash(__('Chip salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The chip could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash(__('O Chip não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('Chip.' . $this->Chip->primaryKey => $id));
@@ -111,6 +111,14 @@ class ChipsController extends AppController {
         }
         $rastreadors = $this->Chip->Rastreador->find('list');
         $this->set(compact('rastreadors'));
+    }
+
+    public function cadastro($id = null) {
+        if ($id) {
+            $this->edit($id);
+        } else {
+            $this->add();
+        }
     }
 
     /**

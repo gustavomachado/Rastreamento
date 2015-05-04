@@ -22,14 +22,9 @@ class UsersController extends AppController {
      *
      * @return void
      */
-    public function index($id = null) {
-        if ($id) {
-            $this->edit($id);
-        } else {
-            $this->add();
-        }
+    public function index() {
         $this->User->recursive = 0;
-        $this->paginate = array('limit' => 10);
+        $this->paginate = array('limit' => 20);
         $contas = $this->User->Conta->find('list', array('fields' => array('id', 'descricao')));
         $this->set('usuarios', $this->Paginator->paginate(), 'contas');
     }
@@ -37,7 +32,7 @@ class UsersController extends AppController {
     public function login() {
         $this->render('login', false);
         if (isset($this->data['User'])) {
-            $user = $this->User->find('first', array('conditions' => array('nome' => $this->data['User']['nome'], 'senha' => $this->data['User']['senha'])));
+            $user = $this->User->find('first', array('conditions' => array('nome' => $this->data['User']['nome'], 'senha' => AuthComponent::password($this->data['User']['senha']))));
             if ($user) {
                 if ($this->Auth->login($user)) {
                     $this->redirect($this->Auth->redirect(array('controller' => 'cadastros')));
@@ -72,18 +67,22 @@ class UsersController extends AppController {
      *
      * @return void
      */
-    public function add() {
-        if ($this->request->is('post')) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The usuario has been saved.'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The usuario could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+    public function cadastro($id = null) {
+        if ($id) {
+            $this->edit($id);
+        } else {
+            if ($this->request->is('post')) {
+                $this->User->create();
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('Usuário salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
+                    return $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('O Usuário não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
+                }
             }
+            $contas = $this->User->Conta->find('list', array('fields' => array('id', 'descricao')));
+            $this->set(compact('contas'));
         }
-        $contas = $this->User->Conta->find('list', array('fields' => array('id', 'descricao')));
-        $this->set(compact('contas'));
     }
 
     /**
@@ -95,14 +94,14 @@ class UsersController extends AppController {
      */
     public function edit($id = null) {
         if (!$this->User->exists($id)) {
-            throw new NotFoundException(__('Invalid usuario'));
+            throw new NotFoundException(__('Usuário inválido.'));
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The usuario has been saved.'), 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash(__('Usuário salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The usuario could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash(__('O Usuário não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -122,13 +121,13 @@ class UsersController extends AppController {
     public function delete($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid usuario'));
+            throw new NotFoundException(__('Usuário inválido'));
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->User->delete()) {
-            $this->Session->setFlash(__('The usuario has been deleted.'), 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash(__('Usuário excluído com sucesso.'), 'default', array('class' => 'alert alert-success'));
         } else {
-            $this->Session->setFlash(__('The usuario could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+            $this->Session->setFlash(__('O Usuário não pôde ser excluído. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
         }
         return $this->redirect(array('action' => 'index'));
     }

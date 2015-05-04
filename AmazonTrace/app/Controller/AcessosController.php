@@ -35,6 +35,18 @@ class AcessosController extends AppController {
         $paginas = $this->Acesso->Pagina->find('list', array('fields' => array('id', 'nome')));
         $this->set(compact('contas', 'paginas'));
     }
+    
+    public function salvarPermissao(){
+        $this->render(false, false);
+        $this->Acesso->create();
+        $this->Acesso->set($_REQUEST);
+        if ($this->Acesso->save($this->Acesso->data)){
+            $options = array('conditions' => array('Acesso.pagina_id' => $_REQUEST['pagina_id'], 'Acesso.conta_id' => $_REQUEST['conta_id']));
+            $acessoSalvo = $this->Acesso->find('first', $options);
+            echo json_encode($acessoSalvo);
+        }
+    }
+
 
     /**
      * view method
@@ -44,11 +56,13 @@ class AcessosController extends AppController {
      * @return void
      */
     public function view($id = null) {
+        $this->render(false, false);
         if (!$this->Acesso->exists($id)) {
             throw new NotFoundException(__('Invalid acesso'));
         }
-        $options = array('conditions' => array('Acesso.' . $this->Acesso->primaryKey => $id));
-        $this->set('acesso', $this->Acesso->find('first', $options));
+        $options = array('conditions' => array('Acesso.id' => $id));
+        $acesso = $this->Acesso->find('first', $options);
+        echo json_encode($acesso);
     }
 
     /**
