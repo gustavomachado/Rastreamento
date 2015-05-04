@@ -21,7 +21,6 @@
  */
 App::uses('Model', 'Model');
 App::uses('SlugRoute', 'Routing/Route');
-App::import('Controller', 'App');
 
 /**
  * Application model for Cake.
@@ -33,7 +32,7 @@ App::import('Controller', 'App');
  */
 class AppModel extends Model {
 
-    public $uses = 'Controller';
+    public $uses = array('Controller', 'LogsController');
 
     public function beforeDelete($cascade = true) {
         parent::beforeDelete($cascade);
@@ -53,6 +52,7 @@ class AppModel extends Model {
             header("location:../");
             exit;
         }
+        $this->gravarLog('Excluir', $this->id);
     }
 
     public function beforeSave($options = array()) {
@@ -73,6 +73,23 @@ class AppModel extends Model {
             header("location:" . $_SERVER['REQUEST_URI']);
             exit;
         }
+        $this->gravarLog('Salvar/Editar', $this->id);
+    }
+
+    public function gravarLog($acao, $infoAdd = NULL) {
+        $appController = new AppController();
+        $appController->constructClasses();
+        $appController->Log = ClassRegistry::init('Log');
+        $log = array(
+            'usuario_id' => $appController->Auth->user()['User']['id'],
+            'acao' => $acao,
+            'tabela' => Router::getParams()['controller'],
+            'dispositivo' => gethostbyaddr($_SERVER['REMOTE_ADDR']),
+            'informacao_adicional' => $infoAdd
+        );
+        $appController->Log->create();
+        $appController->Log->set($log);
+        if ($appController->Log->save($appController->Log->data, array('callbacks' => false))) {}
     }
 
 }

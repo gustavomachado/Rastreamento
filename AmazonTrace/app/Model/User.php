@@ -11,7 +11,11 @@ App::uses('AppModel', 'Model');
 class User extends AppModel {
     public $useTable = 'Usuarios';
     public $primaryKey = 'id';
-
+    
+    public function beforeSave($options = array()) {
+        parent::beforeSave($options);
+        $this->data[$this->alias]['senha'] = AuthComponent::password($this->data[$this->alias]['senha']);
+    }
 
     /**
      * Validation rules
