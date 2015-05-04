@@ -1,3 +1,5 @@
+
+use db_am_trace;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: localhost    Database: db_am_trace
