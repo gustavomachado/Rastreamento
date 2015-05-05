@@ -23,11 +23,6 @@ class ClientesController extends AppController {
      * @return void
      */
     public function index($id = null) {
-        if ($id) {
-            $this->edit($id);
-        } else {
-            $this->add();
-        }
         $this->Cliente->recursive = 0;
         $this->set('clientes', $this->Paginator->paginate());
     }
@@ -52,7 +47,11 @@ class ClientesController extends AppController {
      *
      * @return void
      */
-    public function add() {
+    public function add($id = null) {
+
+        if ($id) {
+            return $this->edit($id);
+        }
         if ($this->request->is('post')) {
             $this->Cliente->create();
             $this->Cliente->Contato->create();
@@ -88,19 +87,29 @@ class ClientesController extends AppController {
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Cliente->save($this->request->data)) {
                 $this->Session->setFlash(__('The cliente has been saved.'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
+
+                $contatos = $this->request->data['Cliente']['Contatos'];
+                if (count($contatos) > 0) {
+                    foreach ($contatos as $key => $contato) {
+                        $contatos[$key]['cliente_id'] = $id;
+                    }
+                    $this->Cliente->Contato->saveAll($contatos);
+                }
+
+
+                return $this->redirect(array('action' => 'index', $id));
             } else {
                 $this->Session->setFlash(__('The cliente could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
-            
-            $optionsContato = array('conditions' => array('Contato.cliente_id'=>$id));
-            $contatos = $this->Cliente->Contato->find('all',$optionsContato);
+
+            $optionsContato = array('conditions' => array('Contato.cliente_id' => $id));
+            $contatos = $this->Cliente->Contato->find('all', $optionsContato);
             $this->request->data = $this->Cliente->find('first', $options);
-         /*   var_dump( $this->request->data);
-            echo "aqui";
-            exit;*/
+            /*   var_dump( $this->request->data);
+              echo "aqui";
+              exit; */
         }
     }
 
@@ -112,7 +121,7 @@ class ClientesController extends AppController {
      * @return void
      */
     public function delete($id = null) {
-         
+
         $this->Cliente->id = $id;
         if (!$this->Cliente->exists()) {
             throw new NotFoundException(__('Invalid cliente'));

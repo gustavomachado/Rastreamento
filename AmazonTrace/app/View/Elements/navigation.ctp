@@ -8,7 +8,9 @@
             </button>
             <?php
             echo $this->Html->link(
-                    $this->Html->image('logo.png', array('alt' => "teste", 'border' => '0', 'style' => 'width: 130px')), "http://localhost/AmazonTrace/", array('target' => '_blank', 'escape' => false)
+                    $this->Html->image('logo.png', array('alt' => "teste", 'border' => '0', 'style' => 'width: 130px'))
+                    , "http://localhost/AmazonTrace/",
+                    array('target' => '_blank', 'escape' => false)
             );
             ?>
         </div>

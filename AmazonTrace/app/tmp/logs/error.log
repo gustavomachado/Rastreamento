@@ -34282,3 +34282,585 @@ Stack Trace:
 #3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ContatosController), Object(CakeRequest))
 #4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2015-04-29 11:06:59 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php, line 59]
+2015-04-29 11:06:59 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /AmazonTrace/Veiculos/add
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 59, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 59, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-29 13:23:41 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\wamp\www\AmazonTrace\app\View\Clientes\index.ctp, line 77]
+2015-04-29 13:23:41 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /AmazonTrace/Clientes/index/5
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 77)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 77, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 77, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-29 13:33:25 Error: [MissingActionException] Action ClientesController::<span class="glyphicon glyphicon-plus">() could not be found.
+Exception Attributes: array (
+  'controller' => 'ClientesController',
+  'action' => '<span class="glyphicon glyphicon-plus">',
+)
+Request URL: /AmazonTrace/clientes/%3Cspan%20class=%22glyphicon%20glyphicon-plus%22%3E
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#2 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-04-29 14:19:41 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php, line 70]
+2015-04-29 14:19:41 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /AmazonTrace/Veiculos/index/5
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 70)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 70, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 70, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-29 14:21:03 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/index/50
+Stack Trace:
+#0 [internal function]: VeiculosController->index('50')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-30 08:40:40 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-30 10:17:31 Error: Fatal Error (4): syntax error, unexpected ')', expecting ',' or ';' in [C:\wamp\www\AmazonTrace\app\View\Veiculos\index.ctp, line 81]
+2015-04-30 10:17:31 Error: [FatalErrorException] syntax error, unexpected ')', expecting ',' or ';'
+Request URL: /AmazonTrace/Veiculos/index/2
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 81)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 81, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 81, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-04-30 14:05:51 Error: [MissingHelperException] Helper class VeiculoHelper could not be found.
+Exception Attributes: array (
+  'class' => 'VeiculoHelper',
+  'plugin' => false,
+)
+Request URL: /AmazonTrace/Veiculos/index/2
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Veiculo')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(848): HelperCollection->__isset('Veiculo')
+#2 C:\wamp\www\AmazonTrace\app\View\Veiculos\index.ctp(13): View->__get('Veiculo')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(961): include('C:\\wamp\\www\\Ama...')
+#4 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(923): View->_evaluate('C:\\wamp\\www\\Ama...', Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(473): View->_render('C:\\wamp\\www\\Ama...')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-04-30 14:08:49 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-30 14:09:33 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add/2
+Stack Trace:
+#0 [internal function]: VeiculosController->add('2')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-30 14:26:32 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add/2
+Stack Trace:
+#0 [internal function]: VeiculosController->add('2')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-04-30 14:28:23 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add/6
+Stack Trace:
+#0 [internal function]: VeiculosController->add('6')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 09:41:03 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:41:17 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:41:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:42:47 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:42:48 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:42:48 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:42:49 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:45:49 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:45:51 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:45:52 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:46:08 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:47:47 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:48:38 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/Cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 09:49:45 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Pagina.class_icon' in 'field list'
+Request URL: /AmazonTrace/cadastros
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Pagina`...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Pagina`...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Pagina`...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Pagina), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\CadastrosController.php(11): Model->find('all', Array)
+#7 [internal function]: CadastrosController->beforeFilter(Object(CakeEvent))
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Event\CakeEventManager.php(243): call_user_func(Array, Object(CakeEvent))
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(676): CakeEventManager->dispatch(Object(CakeEvent))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-04 10:23:20 Error: [MissingHelperException] Helper class ContatoHelper could not be found.
+Exception Attributes: array (
+  'class' => 'ContatoHelper',
+  'plugin' => false,
+)
+Request URL: /AmazonTrace/Clientes/add
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Contato')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(848): HelperCollection->__isset('Contato')
+#2 C:\wamp\www\AmazonTrace\app\View\Clientes\add.ctp(193): View->__get('Contato')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(961): include('C:\\wamp\\www\\Ama...')
+#4 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(923): View->_evaluate('C:\\wamp\\www\\Ama...', Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(473): View->_render('C:\\wamp\\www\\Ama...')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-05-04 10:23:31 Error: [MissingHelperException] Helper class ContatoHelper could not be found.
+Exception Attributes: array (
+  'class' => 'ContatoHelper',
+  'plugin' => false,
+)
+Request URL: /AmazonTrace/Clientes/add
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Contato')
+#1 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(848): HelperCollection->__isset('Contato')
+#2 C:\wamp\www\AmazonTrace\app\View\Clientes\add.ctp(193): View->__get('Contato')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(961): include('C:\\wamp\\www\\Ama...')
+#4 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(923): View->_evaluate('C:\\wamp\\www\\Ama...', Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(473): View->_render('C:\\wamp\\www\\Ama...')
+#6 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#7 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ClientesController), Object(CakeRequest))
+#9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-05-04 10:59:17 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 13:58:37 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 13:58:43 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 13:58:49 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 13:59:10 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add/
+Stack Trace:
+#0 [internal function]: VeiculosController->add()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 14:04:27 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 14:20:19 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add
+Stack Trace:
+#0 [internal function]: VeiculosController->add()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 14:21:05 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos/add
+Stack Trace:
+#0 [internal function]: VeiculosController->add()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 14:47:47 Error: [MissingControllerException] Controller class AmazonTraceController could not be found.
+Exception Attributes: array (
+  'class' => 'AmazonTraceController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/AmazonTrace/Cliente
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-05-04 14:48:02 Error: [MissingControllerException] Controller class AmazonTraceController could not be found.
+Exception Attributes: array (
+  'class' => 'AmazonTraceController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/AmazonTrace/Cliente
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-05-04 14:48:53 Error: [MissingControllerException] Controller class ClienteController could not be found.
+Exception Attributes: array (
+  'class' => 'ClienteController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Cliente
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-05-04 14:52:50 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 15:08:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`veiculos`, CONSTRAINT `FK_veiculos_clientes` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`))
+Request URL: /AmazonTrace/Veiculos/add/1/5
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Veiculo), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(97): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(67): VeiculosController->edit('1', '5')
+#7 [internal function]: VeiculosController->add('1', '5')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-05-04 15:08:45 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`veiculos`, CONSTRAINT `FK_veiculos_clientes` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`))
+Request URL: /AmazonTrace/Veiculos/add/1/5
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Veiculo), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(97): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(67): VeiculosController->edit('1', '5')
+#7 [internal function]: VeiculosController->add('1', '5')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-05-04 15:31:28 Error: [MissingActionException] Action VeiculosController::1() could not be found.
+Exception Attributes: array (
+  'controller' => 'VeiculosController',
+  'action' => '1',
+)
+Request URL: /AmazonTrace/Veiculos/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#2 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-05-04 15:31:31 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-04 20:28:41 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-05 08:25:54 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_am_trace`.`veiculos`, CONSTRAINT `FK_veiculos_clientes` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`))
+Request URL: /AmazonTrace/Veiculos/add/1/4
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('INSERT INTO `db...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `db...')
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1924): DboSource->create(Object(Veiculo), Array, Array)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(1747): Model->_doSave(Array, Array)
+#5 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(100): Model->save(Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(67): VeiculosController->edit('1', '4')
+#7 [internal function]: VeiculosController->add('1', '4')
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

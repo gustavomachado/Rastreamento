@@ -11,6 +11,15 @@ $(document).ready(function () {
     if (typeof ($(".cep")) !== undefined) {
         $(".cep").mask("99999-999");
     }
+    if (typeof ($(".placa")) !== undefined) {
+        $(".placa").css("text-transform", "uppercase").mask("AAA-9999");
+    }
+
+    if (typeof ($(".date-year")) !== undefined) {
+        $(".date-year").mask("9999");
+    }
+
+
     if (typeof ($(".datetimepicker")) !== undefined) {
         $(".datetimepicker").datetimepicker({
             pickTime: false
@@ -87,7 +96,9 @@ $(document).ready(function () {
     }
 
 
-
+    if (typeof ($(".pj")) !== undefined) {
+        $(".pj").prop("disabled", true);
+    }
 
     $("select").change(function () {
         var value = $(this).val();

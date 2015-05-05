@@ -104,7 +104,7 @@ class ContatosController extends AppController {
 			$this->Session->setFlash(__('The contato could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
                 if($id_cliente){
-                    return $this->redirect(array('controller'=>'clientes','action' => 'index',$id_cliente));
+                    return $this->redirect(array('controller'=>'clientes','action' => 'add',$id_cliente));
                 }else{
                      return $this->redirect(array( 'action' => 'index'));
                 }
