@@ -3,11 +3,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo __('Cadastro Veículos'); ?></h1>
+                <h1><?php echo __('Cadastro Veículos');
+               // var_dump($motoristas);
+            //   echo json_encode($motoristas);
+                ?></h1>
             </div>
         </div>
     </div>
     <div class="row">
+        
+        
         <div class=" ">
             <?php echo $this->Form->create('Veiculo', array('role' => 'form')); ?>
             <div class="form-group">
@@ -94,7 +99,8 @@
                 <?php echo $this->Form->input('plano_notificacao_email', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Email')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' => 'Motorista Id')); ?>
+                <?php echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
+                    'Motorista Id' , 'options'=>$motoristas,'empty'=>'Selecione o motorista')); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
@@ -144,7 +150,7 @@
                         <?php echo $this->Html->link('Novo', array('action' => 'add', $id_cliente), array('escape' => false, 'class' => 'btn btn-default')); ?>
                     </div>
                     <div class=" col-md-1">
-                        <?php echo $this->Html->link('Cancelar', array('action' => 'index', $id_cliente), array('escape' => false, 'class' => 'btn btn-default')); ?>
+                        <?php echo $this->Html->link('Sair', array('action' => 'index', $id_cliente), array('escape' => false, 'class' => 'btn btn-default')); ?>
                     </div>
                     <div class="form-group  col-md-1">
                         <?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-success')); ?>

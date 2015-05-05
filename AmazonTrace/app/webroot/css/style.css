@@ -53,7 +53,9 @@ and open the template in the editor.
 **                                                                          **
 **                               FIM                                        **
 *******************************************************************************/
-
+.loading{
+    display: none;
+}
 table thead th {
     color: white !important;
     background-color: #0099cc !important;
@@ -135,5 +137,5 @@ td.actions {
 
 
 .form-group{
-    margin-bottom: 14px;
+     margin-bottom: 14px;
 }

@@ -34864,3 +34864,58 @@ Stack Trace:
 #10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
 #11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
+2015-05-05 09:00:33 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-05 09:54:27 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-05 09:56:15 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-05 10:08:15 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-05 10:09:51 Error: Fatal Error (4): syntax error, unexpected ')' in [C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php, line 80]
+2015-05-05 10:09:51 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /AmazonTrace/Veiculos/add/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 80)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 80, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 80, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-05-05 10:18:56 Error: [NotFoundException] Necessário um cliente
+Request URL: /AmazonTrace/Veiculos
+Stack Trace:
+#0 [internal function]: VeiculosController->index()
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

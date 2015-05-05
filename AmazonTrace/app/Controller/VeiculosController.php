@@ -77,7 +77,7 @@ class VeiculosController extends AppController {
                 }
             }
 
-            $motoristas = $this->Veiculo->Motorista->find('list');
+            $motoristas = $this->Veiculo->Motorista->find('list',array('fields'=>'nome'));
             $this->set('motoristas', $motoristas);
         }
     }
@@ -109,7 +109,7 @@ class VeiculosController extends AppController {
             $options = array('conditions' => array('Veiculo.' . $this->Veiculo->primaryKey => $id));
             $this->request->data = $this->Veiculo->find('first', $options);
         }
-        $motoristas = $this->Veiculo->Motorista->find('list');
+        $motoristas = $this->Veiculo->Motorista->find('list',array('fields'=>'nome'));
         $this->set('motoristas', $motoristas);
     }
 
