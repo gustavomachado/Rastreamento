@@ -16,6 +16,7 @@ and open the template in the editor.
 *******************************************************************************/
 .navbar{
     background: black;
+ //   background: #666 -webkit-gradient( linear, left bottom, left top, color-stop(0.5, rgb(40,40,40)), color-stop(0.5, rgb(80,80,80)) );
     height: 70px;
     padding: 0px !important;
 }
@@ -123,9 +124,11 @@ td.actions {
 }
 .usuario-logado [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
     font-size: 32px;
+ 
 }
 
+ 
 .page-header h1 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after, .page-header h1 a:hover, .page-header h1 a:active, .page-header h1 a:focus  {
     font-size: 32px;
     text-decoration: none;
-}
+} 
