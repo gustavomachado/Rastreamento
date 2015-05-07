@@ -37,7 +37,7 @@
                         <td class="actions">
                             <!--<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $usuario['User']['id']), array('escape' => false)); ?>-->
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'cadastro', $usuario['User']['id']), array('escape' => false)); ?>
-                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $usuario['User']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $usuario['User']['id'])); ?>
+                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $usuario['User']['id']), array('escape' => false), __('Deseja realmente excluir este Usuário [%s] ?', $usuario['User']['id'])); ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>

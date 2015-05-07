@@ -17,8 +17,8 @@
             <table cellpadding="0" cellspacing="0" class="table table-striped">
                 <thead>
                     <tr>
-                        <th><?php echo $this->Paginator->sort('id'); ?></th>
                         <th><?php echo $this->Paginator->sort('numero_contrato', 'Nº Contrato'); ?></th>
+                        <th><?php echo $this->Paginator->sort('cliente_id', 'Cliente') ?></th>
                         <th><?php echo $this->Paginator->sort('data_vencimento'); ?></th>
                         <th><?php echo $this->Paginator->sort('valor_mensalidade'); ?></th>
                         <th><?php echo $this->Paginator->sort('dia_vencimento'); ?></th>
@@ -30,17 +30,17 @@
                 <tbody>
                     <?php foreach ($contratos as $contrato): ?>
                     <tr>
-                        <td><?php echo h($contrato['Contrato']['id']); ?>&nbsp;</td>
-                        <td><?php echo h($contrato['Contrato']['numero_contrato']); ?>&nbsp;</td>
-                        <td><?php echo h($contrato['Contrato']['data_vencimento']); ?>&nbsp;</td>
-                        <td><?php echo h($contrato['Contrato']['valor_mensalidade']); ?>&nbsp;</td>
-                        <td><?php echo h($contrato['Contrato']['dia_vencimento']); ?>&nbsp;</td>
+                        <td><?php echo h($contrato['Contrato']['numero_contrato']); ?>&nbsp;</td>                        
+                        <td><?php echo $this->Html->link($contrato['Cliente']['id'] . ' - ' . $contrato['Cliente']['nome'], array('controller' => 'clientes', 'action' => 'add', $contrato['Cliente']['id'])); ?>&nbsp;</td>
+                        <td><?php echo ($contrato['Contrato']['data_vencimento']) ? date('d/m/Y', strtotime($contrato['Contrato']['data_vencimento'])):'Não definada' ; ?>&nbsp;</td>
+                        <td style="text-align: right; width: 150px"><?php echo h($contrato['Contrato']['valor_mensalidade']); ?>&nbsp;</td>
+                        <td style="text-align: right; width: 135px"><?php echo h($contrato['Contrato']['dia_vencimento']); ?>&nbsp;</td>
                         <td><?php echo h($contrato['Contrato']['doc']); ?>&nbsp;</td>
                         <td><?php echo h($contrato['Contrato']['status']); ?>&nbsp;</td>
                         <td class="actions">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $contrato['Contrato']['id']), array('escape' => false)); ?>
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $contrato['Contrato']['id']), array('escape' => false)); ?>
-                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $contrato['Contrato']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $contrato['Contrato']['id'])); ?>
+                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $contrato['Contrato']['id']), array('escape' => false), __('Deseja realmente excluir este Contrato [%s] ?', $contrato['Contrato']['numero_contrato'])); ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>

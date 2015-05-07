@@ -24,7 +24,6 @@
                         <th><?php echo $this->Paginator->sort('numero_serie', 'Número série'); ?></th>
                         <th><?php echo $this->Paginator->sort('data_instalacao', 'Data instalação'); ?></th>
                         <th><?php echo $this->Paginator->sort('data_remocao', 'Data remoção'); ?></th>
-                        <th><?php echo $this->Paginator->sort('bloqueio'); ?></th>
                         <th class="actions"></th>
                     </tr>
                 </thead>
@@ -38,11 +37,10 @@
                             <td><?php echo h($rastreador['Rastreador']['numero_serie']); ?>&nbsp;</td>
                             <td><?php echo h($rastreador['Rastreador']['data_instalacao']); ?>&nbsp;</td>
                             <td><?php echo h($rastreador['Rastreador']['data_remocao']); ?>&nbsp;</td>
-                            <td><?php echo h($rastreador['Rastreador']['bloqueio'] == 1 ? 'Sim' : 'Não') ?>&nbsp;</td>
                             <td class="actions">
                                 <!--<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $rastreador['Rastreador']['id']), array('escape' => false)); ?>-->
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $rastreador['Rastreador']['id']), array('escape' => false)); ?>
-                                <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $rastreador['Rastreador']['id']), array('escape' => false), __('Deseja realmente excluir este Rastreador # %s?', $rastreador['Rastreador']['id'])); ?>
+                                <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $rastreador['Rastreador']['id']), array('escape' => false), __('Deseja realmente excluir este Rastreador [%s] ?', $rastreador['Rastreador']['id'])); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

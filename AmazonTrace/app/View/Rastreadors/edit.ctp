@@ -25,15 +25,23 @@
                 <?php echo $this->Form->input('numero_serie', array('class' => 'form-control', 'label' => 'Número Série', 'placeholder' => 'Número Série')); ?>
             </div>
             <div class="col-md-12" style="padding: 0px">
-            <div class="form-group col-md-3">
-                <?php echo $this->Form->input('senha_rastreador', array('class' => 'form-control', 'placeholder' => 'Senha Rastreador')); ?>
-            </div>
-            <div class="form-group col-md-3">
-                <?php echo $this->Form->input('senha_acesso_remoto', array('class' => 'form-control', 'placeholder' => 'Senha Acesso Remoto')); ?>
-            </div>
-            <div class="form-group col-md-3">
-                <?php echo $this->Form->input('senha_sms', array('class' => 'form-control', 'placeholder' => 'Senha Sms')); ?>
-            </div>
+                <div class="form-group col-md-3">
+                    <?php echo $this->Form->input('senha_rastreador', array('class' => 'form-control', 'placeholder' => 'Senha Rastreador')); ?>
+                </div>
+                <div class="form-group col-md-3">
+                    <?php echo $this->Form->input('senha_acesso_remoto', array('class' => 'form-control', 'placeholder' => 'Senha Acesso Remoto')); ?>
+                </div>
+                <div class="col-md-5">
+                    <?php echo $this->Form->label('Senha Sms') ?>
+                </div>
+                <div class="form-group col-md-3">
+                    <?php echo $this->Form->input('senha_sms', array('class' => 'form-control', 'placeholder' => 'Senha Sms', 'label'=> false)); ?>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="button" style="padding: 4px" data-toggle="modal" data-target="#modal-rast-chips" class="btn btn-default right">
+                        <span class="flaticon-sim2"></span>Chips Vinculados
+                    </button>
+                </div>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->label('Data Instalação') ?>
@@ -44,18 +52,13 @@
                 <?php echo $this->Form->date('data_remocao', array('class' => 'form-control', 'dateFormat' => 'DMY')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('bloqueio', array('class' => 'form-control', 'options' => array(FALSE => 'Não', TRUE => 'Sim'))); ?>
-            </div>
-            <div class="  col-md-5">
-                <label>IMEI</label>
+                <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => false)); ?>
+                <?php echo $this->Form->input('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiação utilizada', 'label' => 'Fiação utilizada')); ?>
             </div>
-            <div class="form-group col-md-2">
-                <button type="button" style="padding: 4px" data-toggle="modal" data-target="#modal-rast-chips" class="btn btn-default right">
-                    <span class="flaticon-sim2"></span>Chips Vinculados
-                </button>
+            <div class="form-group col-md-3">
+                <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local instalação', 'label' => 'Local instalação')); ?>
             </div>
             <div class="form-group col-md-12">
                 <?php echo $this->Form->label('Observa&ccedil;&atilde;o') ?>

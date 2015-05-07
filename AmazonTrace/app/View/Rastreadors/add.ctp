@@ -43,13 +43,13 @@
                 <?php echo $this->Form->date('data_remocao', array('class' => 'form-control', 'dateFormat' => 'DMY')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('bloqueio', array('class' => 'form-control', 'options' => array(FALSE => 'Não', TRUE => 'Sim'))); ?>
-            </div>
-            <div class="  col-md-5">
-                <label>IMEI</label>
+                <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => false)); ?>
+                <?php echo $this->Form->input('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiação utilizada', 'label' => 'Fiação utilizada')); ?>
+            </div>
+            <div class="form-group col-md-3">
+                <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local instalação', 'label' => 'Local instalação')); ?>
             </div>
             <div class="form-group col-md-12">
                 <?php echo $this->Form->label('Observa&ccedil;&atilde;o') ?>
