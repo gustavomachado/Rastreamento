@@ -26,9 +26,7 @@
                         <th><?php echo $this->Paginator->sort('cor'); ?></th>
                         <th><?php echo $this->Paginator->sort('ano_fabricacao'); ?></th>
                         <th><?php echo $this->Paginator->sort('ano_modelo'); ?></th>
-                        <th><?php echo $this->Paginator->sort('chassi'); ?></th>
-                        <th><?php echo $this->Paginator->sort('renavan'); ?></th>
-                        <th><?php echo $this->Paginator->sort('combustivel'); ?></th>
+                      
                         <th><?php echo $this->Paginator->sort('status'); ?></th>
                         <th class="actions"></th>
                     </tr>
@@ -43,9 +41,7 @@
                             <td><?php echo h($veiculo['Veiculo']['cor']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['ano_fabricacao']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['ano_modelo']); ?>&nbsp;</td>
-                            <td><?php echo h($veiculo['Veiculo']['chassi']); ?>&nbsp;</td>
-                            <td><?php echo h($veiculo['Veiculo']['renavan']); ?>&nbsp;</td>
-                            <td><?php echo h($veiculo['Veiculo']['combustivel']); ?>&nbsp;</td>
+                      
                             <td><?php echo h($veiculo['Veiculo']['status']); ?>&nbsp;</td>
                             <td class="actions">
 

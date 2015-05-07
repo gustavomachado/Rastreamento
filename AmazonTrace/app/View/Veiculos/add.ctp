@@ -3,16 +3,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo __('Cadastro Veículos');
-               // var_dump($motoristas);
-            //   echo json_encode($motoristas);
-                ?></h1>
+                <h1><?php
+                    echo __('Cadastro Veículos');
+                    // var_dump($motoristas);
+                    //   echo json_encode($motoristas);
+                    ?></h1>
             </div>
         </div>
     </div>
     <div class="row">
-        
-        
+
+
         <div class=" ">
             <?php echo $this->Form->create('Veiculo', array('role' => 'form')); ?>
             <div class="form-group">
@@ -79,13 +80,13 @@
                 ?>
             </div>
 
-            <div class="form-group col-md-4">
-                <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local Instalacao Rastreador')); ?>
-            </div>
-            <div class="form-group col-md-8">
-                <label>Fia&ccedil;&atilde;o Utilizada</label>
-                <?php echo $this->Form->textArea('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiacao Utilizada')); ?>
-            </div>
+            <!---   <div class="form-group col-md-4">
+            <?php /*  echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local Instalacao Rastreador')); ?>
+              </div>
+              <div class="form-group col-md-8">
+              <label>Fia&ccedil;&atilde;o Utilizada</label>
+              <?php echo $this->Form->textArea('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiacao Utilizada')); */ ?>
+               </div>-->
             <div class="form-group   col-md-2 ">
                 <?php echo $this->Form->input('sms_notificacao', array('class' => 'form-control tel', 'placeholder' => 'Sms Notificacao')); ?>
             </div>
@@ -99,8 +100,16 @@
                 <?php echo $this->Form->input('plano_notificacao_email', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Email')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
-                    'Motorista Id' , 'options'=>$motoristas,'empty'=>'Selecione o motorista')); ?>
+                <label>Motorista</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <a href="/AmazonTrace/Motoristas/add" target="_blank">  <span class="glyphicon glyphicon-plus"></span></a>
+                    </span>
+                    <?php
+                    echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
+                        'Motorista Id', 'label' => FALSE, 'div' => FALSE, 'options' => $motoristas, 'empty' => 'Selecione o motorista'));
+                    ?>
+                </div>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
@@ -137,12 +146,18 @@
             </div>
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('s4', array('class' => 'form-control', 'placeholder' => 'S4', 'label' => array('text' => 'Saida 4'))); ?>
-            </div>
-            <div class="col-md-12">
+            </div>  
+            <div class="  col-md-9">
                 <label>Observa&ccedil;&atilde;o</label>
             </div>
+
             <div class="form-group col-md-9">
                 <?php echo $this->Form->textArea('obs', array('class' => 'form-control', 'placeholder' => 'Obs')); ?>
+            </div>
+            <div class=" col-md-2">
+                <button type="button" data-toggle="modal" data-target="#modal-rastreadores" class="btn btn-default">Add Rastreador
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -161,3 +176,87 @@
         </div>
     </div><!-- end row -->
 </div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true" id="modal-rastreadores">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header  ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Adicionar Rastreadores</h4>
+            </div>
+            <div class="modal-body modal-body-contato ">
+                <?php // echo $this->Form->create("Contato",array('role'=>'form','url'=>$this->Html->url(array('controller'=>'Contatos', 'action'=>'add'))))   ?>
+
+                <?php // echo $this->Form->end( )   ?>
+                <div class=" row">
+                    <div class="col-md-12">
+                        <h5>Lista Rastreadores Adicionados</h5>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Modelo</th>
+                                    <th>Marca</th>
+                                    <th>Núm. Eqp.</th>
+                                    <th>Local Inst.</th>
+                                    <th>Fiação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($instalados as $instalado): ?>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table> 
+
+                    </div>
+                    <div class="col-md-12">
+                        <h5>Lista Rastreadores Disponíveis</h5>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Modelo</th>
+                                    <th>Marca</th>
+                                    <th>Núm. Eqp.</th>
+                                    <th>Local Inst.</th>
+                                    <th>Fiação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($disponiveis as $disponivel): var_dump($disponivel) ?>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer  ">
+                <div class="row">
+                    <div class="msg-area col-md-7" style="//border: 1px solid red;">
+
+                    </div>
+                    <div class="col-md-5" style="//border: 1px solid black;">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Sair
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
