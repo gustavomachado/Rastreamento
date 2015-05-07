@@ -94,6 +94,10 @@ class RastreadorsController extends AppController {
             $options = array('conditions' => array('Rastreador.' . $this->Rastreador->primaryKey => $id));
             $this->request->data = $this->Rastreador->find('first', $options);
         }
+        $chipsInRastreador = $this->Rastreador->Chip->find('all', array('conditions' => array('rastreador_id' => $id, 'rastreador_id is not null')));
+        $chips = $this->Rastreador->Chip->find('all', array('order'=>array('Chip.id ASC')));
+        $this->set(compact('chips'));
+        $this->set(compact('chipsInRastreador'));
         $veiculos = $this->Rastreador->Veiculo->find('list');
         $this->set(compact('veiculos'));
     }
