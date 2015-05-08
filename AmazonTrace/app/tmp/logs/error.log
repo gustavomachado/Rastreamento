@@ -35381,3 +35381,66 @@ Request URL: /AmazonTrace/img/ajax_loader.gif
 Stack Trace:
 #0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-05-07 15:36:05 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Rastreador.5' in 'field list'
+Request URL: /AmazonTrace/Veiculos/add/3/10
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Rastrea...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Rastrea...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Rastrea...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Rastreador), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(121): Model->find('all', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(71): VeiculosController->edit('3', '10')
+#8 [internal function]: VeiculosController->add('3', '10')
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-07 15:37:16 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Rastreador.5' in 'field list'
+Request URL: /AmazonTrace/Veiculos/add/3/10
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Rastrea...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Rastrea...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Rastrea...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Rastreador), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('list', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(121): Model->find('list', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(71): VeiculosController->edit('3', '10')
+#8 [internal function]: VeiculosController->add('3', '10')
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-07 15:37:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Rastreador.5' in 'field list'
+Request URL: /AmazonTrace/Veiculos/add/3/10
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('SELECT `Rastrea...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('SELECT `Rastrea...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Rastrea...', false)
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3018): DboSource->read(Object(Rastreador), Array)
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(2990): Model->_readDataSource('list', Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(121): Model->find('list', Array)
+#7 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(71): VeiculosController->edit('3', '10')
+#8 [internal function]: VeiculosController->add('3', '10')
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#12 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2015-05-07 18:48:11 Error: [MissingViewException] View file "Chips\cadastro.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Chips\\cadastro.ctp',
+)
+Request URL: /AmazonTrace/Chips/cadastro/1
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(470): View->_getViewFileName(NULL)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

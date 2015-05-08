@@ -18,8 +18,6 @@ $(document).ready(function () {
     if (typeof ($(".date-year")) !== undefined) {
         $(".date-year").mask("9999");
     }
-
-
     if (typeof ($(".datetimepicker")) !== undefined) {
         $(".datetimepicker").datetimepicker({
             pickTime: false
@@ -67,8 +65,6 @@ $(document).ready(function () {
             $(".modal-body-contato input").val('');
         });
     }
-
-
     if (typeof ($(".busca-cep")) !== undefined) {
         $(".busca-cep").click(function () {
             $(".loading").css("display", "block");
@@ -94,12 +90,9 @@ $(document).ready(function () {
             }
         });
     }
-
-
     if (typeof ($(".pj")) !== undefined) {
         $(".pj").prop("disabled", true);
     }
-
     $("select").change(function () {
         var value = $(this).val();
 
@@ -111,7 +104,6 @@ $(document).ready(function () {
             $(".pj").prop("disabled", true).val('');
         }
     });
-
     $('.alert').append('<button class="close" data-dismiss="alert" ><span class="flaticon-cancel19" ></span></button>');
 
 });

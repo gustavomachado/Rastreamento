@@ -205,12 +205,12 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($instalados as $instalado): ?>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <tr id="<?= $instalado['Rastreador']['id'] ?>" class="linha-instalados">
+                                        <td><?= $instalado['Rastreador']['modelo'] ?></td>
+                                        <td><?= $instalado['Rastreador']['marca'] ?></td>
+                                        <td><?= $instalado['Rastreador']['numero_equipamento'] ?></td>
+                                        <td><?= $instalado['Rastreador']['fiacao_utilizada'] ?></td>
+                                        <td><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -229,14 +229,14 @@
                                     <th>Fiação</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php foreach ($disponiveis as $disponivel): var_dump($disponivel) ?>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                            <tbody class="disponiveis">
+                                <?php foreach ($disponiveis as $disponivel): ?>
+                                    <tr id="<?= $disponivel['Rastreador']['id'] ?>" class="linha-rastreador">
+                                        <td><?= $disponivel['Rastreador']['modelo'] ?></td>
+                                        <td><?= $disponivel['Rastreador']['marca'] ?></td>
+                                        <td><?= $disponivel['Rastreador']['numero_equipamento'] ?></td>
+                                        <td><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></td>
+                                        <td><?= $disponivel['Rastreador']['local_instalacao_rastreador'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

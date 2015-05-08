@@ -65,9 +65,6 @@ class VeiculosController extends AppController {
         }
         $this->set('id_cliente', $id_cliente);
         if ($id) {
-            $instalados = $this->Veiculo->Rastreador->find('list', array('conditions' => array('veiculo_id' => $id)));
-            /*  var_dump($instalados);
-              exit; */
             $this->edit($id_cliente, $id);
         } else {
             if ($this->request->is('post')) {
@@ -116,15 +113,16 @@ class VeiculosController extends AppController {
             $options = array('conditions' => array('Veiculo.' . $this->Veiculo->primaryKey => $id));
             $this->request->data = $this->Veiculo->find('first', $options);
         }
-        $instalados = $this->Veiculo->Rastreador->find('list', array('conditions' => array('veiculo_id' => $id)));
-        $disponiveis = $this->Veiculo->Rastreador->find('all', array('conditions' => array('Rastreador.veiculo_id  ' => NULL),
-                                                        'fields'=>array('Rastreador.id','Rastreador.marca','Rastreador.modelo','Rastreador.numero_equipamento'
-                                                                        ,'Rastreador.fiacao_utilizada','Rastreador.local_instalacao_rastreador')));
+        $fields = array('Rastreador.id', 'Rastreador.marca', 'Rastreador.modelo', 'Rastreador.numero_equipamento'
+            , 'Rastreador.fiacao_utilizada', 'Rastreador.local_instalacao_rastreador');
+
+        $instalados = $this->Veiculo->Rastreador->find('all', array('conditions' => array('veiculo_id' => $id),'fields'=>$fields));
+        $disponiveis = $this->Veiculo->Rastreador->find('all', array('conditions' => array('Rastreador.veiculo_id  ' => NULL),'fields'=>$fields));
         $motoristas = $this->Veiculo->Motorista->find('list', array('fields' => 'nome'));
         $this->set('instalados', $instalados);
         $this->set('disponiveis', $disponiveis);
         $this->set('motoristas', $motoristas);
-        var_dump($disponiveis);exit;
+    //    var_dump($disponiveis);exit;
     }
 
     /**
