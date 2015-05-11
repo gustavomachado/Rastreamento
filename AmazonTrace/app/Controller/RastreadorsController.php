@@ -15,7 +15,6 @@ class RastreadorsController extends AppController {
      *
      * @var array
      */
-    
     public $components = array('Paginator');
 
     /**
@@ -23,19 +22,18 @@ class RastreadorsController extends AppController {
      *
      * @return void
      */
-    public function index($id = null) {
-        if ($id) {
-            $this->edit($id);
-        } else {
-            $this->add();
-        }
+    public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Rastreador->recursive = 0;
-        $this->paginate = array('limit' => 10);
+        $this->set('filtros', array('modelo' => 'Modelo', 'marca' => 'Marca', 'numero_equipamento' => 'Número Equipamento', 'numero_serie' => 'Número Série'));
+        $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {            
+            $this->paginate = array('limit' => 20, 'conditions' => array('Rastreador.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $rastreadors = $this->Rastreador->find('all', array('conditions' => array('Rastreador.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+        }
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
+        $this->set(compact('rastreadors'));
         $this->set('rastreadors', $this->Paginator->paginate());
-        $chipsInRastreador = $this->Rastreador->Chip->find('all', array('conditions' => array('rastreador_id' => $id, 'rastreador_id is not null')));
-        $chips = $this->Rastreador->Chip->find('all', array('order'=>array('Chip.id ASC')));
-        $this->set(compact('chips'));
-        $this->set(compact('chipsInRastreador'));
     }
 
     /**
@@ -52,7 +50,7 @@ class RastreadorsController extends AppController {
         $options = array('conditions' => array('Rastreador.' . $this->Rastreador->primaryKey => $id));
         $this->set('rastreador', $this->Rastreador->find('first', $options));
     }
-    
+
     /**
      * add method
      *
@@ -95,7 +93,7 @@ class RastreadorsController extends AppController {
             $this->request->data = $this->Rastreador->find('first', $options);
         }
         $chipsInRastreador = $this->Rastreador->Chip->find('all', array('conditions' => array('rastreador_id' => $id, 'rastreador_id is not null')));
-        $chips = $this->Rastreador->Chip->find('all', array('order'=>array('Chip.id ASC')));
+        $chips = $this->Rastreador->Chip->find('all', array('order' => array('Chip.id ASC')));
         $this->set(compact('chips'));
         $this->set(compact('chipsInRastreador'));
         $veiculos = $this->Rastreador->Veiculo->find('list');

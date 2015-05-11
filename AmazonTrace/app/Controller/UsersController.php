@@ -22,9 +22,16 @@ class UsersController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function index($filtro = NULL, $pesquisa = NULL) {
         $this->User->recursive = 0;
+        $this->set('filtros', array('nome' => 'Nome', 'email' => 'E-mail'));
         $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {
+            $this->paginate = array('limit' => 20, 'conditions' => array('User.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $usuarios = $this->User->find('all', array('conditions' => array('User.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+        }
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
         $contas = $this->User->Conta->find('list', array('fields' => array('id', 'descricao')));
         $this->set('usuarios', $this->Paginator->paginate(), 'contas');
     }
@@ -35,7 +42,8 @@ class UsersController extends AppController {
             $user = $this->User->find('first', array('conditions' => array('nome' => $this->data['User']['nome'], 'senha' => AuthComponent::password($this->data['User']['senha']))));
             if ($user) {
                 if ($this->Auth->login($user)) {
-                    $this->redirect($this->Auth->redirect(array('controller' => 'cadastros')));
+                    $this->User->gravarLog('Login', '[' . $user['User']['id'] . '] ' . 'User - Login');
+                    $this->redirect($this->Auth->redirect(array('controller' => 'pages')));
                 }
             } else {
                 echo '<div class="alert alert-danger">Usuário ou senha inválidos.<br>Informe seus dados corretamente.</div>';

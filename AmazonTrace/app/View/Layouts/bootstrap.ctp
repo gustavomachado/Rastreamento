@@ -14,15 +14,16 @@
 
         echo $this->Html->css("bootstrap.min");
         echo $this->Html->css("bootstrap-theme.min");
+        echo $this->Html->css("style");
         echo $this->Html->css("flaticon/flaticon");
         echo $this->Html->css("bootstrap-datetimepicker");
         echo $this->Html->css("bootstrap-datetimepicker-site");
-        echo $this->Html->css("style");
 
         echo $this->Html->script("jquery-1.11.2.min");
         echo $this->Html->script("jquery-ui");
         echo $this->Html->script("bootstrap.min");
         echo $this->Html->script("jquery.mask");
+        echo $this->Html->script("jquery.maskMoney.min");
         echo $this->Html->script("moment");
         echo $this->Html->script("bootstrap-datetimepicker");
 
@@ -51,7 +52,9 @@
         <style type="text/css">
             body{ padding: 70px 0px; }
         </style>
-
+        <script>
+            var urlAtual = "<?php echo $this->Html->url(array('controller' => $this->params['controller'])) ?>";
+        </script>
     </head>
 
     <body>

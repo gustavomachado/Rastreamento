@@ -1,5 +1,4 @@
 <div class="rastreadors index">
-
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
@@ -11,8 +10,19 @@
         </div><!-- end col md 12 -->
     </div><!-- end row -->
 
-    <div class="row">       
-
+    <div class="row">
+        <div>
+            <div class="form-group col-md-2">
+                <?php echo $this->Form->input('filtro', array('options' => $filtros, 'class' => 'form-control', 'value' => $filtro)) ?>
+            </div>
+            <label>Pesquisar</label>
+            <div class="form-group input-group col-md-3">
+                <?php echo $this->Form->input('pesquisar', array('class' => 'form-control', 'style' => 'border-bottom-left-radius: 4px; border-top-left-radius: 4px', 'label' => false, 'value' => $pesquisa)) ?>
+                <a id="btn-pesquisar" class="input-group-addon btn-info">
+                    <span class="glyphicon glyphicon-filter"></span>
+                </a>
+            </div>
+        </div>
         <div class="col-md-12">
             <table cellpadding="0" cellspacing="0" class="table table-striped">
                 <thead>
@@ -38,7 +48,6 @@
                             <td><?php echo h($rastreador['Rastreador']['data_instalacao']); ?>&nbsp;</td>
                             <td><?php echo h($rastreador['Rastreador']['data_remocao']); ?>&nbsp;</td>
                             <td class="actions">
-                                <!--<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $rastreador['Rastreador']['id']), array('escape' => false)); ?>-->
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $rastreador['Rastreador']['id']), array('escape' => false)); ?>
                                 <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $rastreador['Rastreador']['id']), array('escape' => false), __('Deseja realmente excluir este Rastreador [%s] ?', $rastreador['Rastreador']['id'])); ?>
                             </td>

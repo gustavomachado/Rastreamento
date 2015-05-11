@@ -22,9 +22,21 @@ class ContratosController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Contrato->recursive = 0;
-        $this->paginate = array('limit' => 30);
+        $this->set('filtros', array('numero_contrato' => 'Nº Contrato', 'nome' => 'Cliente', 'dia_vencimento' => 'Dia Vencimento', 'doc' => 'Doc', 'status' => 'Status'));
+        $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {
+            if ($filtro == 'nome') {
+                $this->paginate = array('limit' => 20, 'conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+                $contratos = $this->Contrato->find('all', array('conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+            } else {
+                $this->paginate = array('limit' => 20, 'conditions' => array('Contrato.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+                $contratos = $this->Contrato->find('all', array('conditions' => array('Contrato.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+            }
+        }
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
         $this->set('contratos', $this->Paginator->paginate());
     }
 
@@ -70,7 +82,7 @@ class ContratosController extends AppController {
     }
 
     public function veiculosPorClientes($refresh = NULL) {
-        if($refresh){
+        if ($refresh) {
             $_SESSION['veiculosContratoTemp'] = Array();
         }
         $this->render(false, false);

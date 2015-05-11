@@ -74,6 +74,7 @@
             }
         })
     }*/
+    
 </script>
 
 <?php echo $this->Html->script("functionsContrato"); ?>

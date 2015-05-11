@@ -45,10 +45,13 @@
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
+                <?php echo $this->Form->input('tipo_instalacao', array('class' => 'form-control', 'placeholder' => 'Tipo instalação', 'label' => 'Tipo instalação')); ?>
+            </div>
+            <div class="form-group col-md-4">
                 <?php echo $this->Form->input('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiação utilizada', 'label' => 'Fiação utilizada')); ?>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local instalação', 'label' => 'Local instalação')); ?>
             </div>
             <div class="form-group col-md-12">

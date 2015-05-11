@@ -22,18 +22,17 @@ class ContasController extends AppController {
      *
      * @return void
      */
-    public function index($id = NULL) {
-        if($id){
-            $this->edit($id);
-        }else {
-            $this->add();
-        }
+    public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Conta->recursive = 0;
-        $this->paginate = array('limit' => 10);
+        $this->set('filtros', array('descricao' => 'Descrição'));
+        $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {
+            $this->paginate = array('limit' => 20, 'conditions' => array('Conta.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $contas = $this->Conta->find('all', array('conditions' => array('Conta.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+        }
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
         $this->set('contas', $this->Paginator->paginate());
-        $acessos = $this->Acesso->find('all', array('conditions' => array('conta_id' => $id)));
-        $paginas = $this->Pagina->find('list', array('fields' => array('id', 'nome')));
-        $this->set(compact('paginas', 'acessos'));
     }
     
     /**

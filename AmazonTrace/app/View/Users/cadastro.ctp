@@ -30,7 +30,7 @@
                     <?php echo $this->Form->input('senha', array('class' => 'form-control', 'required' => 'required', 'type'=>'password' , 'placeholder' => 'Senha'));?>
                 </div>
                 <div class="form-group col-md-3">
-                    <?php echo $this->Form->input('confirmar_senha', array('class' => 'form-control', 'type'=>'password' , 'placeholder' => 'Confirmar Senha', 'label'=>'Confirmar Senha'));?>
+                    <?php echo $this->Form->input('confirmar_senha', array('class' => 'form-control', 'required' => 'required', 'type'=>'password' , 'placeholder' => 'Confirmar Senha', 'label'=>'Confirmar Senha'));?>
                 </div>
             </div>
             <div class="form-group col-md-12">
@@ -49,4 +49,5 @@
             <?php echo $this->Form->end() ?>
         </div>
     </div><!-- end row -->
+    
 </div>

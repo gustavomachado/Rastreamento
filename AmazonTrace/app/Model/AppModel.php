@@ -52,7 +52,7 @@ class AppModel extends Model {
             header("location:../");
             exit;
         }
-        $this->gravarLog('Excluir', $this->id);
+        $this->gravarLog('Excluir', '[' . $this->id . '] ' . $this->name . ' - ' . Router::getParam('action'));
     }
 
     public function beforeSave($options = array()) {
@@ -62,18 +62,27 @@ class AppModel extends Model {
         $conta = $appController->Auth->user()['Conta'];
         $pagina = Router::getParams()['controller'];
         $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $conta['id'], 'Pagina.url' => $pagina)));
-        if (isset($acessos[0]['Acesso']['editar'])) {
-            if (!$acessos[0]['Acesso']['editar'] == 1) {
-                $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
+        if (strtoupper(Router::getParams()['controller']) !== 'PAGES') {
+            if (isset($acessos[0]['Acesso']['editar'])) {
+                if (!$acessos[0]['Acesso']['editar'] == 1) {
+                    $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
+                    header("location:" . $_SERVER['REQUEST_URI']);
+                    exit;
+                }
+            } else {
+                $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
                 header("location:" . $_SERVER['REQUEST_URI']);
                 exit;
             }
-        } else {
-            $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
-            header("location:" . $_SERVER['REQUEST_URI']);
-            exit;
+            if (isset($this->id)) {
+                if (!$this->id) {
+                    $this->id = 'New';
+                }
+            } else {
+                $this->id = 'New';
+            }
         }
-        $this->gravarLog('Salvar/Editar', $this->id);
+        $this->gravarLog('Salvar/Editar', '[' . $this->id . '] ' . $this->name . ' - ' . Router::getParam('action'));
     }
 
     public function gravarLog($acao, $infoAdd = NULL) {
@@ -83,8 +92,9 @@ class AppModel extends Model {
         $log = array(
             'usuario_id' => $appController->Auth->user()['User']['id'],
             'acao' => $acao,
-            'tabela' => Router::getParams()['controller'],
+            'tabela' => $this->name, //Router::getParams()['controller'],
             'dispositivo' => gethostbyaddr($_SERVER['REMOTE_ADDR']),
+            'dados' => json_encode($this->data),
             'informacao_adicional' => $infoAdd
         );
         $appController->Log->create();

@@ -31,9 +31,9 @@
                         <tr > 
                             <td><?php echo h($chip['Chip']['id']); ?>&nbsp;</td>
                             <td>
-                                <?php echo $this->Html->link($chip['Rastreador']['id'].' - '.$chip['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'index', $chip['Rastreador']['id'])); ?>
+                                <?php echo $this->Html->link($chip['Rastreador']['id'].' - '.$chip['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'edit', $chip['Rastreador']['id'])); ?>
                             </td>
-                            <td><?php echo h($chip['Chip']['operadora']); ?>&nbsp;</td>
+                            <td><?php echo h($chip['Operadora']['nome']); ?>&nbsp;</td>
                             <td><?php echo h($chip['Chip']['numero_chip']); ?>&nbsp;</td>
                             <td><?php echo h($chip['Chip']['numero_telefone']); ?>&nbsp;</td>
                             <td><?php echo h($chip['Chip']['apn']); ?>&nbsp;</td>

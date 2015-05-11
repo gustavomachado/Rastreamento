@@ -1,5 +1,5 @@
 <?php
-App::uses('AppModel', 'Model');
+App::uses('AppModelStatus', 'Model');
 
 /**
  * Usuario Model
@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  * @property ControleAcessoCampo $ControleAcessoCampo
  * @property Log $Log
  */
-class User extends AppModel {
+class User extends AppModelStatus {
     public $useTable = 'Usuarios';
     public $primaryKey = 'id';
     

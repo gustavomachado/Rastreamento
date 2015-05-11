@@ -1,10 +1,10 @@
-<div class="contas index">
+<div class="operadoras index">
 
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
                 <h1><?php
-                    echo __('Contas');
+                    echo __('Operadoras');
                     echo $this->Html->link('<span class="flaticon-add180"></span>', array('action' => 'cadastro'), array('escape' => false, 'title' => 'Novo'));
                     ?></h1>
             </div>
@@ -12,37 +12,26 @@
     </div><!-- end row -->
 
     <div class="row">
-        <div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->input('filtro', array('options' => $filtros, 'class' => 'form-control', 'value' => $filtro)) ?>
-            </div>
-            <label>Pesquisar</label>
-            <div class="form-group input-group col-md-3">
-                <?php echo $this->Form->input('pesquisar', array('class' => 'form-control', 'style' => 'border-bottom-left-radius: 4px; border-top-left-radius: 4px', 'label' => false, 'value' => $pesquisa)) ?>
-                <a id="btn-pesquisar" class="input-group-addon btn-info">
-                    <span class="glyphicon glyphicon-filter"></span>
-                </a>
-            </div>
-        </div>
+
         <div class="col-md-12">
             <table cellpadding="0" cellspacing="0" class="table table-striped">
                 <thead>
                     <tr>
-                        <th><?php echo $this->Paginator->sort('id', 'ID'); ?></th>
-                        <th><?php echo $this->Paginator->sort('descricao', 'Descrição'); ?></th>
-                        <th><?php echo $this->Paginator->sort('obs', 'Observação'); ?></th>
+                        <th><?php echo $this->Paginator->sort('id'); ?></th>
+                        <th><?php echo $this->Paginator->sort('nome'); ?></th>
+                        <th><?php echo $this->Paginator->sort('obs'); ?></th>
                         <th class="actions"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($contas as $conta): ?>
+                    <?php foreach ($operadoras as $operadora): ?>
                         <tr>
-                            <td><?php echo h($conta['Conta']['id']); ?>&nbsp;</td>
-                            <td><?php echo h($conta['Conta']['descricao']); ?>&nbsp;</td>
-                            <td><?php echo h($conta['Conta']['obs']); ?>&nbsp;</td>
+                            <td><?php echo h($operadora['Operadora']['id']); ?>&nbsp;</td>
+                            <td><?php echo h($operadora['Operadora']['nome']); ?>&nbsp;</td>
+                            <td><?php echo h($operadora['Operadora']['obs']); ?>&nbsp;</td>
                             <td class="actions">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'cadastro', $conta['Conta']['id']), array('escape' => false)); ?>
-                                <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $conta['Conta']['id']), array('escape' => false), __('Deseja realmente excluir esta Conta [%s] ?', $conta['Conta']['id'])); ?>
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'cadastro', $operadora['Operadora']['id']), array('escape' => false)); ?>
+                                <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $operadora['Operadora']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $operadora['Operadora']['id'])); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -65,6 +54,7 @@
                     ?>
                 </ul>
             <?php } ?>
+
         </div> <!-- end col md 9 -->
     </div><!-- end row -->
 

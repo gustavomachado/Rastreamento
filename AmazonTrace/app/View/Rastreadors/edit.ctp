@@ -35,7 +35,7 @@
                     <?php echo $this->Form->label('Senha Sms') ?>
                 </div>
                 <div class="form-group col-md-3">
-                    <?php echo $this->Form->input('senha_sms', array('class' => 'form-control', 'placeholder' => 'Senha Sms', 'label'=> false)); ?>
+                    <?php echo $this->Form->input('senha_sms', array('class' => 'form-control', 'placeholder' => 'Senha Sms', 'label' => false)); ?>
                 </div>
                 <div class="form-group col-md-2">
                     <button type="button" style="padding: 4px" data-toggle="modal" data-target="#modal-rast-chips" class="btn btn-default right">
@@ -54,10 +54,13 @@
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
+                <?php echo $this->Form->input('tipo_instalacao', array('class' => 'form-control', 'placeholder' => 'Tipo instalação', 'label' => 'Tipo instalação')); ?>
+            </div>
+            <div class="form-group col-md-4">
                 <?php echo $this->Form->input('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiação utilizada', 'label' => 'Fiação utilizada')); ?>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local instalação', 'label' => 'Local instalação')); ?>
             </div>
             <div class="form-group col-md-12">
@@ -78,9 +81,9 @@
     </div><!-- end row -->
 </div>
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true" id="modal-rast-chips" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog bs-example-modal-sm">
+    <div class="modal-dialog" style="width: 680px">
         <div class="modal-content">
             <div class="modal-header  ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -116,13 +119,13 @@
                                                 var json = JSON.parse(data);
                                                 $('#tb-chips-in-rastreadores').append(
                                                         "<tr>\n\
-                                                                <td>" + json.Chip.id + " &nbsp;</td>\n\
-                                                                <td>" + json.Chip.operadora + " &nbsp;</td>\n\
-                                                                <td>" + json.Chip.numero_telefone + " &nbsp;</td>\n\
-                                                                <td>" + json.Chip.numero_chip + " &nbsp;</td>\n\
-                                                                <td>" + json.Chip.apn + " &nbsp;</td>\n\
-                                                                <td><a href='#' title='Desvincular Chip' onclick='desvincularChip(" + json.Chip.id + ")'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
-                                                            </tr>"
+                                                            <td>" + json.Chip.id + " &nbsp;</td>\n\
+                                                            <td>" + json.Operadora.nome+ " &nbsp;</td>\n\
+                                                            <td>" + json.Chip.numero_telefone + " &nbsp;</td>\n\
+                                                            <td>" + json.Chip.numero_chip + " &nbsp;</td>\n\
+                                                            <td>" + json.Chip.apn + " &nbsp;</td>\n\
+                                                            <td><a href='#' title='Desvincular Chip' onclick='desvincularChip(" + json.Chip.id + ")'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
+                                                        </tr>"
                                                         );
                                             },
                                             error: function (jqXHR, textStatus, errorThrown) {
@@ -192,7 +195,7 @@
                                         <?php foreach ($chipsInRastreador as $chip): ?>
                                             <tr> 
                                                 <td><?php echo h($chip['Chip']['id']); ?>&nbsp;</td>
-                                                <td><?php echo h($chip['Chip']['operadora']); ?>&nbsp;</td>
+                                                <td><?php echo h($chip['Operadora']['nome']); ?>&nbsp;</td>
                                                 <td><?php echo h($chip['Chip']['numero_telefone']); ?>&nbsp;</td>
                                                 <td><?php echo h($chip['Chip']['numero_chip']); ?>&nbsp;</td>
                                                 <td><?php echo h($chip['Chip']['apn']); ?>&nbsp;</td>

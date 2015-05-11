@@ -22,12 +22,7 @@ class ChipsController extends AppController {
      *
      * @return void
      */
-    public function index($id = null) {
-        if ($id) {
-            $this->edit($id);
-        } else {
-            $this->add();
-        }
+    public function index() {
         $this->Chip->recursive = 0;
         $this->paginate = array('limit' => 10);
         $this->set('chips', $this->Paginator->paginate());
@@ -37,6 +32,19 @@ class ChipsController extends AppController {
         $this->render(false, false);
         $this->request->data['Chip']['rastreador_id'] = $_REQUEST['rastreador_id'];
         $this->request->data['Chip']['id'] = $_REQUEST['id'];
+
+        $chipHist = $this->Chip->find('first', array('conditions' => array('Chip.' . $this->Chip->primaryKey => $_REQUEST['id'])));
+        if ($chipHist['Rastreador']['id']) {
+            $options = array('HistoricoChip.chip_id' => $_REQUEST['id'], 'HistoricoChip.rastreador_id' => $chipHist['Rastreador']['id'], 'HistoricoChip.data_fim is NULL');
+            $historicoChipRast = $this->Chip->HistoricoChip->find('first', array('fields' => 'HistoricoChip.*', 'conditions' => $options));
+            $updateHistorico = array('id' => $historicoChipRast['HistoricoChip']['id'], 'data_fim' => date('Y-m-d H:i:s'));
+            $this->Chip->HistoricoChip->save($updateHistorico);
+        }
+        $this->Chip->HistoricoChip->create();
+        $historicoChipRast = array('chip_id' => $_REQUEST['id'], 'rastreador_id' => $_REQUEST['rastreador_id'], 'data_inicio' => date('Y-m-d H:i:s'));
+        $this->Chip->HistoricoChip->set($historicoChipRast);
+        $this->Chip->HistoricoChip->save($this->Chip->Rastreador->HistoricoChip->data);
+
         if ($this->Chip->save($this->request->data)) {
             $options = array('conditions' => array('Chip.' . $this->Chip->primaryKey => $_REQUEST['id']));
             $chip = $this->Chip->find('first', $options);
@@ -48,6 +56,11 @@ class ChipsController extends AppController {
         $this->render(false, false);
         $this->request->data['Chip']['rastreador_id'] = null;
         $this->request->data['Chip']['id'] = $_REQUEST['id'];
+        $chipHist = $this->Chip->find('first', array('conditions' => array('Chip.' . $this->Chip->primaryKey => $_REQUEST['id'])));
+        $options = array('HistoricoChip.chip_id' => $_REQUEST['id'], 'HistoricoChip.rastreador_id' => $chipHist['Rastreador']['id'], 'HistoricoChip.data_fim is NULL');
+        $historicoChipRast = $this->Chip->HistoricoChip->find('first', array('fields' => 'HistoricoChip.*', 'conditions' => $options));
+        $updateHistorico = array('id' => $historicoChipRast['HistoricoChip']['id'], 'data_fim' => date('Y-m-d H:i:s'));
+        $this->Chip->HistoricoChip->save($updateHistorico);
         if ($this->Chip->save($this->request->data)) {
             echo 'sucess';
         }
@@ -118,7 +131,9 @@ class ChipsController extends AppController {
             $this->edit($id);
         } else {
             $this->add();
-        }
+        }        
+        $operadoras = $this->Chip->Operadora->find('list', array('fields' => array('id', 'nome')));
+        $this->set(compact('operadoras'));
     }
 
     /**
@@ -131,13 +146,13 @@ class ChipsController extends AppController {
     public function delete($id = null) {
         $this->Chip->id = $id;
         if (!$this->Chip->exists()) {
-            throw new NotFoundException(__('Invalid chip'));
+            throw new NotFoundException(__('Chip inválido'));
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Chip->delete()) {
-            $this->Session->setFlash(__('The chip has been deleted.'), 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash(__('Chip excluído com sucesso.'), 'default', array('class' => 'alert alert-success'));
         } else {
-            $this->Session->setFlash(__('The chip could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+            $this->Session->setFlash(__('O Chip não pôde ser excluído. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
         }
         return $this->redirect(array('action' => 'index'));
     }
