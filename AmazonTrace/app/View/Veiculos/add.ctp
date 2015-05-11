@@ -103,7 +103,8 @@
                 <label>Motorista</label>
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <a href="/AmazonTrace/Motoristas/add" target="_blank">  <span class="glyphicon glyphicon-plus"></span></a>
+                        <a href="/AmazonTrace/Motoristas/add" target="_blank">  
+                            <span class="glyphicon glyphicon-plus"></span></a>
                     </span>
                     <?php
                     echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
@@ -155,9 +156,11 @@
                 <?php echo $this->Form->textArea('obs', array('class' => 'form-control', 'placeholder' => 'Obs')); ?>
             </div>
             <div class=" col-md-2">
-                <button type="button" data-toggle="modal" data-target="#modal-rastreadores" class="btn btn-default">Add Rastreador
-                    <span class="glyphicon glyphicon-plus"></span>
+                <?php if (isset($id)): ?>
+                <button type="button" data-toggle="modal" data-target="#modal-rastreadores" class="btn btn-default">Rastreador
+                    <span class="flaticon-wifi83"></span>
                 </button>
+                <?php endif; ?>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -192,71 +195,168 @@
                 <?php // echo $this->Form->end( )   ?>
                 <div class=" row">
                     <div class="col-md-12">
-                        <h5>Lista Rastreadores Adicionados</h5>
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Modelo</th>
-                                    <th>Marca</th>
-                                    <th>Núm. Eqp.</th>
-                                    <th>Local Inst.</th>
-                                    <th>Fiação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($instalados as $instalado): ?>
-                                    <tr id="<?= $instalado['Rastreador']['id'] ?>" class="linha-instalados">
-                                        <td><?= $instalado['Rastreador']['modelo'] ?></td>
-                                        <td><?= $instalado['Rastreador']['marca'] ?></td>
-                                        <td><?= $instalado['Rastreador']['numero_equipamento'] ?></td>
-                                        <td><?= $instalado['Rastreador']['fiacao_utilizada'] ?></td>
-                                        <td><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table> 
-
+                        <div class="btn-group btn-group-justified restreadores-header" >
+                            <p  class="btn btn-default ">Modelo</p>
+                            <p  class="btn btn-default">Marca</p>
+                            <p  class="btn btn-default">Núm. Eqp.</p>
+                            <p  class="btn btn-default">Local Inst.</p>
+                            <p  class="btn btn-default">Fiação</p>
+                        </div> 
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Lista Rastreadores Adicionados <span class="loading loading-adicionados"><?php echo $this->Html->image("ajax_loader.gif", array()); ?> salvando . . .</span></h5>
+                            </div>
+                            <div class="panel-body adicionados   ui-widget-content">
+                                <ul  >
+                                    <?php foreach ($instalados as $instalado): ?>
+                                    <li class="linha-instalados">
+                                        <div id="<?= $instalado['Rastreador']['id'] ?>" class=" btn-group btn-group-justified"
+                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                <p class="btn btn-default"><?= $instalado['Rastreador']['modelo'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['marca'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['numero_equipamento'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['fiacao_utilizada'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></p>
+                                        </div>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <strong><p>Arraste os rastreadores para a área de reastreadores disponíeis
+                            para desvincular e torná-los diponiveis para outros veiculos</p></strong> 
                     </div>
                     <div class="col-md-12">
-                        <h5>Lista Rastreadores Disponíveis</h5>
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Modelo</th>
-                                    <th>Marca</th>
-                                    <th>Núm. Eqp.</th>
-                                    <th>Local Inst.</th>
-                                    <th>Fiação</th>
-                                </tr>
-                            </thead>
-                            <tbody class="disponiveis">
-                                <?php foreach ($disponiveis as $disponivel): ?>
-                                    <tr id="<?= $disponivel['Rastreador']['id'] ?>" class="linha-rastreador">
-                                        <td><?= $disponivel['Rastreador']['modelo'] ?></td>
-                                        <td><?= $disponivel['Rastreador']['marca'] ?></td>
-                                        <td><?= $disponivel['Rastreador']['numero_equipamento'] ?></td>
-                                        <td><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></td>
-                                        <td><?= $disponivel['Rastreador']['local_instalacao_rastreador'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table> 
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5>Lista Rastreadores Disponíveis <span class="loading loading-disponiveis"><?php echo $this->Html->image("ajax_loader.gif", array()); ?> removendo . . .</h5>
+                            </div>
+                            <div class="panel-body disponiveis   ui-widget-content">
+                                <ul>
+                                    <?php foreach ($disponiveis as $disponivel): ?>
+                                    <li class="linha-disponiveis">
+                                        <div id="<?= $disponivel['Rastreador']['id'] ?>" class=" btn-group btn-group-justified "
+                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">
+                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['modelo'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['marca'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['numero_equipamento'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['local_instalacao_rastreador'] ?></p>
+                                        </div>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <strong><p>Arraste os rastreadores para a área de reastreadores instalados
+                            para desvincular ao veículo</p></strong>
+                    </div>
+
+                </div>
+                <div class="modal-footer  ">
+                    <div class="row">
+                        <div class="msg-area col-md-7" style="//border: 1px solid red;">
+
+                        </div>
+                        <div class="col-md-5" style="//border: 1px solid black;">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Sair
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer  ">
-                <div class="row">
-                    <div class="msg-area col-md-7" style="//border: 1px solid red;">
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <script>
+        if (typeof ($(".linha-disponiveis")) !== undefined) {
+            $(".linha-disponiveis").draggable({
+                revert: "invalid",
+                appendTo: ".droppable",
+                drag: function () {
+                    console.log('Dragging');
+                }
+            });
+            $(".linha-instalados").draggable({
+                revert: "invalid",
+                appendTo: ".droppable",
+                drag: function () {
+                    console.log('Dragging');
+                }
+            });
+            $(".adicionados ul").droppable({
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover watting-drop",
+                // tolerance: "intersect",
+                drop: function (event, ui) {
+                    $('.loading-adicionados').css("display", 'inline-block');
+                    var idRastreador = ui.draggable.find('div').attr('id');
+                    var idVeiculo = ui.draggable.find('div').attr('data-target');
+                    $.ajax({
+                        type: 'GET',
+                        url: "<?php echo $this->Html->url(array('action' => 'vincularVeiculo', 'controller' => 'rastreadors')); ?>",
+                        data: {"id": idRastreador, "veiculo_id": idVeiculo},
+                        async: true,
+                        success: function (dataJson) {
+                            var data = $.parseJSON(dataJson);
+                            if (data.status) {
+                                $('.loading-adicionados').css("display", 'none');
+                            } else {
 
-                    </div>
-                    <div class="col-md-5" style="//border: 1px solid black;">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Sair
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert(jqXHR);
+                            alert(textStatus);
+                            alert(errorThrown);
+                        }
+                    });
+                    $(this).append($("<li>").append(ui.draggable.html()).draggable({
+                        revert: "invalid",
+                        appendTo: ".droppable"
+                    }));
+                    ui.draggable.remove();
+                }
+            }).sortable();
+            $(".disponiveis ul").droppable({
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover watting-drop",
+                drop: function (event, ui) {
+                    $('.loading-disponiveis').css("display", 'inline-block');
+                    var idRastreador = ui.draggable.find('div').attr('id');
+                    var idVeiculo = ui.draggable.find('div').attr('data-target');
+                    $.ajax({
+                        type: 'GET',
+                        url: "<?php echo $this->Html->url(array('action' => 'desvincularVeiculo', 'controller' => 'rastreadors')); ?>",
+                        data: {"id": idRastreador},
+                        async: true,
+                        success: function (dataJson) {
+                            var data = $.parseJSON(dataJson);
+                            switch ((data.status)) {
+                                case 0:
+                                    alert("Falha ao desvincular rastreador");
+                                    break;
+                                case 1:
+                                    alert("Desvincular rastreador");
+                                    $('.loading-disponiveis').css("display", 'none');
+                                    break;
+                                case 2:
+                                    alert("Falha ao desvincular rastreador");
+                                    break;
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert(jqXHR);
+                            alert(textStatus);
+                            alert(errorThrown);
+                        }
+                    });
+                    $(this).append($("<li>").append(ui.draggable.html()).draggable({
+                        revert: "invalid",
+                        appendTo: ".droppable"
+                    }));
+                    ui.draggable.remove();
+                }
+            }).sortable();
+        }
+    </script>

@@ -88,13 +88,13 @@
             <?php if ($id > 0) { ?>
                 <div class="form-group  col-md-2">
                     <button type="button" data-toggle="modal" data-target="#modal-contato" class="btn btn-default">Add Contato
-                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="flaticon-phone372"></span>
                     </button>
                 </div>
                 <div class="form-group  col-md-2">
                     <a href="/AmazonTrace/Veiculos/index/<?= $id ?>" class="btn btn-default">
-                        Add Veículos
-                        <span class="glyphicon glyphicon-plus"></span>
+                        Veículos
+                        <span class="flaticon-car145"></span>
                     </a>
                 </div>
             <?php } else { ?>
