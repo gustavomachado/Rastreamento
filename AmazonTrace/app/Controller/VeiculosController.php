@@ -64,8 +64,14 @@ class VeiculosController extends AppController {
             throw new NotFoundException(__('Necessário um cliente'));
         }
         $this->set('id_cliente', $id_cliente);
+
+        $fields = array('Rastreador.id', 'Rastreador.marca', 'Rastreador.modelo', 'Rastreador.numero_equipamento'
+            , 'Rastreador.fiacao_utilizada', 'Rastreador.local_instalacao_rastreador');
+        $disponiveis = $this->Veiculo->Rastreador->find('all', array('conditions' => array('Rastreador.veiculo_id  ' => NULL), 'fields' => $fields));
+        $this->set('disponiveis', $disponiveis);
         if ($id) {
             $this->edit($id_cliente, $id);
+            $this->set('id', $id);
         } else {
             if ($this->request->is('post')) {
                 $this->Veiculo->create();
@@ -77,12 +83,12 @@ class VeiculosController extends AppController {
                     $this->Session->setFlash(__('The veiculo could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
                 }
             }
-            $instalados = $this->Veiculo->Rastreador->find('list', array('conditions' => array('veiculo_id' => $id)));
-            $disponiveis = $this->Veiculo->Rastreador->find('list', array('conditions' => array('veiculo_id' => ' IS NULL')));
+
+            //  $instalados = $this->Veiculo->Rastreador->find('list', array('conditions' => array('veiculo_id' => $id)));
+
             $motoristas = $this->Veiculo->Motorista->find('list', array('fields' => 'nome'));
             $this->set('motoristas', $motoristas);
-            $this->set('instalados', $instalados);
-            $this->set('disponiveis', $disponiveis);
+            $this->set('instalados', array());
         }
     }
 
@@ -116,13 +122,13 @@ class VeiculosController extends AppController {
         $fields = array('Rastreador.id', 'Rastreador.marca', 'Rastreador.modelo', 'Rastreador.numero_equipamento'
             , 'Rastreador.fiacao_utilizada', 'Rastreador.local_instalacao_rastreador');
 
-        $instalados = $this->Veiculo->Rastreador->find('all', array('conditions' => array('veiculo_id' => $id),'fields'=>$fields));
-        $disponiveis = $this->Veiculo->Rastreador->find('all', array('conditions' => array('Rastreador.veiculo_id  ' => NULL),'fields'=>$fields));
+        $instalados = $this->Veiculo->Rastreador->find('all', array('conditions' => array('veiculo_id' => $id), 'fields' => $fields));
+
         $motoristas = $this->Veiculo->Motorista->find('list', array('fields' => 'nome'));
         $this->set('instalados', $instalados);
-        $this->set('disponiveis', $disponiveis);
+
         $this->set('motoristas', $motoristas);
-    //    var_dump($disponiveis);exit;
+        //    var_dump($disponiveis);exit;
     }
 
     /**
@@ -145,5 +151,7 @@ class VeiculosController extends AppController {
         }
         return $this->redirect(array('action' => 'index', $id_cliente));
     }
+
+   
 
 }
