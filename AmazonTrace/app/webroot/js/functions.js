@@ -27,6 +27,8 @@ $(document).ready(function () {
         });
     }
 
+   
+
 
     if (typeof ($(".add-contato")) !== undefined) {
         $(".add-contato").click(function () {

@@ -139,3 +139,19 @@ td.actions {
 .form-group{
      margin-bottom: 14px;
 }
+
+.restreadores-header p{
+  //  font-weight: bold;
+    background-color: #0099cc;
+    color: #fff;
+}
+
+ul{
+    min-height: 100px;
+  //  border: 1px solid black;
+    list-style: none;
+}
+
+.watting-drop{
+    border: 2px black dashed;
+}
