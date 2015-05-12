@@ -10,6 +10,18 @@
         </div><!-- end col md 12 -->
     </div><!-- end row -->
     <div class="row">
+        <div>
+            <div class="form-group col-md-2">
+                <?php echo $this->Form->input('filtro', array('options' => $filtros, 'class' => 'form-control', 'value' => $filtro)) ?>
+            </div>
+            <label>Pesquisar</label>
+            <div class="form-group input-group col-md-3">
+                <?php echo $this->Form->input('pesquisar', array('class' => 'form-control', 'style' => 'border-bottom-left-radius: 4px; border-top-left-radius: 4px', 'label' => false, 'value' => $pesquisa)) ?>
+                <a id="btn-pesquisar" class="input-group-addon btn-info">
+                    <span class="glyphicon glyphicon-filter"></span>
+                </a>
+            </div>
+        </div>
         <div >
             <div class="col-md-12">
                 <table cellpadding="0" cellspacing="0" class="table table-striped">
@@ -27,21 +39,21 @@
                     </thead>
                     <tbody>
                         <?php foreach ($clientes as $cliente): ?>
-                            <tr>
-                                <td><?php echo h($cliente['Cliente']['id']); ?>&nbsp;</td>
-                                <td><?php echo h($cliente['Cliente']['tipo']); ?>&nbsp;</td>
-                                <td><?php echo h($cliente['Cliente']['cpf_cnpj']); ?>&nbsp;</td>
+                        <tr>
+                            <td><?php echo h($cliente['Cliente']['id']); ?>&nbsp;</td>
+                            <td><?php echo h($cliente['Cliente']['tipo']); ?>&nbsp;</td>
+                            <td><?php echo h($cliente['Cliente']['cpf_cnpj']); ?>&nbsp;</td>
 
-                                <td><?php echo h($cliente['Cliente']['nome']); ?>&nbsp;</td>
+                            <td><?php echo h($cliente['Cliente']['nome']); ?>&nbsp;</td>
 
-                                <td><?php echo h($cliente['Cliente']['telefone']); ?>&nbsp;</td>
-                                <td><?php echo h($cliente['Cliente']['email']); ?>&nbsp;</td>
-                                <td><?php echo h($cliente['Cliente']['email_de_cobranca1']); ?>&nbsp;</td>
-                                <td class="actions">
+                            <td><?php echo h($cliente['Cliente']['telefone']); ?>&nbsp;</td>
+                            <td><?php echo h($cliente['Cliente']['email']); ?>&nbsp;</td>
+                            <td><?php echo h($cliente['Cliente']['email_de_cobranca1']); ?>&nbsp;</td>
+                            <td class="actions">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'add', $cliente['Cliente']['id']), array('escape' => false)); ?>
                                     <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $cliente['Cliente']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $cliente['Cliente']['id'])); ?>
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -54,13 +66,13 @@
                 $params = $this->Paginator->params();
                 if ($params['pageCount'] > 1) {
                     ?>
-                    <ul class="pagination pagination-sm">
+                <ul class="pagination pagination-sm">
                         <?php
                         echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev', 'tag' => 'li', 'escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled', 'tag' => 'li', 'escape' => false));
                         echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a'));
                         echo $this->Paginator->next('Next &rarr;', array('class' => 'next', 'tag' => 'li', 'escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled', 'tag' => 'li', 'escape' => false));
                         ?>
-                    </ul>
+                </ul>
                 <?php } ?>
             </div>
         </div> <!-- end col md 9 -->

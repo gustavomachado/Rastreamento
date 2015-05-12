@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/AmazonTrace/app/View/Rastreadors/index.ctp</file>
             <file>file:/C:/wamp/www/AmazonTrace/app/View/Veiculos/add.ctp</file>
-            <file>file:/C:/wamp/www/AmazonTrace/app/Controller/ChipsController.php</file>
             <file>file:/C:/wamp/www/AmazonTrace/app/Controller/RastreadorsController.php</file>
             <file>file:/C:/wamp/www/AmazonTrace/app/webroot/js/functions.js</file>
+            <file>file:/C:/wamp/www/AmazonTrace/app/webroot/css/style.css</file>
+            <file>file:/C:/wamp/www/AmazonTrace/app/View/Clientes/index.ctp</file>
         </group>
     </open-files>
 </project-private>

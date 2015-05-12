@@ -199,14 +199,22 @@
                             <p  class="btn btn-default ">Modelo</p>
                             <p  class="btn btn-default">Marca</p>
                             <p  class="btn btn-default">Núm. Eqp.</p>
-                            <p  class="btn btn-default">Local Inst.</p>
-                            <p  class="btn btn-default">Fiação</p>
+                         <!--   <p  class="btn btn-default">Local Inst.</p>
+                            <p  class="btn btn-default">Fiação</p> -->
                         </div> 
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5>Lista Rastreadores Adicionados <span class="loading loading-adicionados"><?php echo $this->Html->image("ajax_loader.gif", array()); ?> salvando . . .</span></h5>
+                            <div class="panel-heading panel-instalados">
+                                <h5>Lista Rastreadores Adicionados 
+                                    <span class="loading loading-adicionados">
+                                        <?php echo $this->Html->image("ajax_loader.gif", array()); ?> salvando . . .
+                                    </span>
+                                    <span class="sort-msg">
+
+                                    </span>
+                                </h5>
                             </div>
-                            <div class="panel-body adicionados   ui-widget-content">
+                            <div class="panel-body adicionados   ui-widget-content ">
+
                                 <ul  >
                                     <?php foreach ($instalados as $instalado): ?>
                                     <li class="linha-instalados">
@@ -214,23 +222,31 @@
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                <p class="btn btn-default"><?= $instalado['Rastreador']['modelo'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Rastreador']['marca'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Rastreador']['numero_equipamento'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Rastreador']['fiacao_utilizada'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></p>
+                                        <!--    <p class="btn btn-default"><?= $instalado['Rastreador']['fiacao_utilizada'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></p> -->
                                         </div>
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
+
                             </div>
                         </div>
                         <strong><p>Arraste os rastreadores para a área de reastreadores disponíeis
-                            para desvincular e torná-los diponiveis para outros veiculos</p></strong> 
+                                para desvincular e torná-los diponiveis para outros veiculos</p></strong> 
                     </div>
                     <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5>Lista Rastreadores Disponíveis <span class="loading loading-disponiveis"><?php echo $this->Html->image("ajax_loader.gif", array()); ?> removendo . . .</h5>
+                        <div class="panel panel-default ">
+                            <div class="panel-heading panel-disponiveis">
+                                <h5>Lista Rastreadores Disponíveis 
+                                    <span class="loading loading-disponiveis">
+                                        <?php echo $this->Html->image("ajax_loader.gif", array()); ?> removendo . . .
+                                    </span>
+                                    <span class="sort-msg">
+
+                                    </span>
+                                </h5>
                             </div>
-                            <div class="panel-body disponiveis   ui-widget-content">
+                            <div class="panel-body disponiveis      ">
                                 <ul>
                                     <?php foreach ($disponiveis as $disponivel): ?>
                                     <li class="linha-disponiveis">
@@ -239,8 +255,8 @@
                                             <p class="btn btn-default"><?= $disponivel['Rastreador']['modelo'] ?></p>
                                             <p class="btn btn-default"><?= $disponivel['Rastreador']['marca'] ?></p>
                                             <p class="btn btn-default"><?= $disponivel['Rastreador']['numero_equipamento'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['local_instalacao_rastreador'] ?></p>
+                                        <!--   <p class="btn btn-default"><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></p>
+                                            <p class="btn btn-default"><?=  $disponivel['Rastreador']['local_instalacao_rastreador'] ?></p> -->
                                         </div>
                                     </li>
                                     <?php endforeach; ?>
@@ -248,7 +264,7 @@
                             </div>
                         </div>
                         <strong><p>Arraste os rastreadores para a área de reastreadores instalados
-                            para desvincular ao veículo</p></strong>
+                                para desvincular ao veículo</p></strong>
                     </div>
 
                 </div>
@@ -287,7 +303,7 @@
             $(".adicionados ul").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover watting-drop",
-                // tolerance: "intersect",
+                accept: ".linha-disponiveis",
                 drop: function (event, ui) {
                     $('.loading-adicionados').css("display", 'inline-block');
                     var idRastreador = ui.draggable.find('div').attr('id');
@@ -299,11 +315,37 @@
                         async: true,
                         success: function (dataJson) {
                             var data = $.parseJSON(dataJson);
-                            if (data.status) {
-                                $('.loading-adicionados').css("display", 'none');
-                            } else {
-
+                            $('.loading-adicionados').css("display", 'none');
+                            var msg;
+                            var classe = "text-warning ";
+                            switch ((data.status)) {
+                                case 0:
+                                    msg = ("Falha ao Adicionar Rastreador");
+                                    break;
+                                case 1:
+                                    msg = ("Rastreador Adicionado Com Sucesso!");
+                                    classe = "text-success";
+                                    break;
+                                case 2:
+                                    msg = ("Falha ao Adicionar Rastreador. Rastreador está vinculado à Outro Veículo!");
+                                    break;
                             }
+                            $('.loading-instalados').css("display", 'none');
+                            $('.panel-instalados .sort-msg')
+                                    .append($('<strong>')
+                                            .addClass(classe)
+                                            .addClass("pull-right")
+                                            .html(msg.toUpperCase()))
+                                    .fadeIn(2000);
+
+                            setTimeout(function () {
+                                $('.panel-instalados .sort-msg strong').fadeOut(1000);
+                            },
+                                    2000);
+                            setTimeout(function () {
+                                $('.panel-instalados .sort-msg strong').remove();
+                            },
+                                    3100);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             alert(jqXHR);
@@ -311,7 +353,7 @@
                             alert(errorThrown);
                         }
                     });
-                    $(this).append($("<li>").append(ui.draggable.html()).draggable({
+                    $(this).append($("<li>").addClass('linha-instalados').append(ui.draggable.html()).draggable({
                         revert: "invalid",
                         appendTo: ".droppable"
                     }));
@@ -321,6 +363,7 @@
             $(".disponiveis ul").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover watting-drop",
+                accept: ".linha-instalados",
                 drop: function (event, ui) {
                     $('.loading-disponiveis').css("display", 'inline-block');
                     var idRastreador = ui.draggable.find('div').attr('id');
@@ -328,22 +371,40 @@
                     $.ajax({
                         type: 'GET',
                         url: "<?php echo $this->Html->url(array('action' => 'desvincularVeiculo', 'controller' => 'rastreadors')); ?>",
-                        data: {"id": idRastreador},
+                        data: {"id": idRastreador, 'veiculo_id': idVeiculo},
                         async: true,
                         success: function (dataJson) {
                             var data = $.parseJSON(dataJson);
+                            var msg;
+                            var classe = "text-warning ";
                             switch ((data.status)) {
                                 case 0:
-                                    alert("Falha ao desvincular rastreador");
+                                    msg = ("Falha ao Remover Rastreador");
                                     break;
                                 case 1:
-                                    alert("Desvincular rastreador");
-                                    $('.loading-disponiveis').css("display", 'none');
+                                    msg = ("Rastreador Removido Com Sucesso!");
+                                    classe = "text-success";
                                     break;
                                 case 2:
-                                    alert("Falha ao desvincular rastreador");
+                                    msg = ("Falha ao Remover rastreador");
                                     break;
                             }
+                            $('.loading-disponiveis').css("display", 'none');
+                            $('.panel-disponiveis .sort-msg')
+                                    .append($('<strong>')
+                                            .addClass(classe)
+                                            .addClass("pull-right")
+                                            .html(msg.toUpperCase()))
+                                    .fadeIn(2000);
+
+                            setTimeout(function () {
+                                $('.panel-disponiveis .sort-msg strong').fadeOut(1000);
+                            },
+                                    2000);
+                            setTimeout(function () {
+                                $('.panel-disponiveis .sort-msg strong').remove();
+                            },
+                                    3100);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             alert(jqXHR);
@@ -351,7 +412,7 @@
                             alert(errorThrown);
                         }
                     });
-                    $(this).append($("<li>").append(ui.draggable.html()).draggable({
+                    $(this).append($("<li>").addClass('linha-disponiveis').append(ui.draggable.html()).draggable({
                         revert: "invalid",
                         appendTo: ".droppable"
                     }));
