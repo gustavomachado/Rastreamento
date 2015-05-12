@@ -25,10 +25,10 @@ class HistoricoChipsController extends AppController {
     public function index($filtro = NULL, $pesquisa = NULL) {
         $this->HistoricoChip->recursive = 0;
         $this->paginate = array('limit' => 20);
-        if ($filtro && $pesquisa) {
-            if ($filtro !== '0' && $pesquisa !== '0') {
+        if (strcmp($filtro, '0') != -1 && strcmp($pesquisa, '0') != -1) {
+            if ($filtro != '0' && $pesquisa != '0') {
                 $this->paginate = array('limit' => 20, 'conditions' => array('HistoricoChip.chip_id' => $filtro, 'HistoricoChip.rastreador_id' => $pesquisa), 'order' => 'HistoricoChip.data_fim DESC');
-            } else if ($filtro !== '0' || $pesquisa !== '0') {
+            } else if ($filtro != '0' || $pesquisa != '0') {
                 $this->paginate = array('limit' => 20, 'conditions' => 'HistoricoChip.chip_id = ' . $filtro . ' OR HistoricoChip.rastreador_id = ' . $pesquisa, 'order' => 'HistoricoChip.data_fim DESC');
             }
         }

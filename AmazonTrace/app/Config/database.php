@@ -76,7 +76,7 @@ class DATABASE_CONFIG {
 		'password' => 'gsm@02011986',
 		'database' => 'db_am_trace',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(

@@ -150,7 +150,7 @@ td.actions {
     height: 150px;
     list-style: none;
     padding: 0 20px;
-
+   
 }
 
 .watting-drop{
@@ -163,15 +163,36 @@ td.actions {
     //  overflow-y: scroll;
     // z-index: 0;
 }
+ 
 
-
-.scroll-panel{
-    //position: relative;
+.scroll-panel{   
     overflow-y: scroll;
     z-index: 99999;
 }
 
 .scroll-panel li{
-    border: 1px solid red;
+  //  border: 1px solid red;
     z-index: 99999;
+}
+
+
+.money {
+    text-align: right;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.btn-receber-notify {
+    border: solid 1px #31b0d5;
+    border-radius: 5px;
+    background-color: #99ccff;
+    cursor: pointer;
+    color: #0099cc;
+    padding: 3px;
+}
+.btn-receber-notify:hover {
+    box-shadow: 0px 0px 5px #99ccff;
+    text-decoration: none;
 }

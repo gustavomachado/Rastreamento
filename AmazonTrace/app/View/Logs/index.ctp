@@ -59,7 +59,7 @@
                         <?php foreach ($logs as $log): ?>
                             <tr>
                                 <td>
-                                    <?php echo $this->Html->link($log['Usuario']['id'] . ' - ' . $log['Usuario']['nome'], array('controller' => 'usuarios', 'action' => 'view', $log['Usuario']['id'])); ?>
+                                    <?php echo $this->Html->link($log['Usuario']['id'] . ' - ' . $log['Usuario']['nome'], array('controller' => 'users', 'action' => 'cadastro', $log['Usuario']['id'])); ?>
                                 </td>
                                 <td><?php echo h(date('d/m/Y H:i:s', strtotime($log['Log']['created']))); ?>&nbsp;</td>
                                 <td><?php echo h($log['Log']['acao']); ?>&nbsp;</td>

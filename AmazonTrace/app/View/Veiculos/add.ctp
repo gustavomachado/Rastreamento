@@ -305,6 +305,7 @@
                 hoverClass: "ui-state-hover watting-drop",
                 accept: ".linha-disponiveis",
                 drop: function (event, ui) {
+                    
                     $('.loading-adicionados').css("display", 'inline-block');
                     var idRastreador = ui.draggable.find('div').attr('id');
                     var idVeiculo = ui.draggable.find('div').attr('data-target');

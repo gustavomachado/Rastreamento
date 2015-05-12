@@ -118,5 +118,61 @@ class RastreadorsController extends AppController {
         }
         return $this->redirect(array('action' => 'index'));
     }
+     public function vincularVeiculo() {
+        $this->render(false, false);
+        $id = $_REQUEST['id'];
+        $veiculoId = $_REQUEST['veiculo_id'];
+        $this->request->data['Rastreador']['veiculo_id'] = $veiculoId;
+        $this->request->data['Rastreador']['id'] = $id;
+        $rastreador = $this->Rastreador->find('first', array('conditions' => array('rastreador.id' => $id, 'veiculo_id' => NULL)));
+        if (count($rastreador) < 1) {
+            $result = array('status' => 2);
+            echo json_encode($result);
+            return;
+        } else {
+            $this->Rastreador->HistoricoVeiculo->create();
+            $options = array('HistoricoVeiculo.rastreador_id' => $id,
+                'HistoricoVeiculo.veiculo_id' => $veiculoId,
+                'HistoricoVeiculo.data_fim IS NULL');
+            $historico = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options));
+            if (count($historico) < 1) {
+                $historicoRastVeic = array('veiculo_id' => $veiculoId, 'rastreador_id' => $id, 'data_inicio' => date('Y-m-d H:i:s'));
+                $this->Rastreador->HistoricoVeiculo->set($historicoRastVeic);
+                $this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data);
+            }
+        }
+        $this->concluir();
+    }
+
+    public function desvincularVeiculo() {
+        $this->render(false, false);
+        $id = $_REQUEST['id'];
+        $veiculoId = $_REQUEST['veiculo_id'];
+        $this->request->data['Rastreador']['id'] = $id;
+        $this->request->data['Rastreador']['veiculo_id'] = NULL;
+
+        $options = array('HistoricoVeiculo.rastreador_id' => $id,
+            'HistoricoVeiculo.veiculo_id' => $veiculoId,
+            'HistoricoVeiculo.data_fim IS  NULL');
+        $historico = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options, 'order' => 'HistoricoVeiculo.id desc'));
+        if (count($historico) > 0) {
+            $historico['HistoricoVeiculo']['data_fim'] = date("Y-m-d H:i:s");
+            $this->Rastreador->HistoricoVeiculo->set($historico);
+            $this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data);
+        }
+        $this->concluir();
+    }
+
+    private function concluir() {
+        if ($this->Rastreador->save($this->request->data)) {
+            $options = array('conditions' => array('Rastreador.' . $this->Rastreador->primaryKey => $_REQUEST['id']));
+            $rastreador = $this->Rastreador->find('first', $options);
+            $result = array('status' => 1);
+        } else {
+            $result = array('status' => 0);
+        }
+        echo json_encode($result);
+    }
+
 
 }

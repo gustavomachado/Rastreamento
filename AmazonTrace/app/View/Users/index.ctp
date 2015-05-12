@@ -41,7 +41,7 @@
                     <tr>
                         <td><?php echo h($usuario['User']['id']); ?>&nbsp;</td>
                         <td>
-			<?php echo $this->Html->link($usuario['Conta']['id'] . ' - '.$usuario['Conta']['descricao'], array('controller' => 'contas', 'action' => 'view', $usuario['Conta']['id'])); ?>
+			<?php echo $this->Html->link($usuario['Conta']['id'] . ' - '.$usuario['Conta']['descricao'], array('controller' => 'contas', 'action' => 'cadastro', $usuario['Conta']['id'])); ?>
                         </td>
                         <td><?php echo h($usuario['User']['nome']); ?>&nbsp;</td>
                         <td><?php echo h($usuario['User']['email']); ?>&nbsp;</td>

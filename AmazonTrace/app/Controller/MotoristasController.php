@@ -22,8 +22,15 @@ class MotoristasController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Motorista->recursive = 0;
+        $this->set('filtros', array('nome' => 'Nome', 'telefone' => 'Telefone', 'celular' => 'Celular'));
+        $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {
+            $this->paginate = array('limit' => 20, 'conditions' => array('Motorista.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+        }
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
         $this->set('motoristas', $this->Paginator->paginate());
     }
 
@@ -56,7 +63,7 @@ class MotoristasController extends AppController {
                 $this->Motorista->create();
                 if ($this->Motorista->save($this->request->data)) {
                     $this->Session->setFlash(__('The motorista has been saved.'), 'default', array('class' => 'alert alert-success'));
-                    return $this->redirect(array('action' => 'add',$this->Motorista->id));
+                    return $this->redirect(array('action' => 'add', $this->Motorista->id));
                 } else {
                     $this->Session->setFlash(__('The motorista could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
                 }
@@ -78,7 +85,7 @@ class MotoristasController extends AppController {
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Motorista->save($this->request->data)) {
                 $this->Session->setFlash(__('The motorista has been saved.'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'add',$id));
+                return $this->redirect(array('action' => 'add', $id));
             } else {
                 $this->Session->setFlash(__('The motorista could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
