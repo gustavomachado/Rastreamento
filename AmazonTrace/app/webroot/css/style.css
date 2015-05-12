@@ -146,13 +146,13 @@ td.actions {
     color: #fff;
 }
 
-ul{
+.disponiveis ul , .adicionados ul{
     height: 150px;
     list-style: none;
     padding: 0 20px;
-   
+
 }
- 
+
 .watting-drop{
     border: 2px black dashed;
 }
@@ -160,6 +160,18 @@ ul{
     //overflow-y: scroll;
 }
 .disponiveis, .adicionados{
+    //  overflow-y: scroll;
+    // z-index: 0;
+}
+
+
+.scroll-panel{
+    //position: relative;
     overflow-y: scroll;
-    z-index: 0;
+    z-index: 99999;
+}
+
+.scroll-panel li{
+    border: 1px solid red;
+    z-index: 99999;
 }

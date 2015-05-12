@@ -22,8 +22,17 @@ class ClientesController extends AppController {
      *
      * @return void
      */
-    public function index($id = null) {
+    public function index( $filtro = null, $pesquisa = null) {
         $this->Cliente->recursive = 0;
+        $this->set('filtros', array('tipo' => 'Tipo', 'cpf_cnpj' => 'CPF/CNPJ', 'nome' => 'Nome', 'razao_social' => 'Razao Social', 'telefone' => 'Telefone'));
+        $this->paginate = array('limit' => 20);
+        if ($filtro && $pesquisa) {
+            $this->paginate = array('limit' => 20, 'conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $clientes = $this->Cliente->find('all', array('conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
+        } 
+        $this->set('pesquisa', $pesquisa);
+        $this->set('filtro', $filtro);
+      
         $this->set('clientes', $this->Paginator->paginate());
     }
 

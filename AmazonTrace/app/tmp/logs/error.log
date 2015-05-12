@@ -36221,3 +36221,55 @@ Stack Trace:
 #3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ChipsController), Object(CakeRequest))
 #4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2015-05-12 08:28:30 Error: [MissingViewException] View file "Contas\cadastro.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Contas\\cadastro.ctp',
+)
+Request URL: /AmazonTrace/Contas/cadastro
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(470): View->_getViewFileName(NULL)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ContasController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-12 08:29:16 Error: [MissingViewException] View file "Contas\cadastro.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Contas\\cadastro.ctp',
+)
+Request URL: /AmazonTrace/Contas/cadastro
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\View\View.php(470): View->_getViewFileName(NULL)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ContasController), Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-05-12 09:33:47 Error: [MissingControllerException] Controller class InicioController could not be found.
+Exception Attributes: array (
+  'class' => 'InicioController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Inicio
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-05-12 10:32:26 Error: [MissingControllerException] Controller class InicioController could not be found.
+Exception Attributes: array (
+  'class' => 'InicioController',
+  'plugin' => NULL,
+)
+Request URL: /AmazonTrace/Inicio
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-05-12 12:11:03 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\AmazonTrace\app\Controller\ClientesController.php, line 35]
+2015-05-12 12:11:03 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /AmazonTrace/Clientes/index/nome/ale
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 35)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 35, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\Ama...', 35, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

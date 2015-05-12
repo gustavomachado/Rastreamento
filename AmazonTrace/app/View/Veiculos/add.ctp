@@ -202,7 +202,7 @@
                          <!--   <p  class="btn btn-default">Local Inst.</p>
                             <p  class="btn btn-default">Fiação</p> -->
                         </div> 
-                        <div class="panel panel-default">
+                        <div class="panel panel-default ">
                             <div class="panel-heading panel-instalados">
                                 <h5>Lista Rastreadores Adicionados 
                                     <span class="loading loading-adicionados">
@@ -213,9 +213,8 @@
                                     </span>
                                 </h5>
                             </div>
-                            <div class="panel-body adicionados   ui-widget-content ">
-
-                                <ul  >
+                            <div class="panel-body adicionados  scroll-panel ui-widget-content " >
+                                <ul >
                                     <?php foreach ($instalados as $instalado): ?>
                                     <li class="linha-instalados">
                                         <div id="<?= $instalado['Rastreador']['id'] ?>" class=" btn-group btn-group-justified"
@@ -235,7 +234,7 @@
                                 para desvincular e torná-los diponiveis para outros veiculos</p></strong> 
                     </div>
                     <div class="col-md-12">
-                        <div class="panel panel-default ">
+                        <div class="panel panel-default  ">
                             <div class="panel-heading panel-disponiveis">
                                 <h5>Lista Rastreadores Disponíveis 
                                     <span class="loading loading-disponiveis">
@@ -246,7 +245,7 @@
                                     </span>
                                 </h5>
                             </div>
-                            <div class="panel-body disponiveis      ">
+                            <div class="panel-body disponiveis  scroll-panel  ui-widget-content  ">
                                 <ul>
                                     <?php foreach ($disponiveis as $disponivel): ?>
                                     <li class="linha-disponiveis">
@@ -290,6 +289,7 @@
                 revert: "invalid",
                 appendTo: ".droppable",
                 drag: function () {
+                    $('.disponiveis').remove('scroll-panel');
                     console.log('Dragging');
                 }
             });

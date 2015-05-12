@@ -27,7 +27,7 @@ $(document).ready(function () {
         });
     }
 
-   
+
 
 
     if (typeof ($(".add-contato")) !== undefined) {
@@ -107,6 +107,41 @@ $(document).ready(function () {
         }
     });
     $('.alert').append('<button class="close" data-dismiss="alert" ><span class="flaticon-cancel19" ></span></button>');
+
+
+    $('.alert').append('<button class="close" data-dismiss="alert" ><span class="flaticon-cancel19" ></span></button>');
+
+    $('.money').maskMoney();
+
+    $('.numberOnly').keypress(function (e) {
+        if (e.keyCode > 47 && e.keyCode < 58) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    $('#btn-pesquisar').click(function () {
+        if ($('#pesquisar').val()) {
+            window.location = urlAtual + "/index/" + $('#filtro').val() + '/' + $('#pesquisar').val();
+        } else {
+            window.location = urlAtual;
+        }
+    });
+    $('#btn-pesquisar').css('cursor', 'pointer');
+    $('#pesquisar').keypress(function (e) {
+        if (e.keyCode === 13) {
+            if ($('#pesquisar').val()) {
+                window.location = urlAtual + "/index/" + $('#filtro').val() + '/' + $('#pesquisar').val();
+            } else {
+                window.location = urlAtual;
+            }
+        }
+    });
+    if ($('.actions').width() > 52) {
+        $('.actions').width(52);
+    }
+
 
 });
 
