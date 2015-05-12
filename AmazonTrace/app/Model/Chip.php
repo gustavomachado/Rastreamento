@@ -8,6 +8,10 @@ App::uses('AppModelStatus', 'Model');
  * @property Rastreador $Rastreador
  */
 class Chip extends AppModelStatus {
+    
+    public $virtualFields = array(
+        'id_numero' => 'CONCAT("[", Chip.id, "] ", Chip.numero_telefone)'
+    );
 
     //The Associations below have been created with all possible keys, those that are not needed can be removed
 

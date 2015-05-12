@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Rastreador $Rastreador
  */
 class HistoricoChip extends AppModel {
+  
 
 /**
  * Validation rules

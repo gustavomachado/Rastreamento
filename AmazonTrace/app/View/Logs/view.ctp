@@ -1,89 +1,80 @@
 <div class="logs view">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="page-header">
-				<h1><?php echo __('Log'); ?></h1>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1><?php echo __('Log'); ?></h1>
+            </div>
+        </div>
+    </div>
 
-	<div class="row">
+    <div class="row">
 
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Log'), array('action' => 'edit', $log['Log']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Log'), array('action' => 'delete', $log['Log']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $log['Log']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Logs'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Log'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Usuarios'), array('controller' => 'usuarios', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Usuario'), array('controller' => 'usuarios', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
+        <div class="col-md-12">			
+            <table cellpadding="0" cellspacing="0" class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th style="width: 190px; text-align: right"><?php echo __('Usuário Responsável'); ?></th>
+                        <td style="width: 210px;">
+                            <?php echo $this->Html->link($log['Usuario']['id'] . ' - ' . $log['Usuario']['nome'], array('controller' => 'usuarios', 'action' => 'view', $log['Usuario']['id'])); ?>
+                        </td>
+                        <th style="width: 190px; text-align: right"><?php echo __('Data'); ?></th>
+                        <td>
+                            <?php echo h(date('d/m/Y H:i:s', strtotime($log['Log']['created']))); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 190px; text-align: right"><?php echo __('Ação'); ?></th>
+                        <td style="width: 210px;">
+                            <?php echo h($log['Log']['acao']); ?>
+                        </td>
+                        <th style="width: 190px; text-align: right"><?php echo __('Tabela'); ?></th>
+                        <td>
+                            <?php echo h($log['Log']['tabela']); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 190px; text-align: right"><?php echo __('Dispositivo'); ?></th>
+                        <td style="width: 210px;">
+                            <?php echo h($log['Log']['dispositivo']); ?>
+                        </td>
+                        <th style="width: 190px; text-align: right"><?php echo __('Informação Adicional'); ?></th>
+                        <td>
+                            <?php echo h($log['Log']['informacao_adicional']); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">                            
+                            <h3><?php echo __('Dados'); ?></h3>
+                            <hr style="margin-top: 0px; margin-bottom: 5px">
+                            <?php
+                            foreach (json_decode($log['Log']['dados']) as $k => $valueJson) {
+                                foreach ($valueJson as $key => $value) {
+                                    if ($key == 'created') {
+                                        $key = 'Data';
+                                    } else {
+                                        $key = str_replace('_', ' ', $key);
+                                    }
+                                    ?>
+                                    <div class="col-md-3">
+                                        <?php
+                                        $isVerbo = in_array(substr($key, -2), array('ar', 'ir', 'er'));
+                                        if ($isVerbo) {
+                                            ($value == 1) ? $value = 'Sim' : $value = 'Não';
+                                        }
+                                        echo $this->Form->input($key, array('class' => 'form-control', 'value' => $value));
+                                        ?>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-		<div class="col-md-9">			
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
-				<tbody>
-				<tr>
-		<th><?php echo __('Id'); ?></th>
-		<td>
-			<?php echo h($log['Log']['id']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Usuario'); ?></th>
-		<td>
-			<?php echo $this->Html->link($log['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $log['Usuario']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Created'); ?></th>
-		<td>
-			<?php echo h($log['Log']['created']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Acao'); ?></th>
-		<td>
-			<?php echo h($log['Log']['acao']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Tabela'); ?></th>
-		<td>
-			<?php echo h($log['Log']['tabela']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Dispositivo'); ?></th>
-		<td>
-			<?php echo h($log['Log']['dispositivo']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Informacao Adicional'); ?></th>
-		<td>
-			<?php echo h($log['Log']['informacao_adicional']); ?>
-			&nbsp;
-		</td>
-</tr>
-				</tbody>
-			</table>
+        </div><!-- end col md 9 -->
 
-		</div><!-- end col md 9 -->
-
-	</div>
+    </div>
 </div>
 

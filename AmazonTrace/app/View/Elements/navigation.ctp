@@ -11,7 +11,7 @@
                 <li><a href="/AmazonTrace/Cadastros">
                         <span class='flaticon-add184'></span><br/>
                         Cadastros</a></li>
-                <li><a href="#contact">
+                <li><a href="/AmazonTrace/Relatorios">
                         <span class='flaticon-google132'></span><br/>
                         Relat&oacute;rios</a></li>
                 <li><a href="/AmazonTrace/Contratos">

@@ -13,6 +13,11 @@ App::uses('AppModelStatus', 'Model');
 class Rastreador extends AppModelStatus {
     //The Associations below have been created with all possible keys, those that are not needed can be removed
 
+      
+    public $virtualFields = array(
+        'id_modelo' => 'CONCAT("[", Rastreador.id, "] ", Rastreador.modelo)'
+    );
+    
     /**
      * belongsTo associations
      *

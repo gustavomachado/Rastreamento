@@ -1,89 +1,81 @@
 <div class="historicoChips index">
 
-	<div class="row">
-		<div class="col-md-12">
-			<div class="page-header">
-				<h1><?php echo __('Historico Chips'); ?></h1>
-			</div>
-		</div><!-- end col md 12 -->
-	</div><!-- end row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1><?php echo __('Histórico Chips'); ?></h1>
+            </div>
+        </div><!-- end col md 12 -->
+    </div><!-- end row -->
 
+    <div class="row">
 
+        <div>
+            <div class="form-group col-md-2">
+                <label>Chip</label>
+                <?php echo $this->Form->input('filtro', array('options' => $chips, 'class' => 'form-control', 'value' => $filtro, 'empty' => array(0 => 'Selecione'), 'label' => false)) ?>
+            </div>
+            <label>Rastreador</label>
+            <div class="form-group input-group col-md-3">
+                <?php echo $this->Form->input('pesquisar', array('options' => $rastreadores, 'class' => 'form-control', 'style' => 'border-bottom-left-radius: 4px; border-top-left-radius: 4px', 'label' => false, 'value' => $pesquisa, 'empty' => array(0 => 'Selecione'))) ?>
+                <a id="btn-pesquisar" class="input-group-addon btn-info">
+                    <span class="glyphicon glyphicon-filter"></span>
+                </a>
+            </div>
+        </div>
 
-	<div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12 scroll-content" style="height: 500px">
+                <table cellpadding="0" cellspacing="0" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><?php echo $this->Paginator->sort('chip_id'); ?></th>
+                            <th><?php echo $this->Paginator->sort('rastreador_id'); ?></th>
+                            <th><?php echo $this->Paginator->sort('data_inicio'); ?></th>
+                            <th><?php echo $this->Paginator->sort('data_fim'); ?></th>
+                            <th><?php echo $this->Paginator->sort('informacao_adicional'); ?></th>
+                            <th class="actions"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($historicoChips as $historicoChip): ?>
+                            <tr>
+                                <td>
+                                    <?php echo ($historicoChip['Chip']['status_reg'] !== '1') ? $this->Html->link($historicoChip['Chip']['id'] . ' - ' . $historicoChip['Chip']['numero_telefone'], array('controller' => 'chips', 'action' => 'cadastro', $historicoChip['Chip']['id'])) : '<span style="color: red">'. h($historicoChip['Chip']['id'] . ' - ' . $historicoChip['Chip']['numero_telefone']).'</span>'; ?>
+                                </td>
+                                <td>
+                                    <?php echo ($historicoChip['Rastreador']['status_reg'] !== '1') ? $this->Html->link($historicoChip['Rastreador']['id'] . ' - ' . $historicoChip['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'edit', $historicoChip['Rastreador']['id'])) : '<span style="color: red">'. h($historicoChip['Rastreador']['id'] . ' - ' . $historicoChip['Rastreador']['modelo']).'</span>'; ?>
+                                </td>
+                                <td><?php echo h(date('d/m/Y H:i:s', strtotime($historicoChip['HistoricoChip']['data_inicio']))); ?>&nbsp;</td>
+                                <td><?php echo h(date('d/m/Y H:i:s', strtotime($historicoChip['HistoricoChip']['data_fim']))); ?>&nbsp;</td>
+                                <td><?php echo h($historicoChip['HistoricoChip']['informacao_adicional']); ?>&nbsp;</td>
+                                <td class="actions">
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $historicoChip['HistoricoChip']['id']), array('escape' => false)); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <small><?php echo $this->Paginator->counter(array('format' => __('Página {:page} de {:pages}, mostrando {:current} registros do total de {:count}, começando no registro {:start}, que termina em {:end}'))); ?></small>
+            </p>
 
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading">Actions</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Historico Chip'), array('action' => 'add'), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Chips'), array('controller' => 'chips', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Chip'), array('controller' => 'chips', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Rastreadors'), array('controller' => 'rastreadors', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Rastreador'), array('controller' => 'rastreadors', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
+            <?php
+            $params = $this->Paginator->params();
+            if ($params['pageCount'] > 1) {
+                ?>
+                <ul class="pagination pagination-sm">
+                    <?php
+                    echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev', 'tag' => 'li', 'escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled', 'tag' => 'li', 'escape' => false));
+                    echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a'));
+                    echo $this->Paginator->next('Next &rarr;', array('class' => 'next', 'tag' => 'li', 'escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled', 'tag' => 'li', 'escape' => false));
+                    ?>
+                </ul>
+            <?php } ?>
 
-		<div class="col-md-9">
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
-				<thead>
-					<tr>
-						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('chip_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('rastreador_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('data_inicio'); ?></th>
-						<th><?php echo $this->Paginator->sort('data_fim'); ?></th>
-						<th><?php echo $this->Paginator->sort('informacao_adicional'); ?></th>
-						<th class="actions"></th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php foreach ($historicoChips as $historicoChip): ?>
-					<tr>
-						<td><?php echo h($historicoChip['HistoricoChip']['id']); ?>&nbsp;</td>
-								<td>
-			<?php echo $this->Html->link($historicoChip['Chip']['id'], array('controller' => 'chips', 'action' => 'view', $historicoChip['Chip']['id'])); ?>
-		</td>
-								<td>
-			<?php echo $this->Html->link($historicoChip['Rastreador']['id'], array('controller' => 'rastreadors', 'action' => 'view', $historicoChip['Rastreador']['id'])); ?>
-		</td>
-						<td><?php echo h($historicoChip['HistoricoChip']['data_inicio']); ?>&nbsp;</td>
-						<td><?php echo h($historicoChip['HistoricoChip']['data_fim']); ?>&nbsp;</td>
-						<td><?php echo h($historicoChip['HistoricoChip']['informacao_adicional']); ?>&nbsp;</td>
-						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $historicoChip['HistoricoChip']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $historicoChip['HistoricoChip']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $historicoChip['HistoricoChip']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $historicoChip['HistoricoChip']['id'])); ?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
-
-			<p>
-				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
-			</p>
-
-			<?php
-			$params = $this->Paginator->params();
-			if ($params['pageCount'] > 1) {
-			?>
-			<ul class="pagination pagination-sm">
-				<?php
-					echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
-					echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
-					echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
-				?>
-			</ul>
-			<?php } ?>
-
-		</div> <!-- end col md 9 -->
-	</div><!-- end row -->
+        </div> <!-- end col md 9 -->
+    </div><!-- end row -->
 
 
 </div><!-- end containing of content -->
