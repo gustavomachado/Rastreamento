@@ -5,7 +5,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/AmazonTrace/">
+                <li class="active"><a href="/AmazonTrace/Inicio">
                         <span class='flaticon-home149'></span><br/>
                         Início</a></li>
                 <li><a href="/AmazonTrace/Cadastros">

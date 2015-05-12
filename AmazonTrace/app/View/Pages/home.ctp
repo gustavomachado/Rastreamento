@@ -34,10 +34,10 @@
                                 <td><?php echo h($notificacao['Mensalidade']['status'] == 0) ? 'Em Aberto' : 'Paga'; ?></td>
                                 <td style="text-align: right"><?php echo $notificacao['Contrato']['valor_mensalidade'] ?></td>
                                 <td>
-                                    <div class="btn-receber-notify">
+                                    <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'receber')) ?>" class="btn-receber-notify">
                                         <span class="glyphicon glyphicon-usd"></span><span class="glyphicon glyphicon-check"></span>
                                         Receber
-                                    </div>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

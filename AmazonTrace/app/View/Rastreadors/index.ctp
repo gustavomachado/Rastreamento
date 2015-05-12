@@ -45,8 +45,8 @@
                             <td><?php echo h($rastreador['Rastreador']['marca']); ?>&nbsp;</td>
                             <td><?php echo h($rastreador['Rastreador']['numero_equipamento']); ?>&nbsp;</td>
                             <td><?php echo h($rastreador['Rastreador']['numero_serie']); ?>&nbsp;</td>
-                            <td><?php echo h($rastreador['Rastreador']['data_instalacao']); ?>&nbsp;</td>
-                            <td><?php echo h($rastreador['Rastreador']['data_remocao']); ?>&nbsp;</td>
+                            <td><?php echo ($rastreador['Rastreador']['data_instalacao']) ? date('d/m/Y', strtotime($rastreador['Rastreador']['data_instalacao'])) : 'Não definida'; ?>&nbsp;</td>
+                            <td><?php echo ($rastreador['Rastreador']['data_remocao']) ? date('d/m/Y', strtotime($rastreador['Rastreador']['data_remocao'])) : 'Não definida'; ?>&nbsp;</td>
                             <td class="actions">
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $rastreador['Rastreador']['id']), array('escape' => false)); ?>
                                 <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $rastreador['Rastreador']['id']), array('escape' => false), __('Deseja realmente excluir este Rastreador [%s] ?', $rastreador['Rastreador']['id'])); ?>

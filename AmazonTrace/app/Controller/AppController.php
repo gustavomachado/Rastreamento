@@ -67,7 +67,7 @@ class AppController extends Controller {
             array_push($urlPaginas, strtoupper($page['Pagina']['url']));
         }
         $paginas = array_map($this->converteArrayParaMauisculo, $urlPaginas);
-        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' ) || strtoupper($this->params['controller'])  == 'PAGES') {
+        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' ) || strtoupper($this->params['controller'])  == 'INICIO' || strtoupper($this->params['controller'])  == 'PAGES') {
             return true;
         } else {
             return false;

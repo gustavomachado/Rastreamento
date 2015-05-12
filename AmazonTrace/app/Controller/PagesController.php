@@ -47,6 +47,8 @@ class PagesController extends AppController {
      * 	or MissingViewException in debug mode.
      */
     public function display() {
+        $this->redirect(array('controller' => 'Inicio', 'action' => 'index'));
+        exit;
         $path = func_get_args();
 
         $this->verificarMensalidades();
@@ -78,6 +80,11 @@ class PagesController extends AppController {
         }
     }
     
+    public function receber($id = NULL) {
+        $this->render(false, false);
+        $this->redirect(array('controller' => 'pages'));
+    }
+
     public function gerarNotificacoes() {
         $notificacoes = $this->Mensalidade->find('all', array('conditions' => array('Mensalidade.status' => 0)));
         $this->set(compact('notificacoes'));
@@ -107,12 +114,12 @@ class PagesController extends AppController {
         $this->gerarNotificacoes();
         $this->set(compact('mensalidades'));
     }
-    
-    public function removerNotificacao(){
+
+    public function removerNotificacao() {
         $mensalidade = $_REQUEST['id_mensalidade'];
-        if($this->Mensalidade->save(array('id' => $mensalidade, 'status' => 1))){
+        if ($this->Mensalidade->save(array('id' => $mensalidade, 'status' => 1))) {
             echo 'sucess';
-        }else {
+        } else {
             echo 'erro';
         }
     }

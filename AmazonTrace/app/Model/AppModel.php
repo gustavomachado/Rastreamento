@@ -62,7 +62,7 @@ class AppModel extends Model {
         $conta = $appController->Auth->user()['Conta'];
         $pagina = Router::getParams()['controller'];
         $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $conta['id'], 'Pagina.url' => $pagina)));
-        if (strtoupper(Router::getParams()['controller']) !== 'PAGES') {
+        if (strtoupper(Router::getParams()['controller']) !== 'INICIO') {
             if (isset($acessos[0]['Acesso']['editar'])) {
                 if (!$acessos[0]['Acesso']['editar'] == 1) {
                     $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
