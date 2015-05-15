@@ -58,9 +58,10 @@ class AppController extends Controller {
     public function converteArrayParaMauisculo($value) {
         return strtoupper($value);
     }
+	
     public function permitirPagina() {
-        $conta = $this->Auth->user()['Conta'];
-        $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $conta['id'], 'visualizar' => 1)));
+        $usuario = $this->Auth->user();		
+        $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'visualizar' => 1)));
         $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('id','url'), 'conditions' => array('id' => $acessos)));
         $urlPaginas = array();
         foreach ($paginas_permitidas as $page){
