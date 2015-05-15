@@ -9,7 +9,7 @@ App::uses('AppModelStatus', 'Model');
  * @property Log $Log
  */
 class User extends AppModelStatus {
-    public $useTable = 'Usuarios';
+    public $useTable = 'usuarios';
     public $primaryKey = 'id';
     
     public function beforeSave($options = array()) {

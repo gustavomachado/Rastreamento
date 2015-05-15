@@ -38,9 +38,9 @@ class AppModel extends Model {
         parent::beforeDelete($cascade);
         $appController = new AppController();
         $appController->constructClasses();
-        $conta = $appController->Auth->user()['Conta'];
+        $usuario = $appController->Auth->user();
         $pagina = Router::getParams()['controller'];
-        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'excluir'), 'conditions' => array('conta_id' => $conta['id'], 'Pagina.url' => $pagina)));
+        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'excluir'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina)));
         if (isset($acessos[0]['Acesso']['excluir'])) {
             if (!$acessos[0]['Acesso']['excluir'] == 1) {
                 $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para excluir registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
@@ -59,9 +59,9 @@ class AppModel extends Model {
         parent::beforeSave($options);
         $appController = new AppController();
         $appController->constructClasses();
-        $conta = $appController->Auth->user()['Conta'];
+        $usuario = $appController->Auth->user();
         $pagina = Router::getParams()['controller'];
-        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $conta['id'], 'Pagina.url' => $pagina)));
+        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina)));
         if (strtoupper(Router::getParams()['controller']) !== 'INICIO') {
             if (isset($acessos[0]['Acesso']['editar'])) {
                 if (!$acessos[0]['Acesso']['editar'] == 1) {
