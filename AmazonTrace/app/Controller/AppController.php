@@ -32,11 +32,10 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    var $uses = array('Pagina', 'Acesso');
+    public $uses = array('Pagina', 'Acesso');
     public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'loginError' => 'ERRO',
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
             'authError' => '<div class="alert alert-danger"><span class="flaticon-locked57"></span>É necessário realizar Login para acessar o sistema.</div>',
@@ -54,11 +53,10 @@ class AppController extends Controller {
             }
         }
     }
-    
+
     public function converteArrayParaMauisculo($value) {
         return strtoupper($value);
     }
-	
     public function permitirPagina() {
         $usuario = $this->Auth->user();		
         $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'visualizar' => 1)));

@@ -1,7 +1,7 @@
 <?php
 
 class CadastrosController extends AppController {
-    var $uses = array('Pagina', 'Acesso');
+    public $uses = array('Pagina', 'Acesso');
     
     public function beforeFilter() {
         parent::beforeFilter();
