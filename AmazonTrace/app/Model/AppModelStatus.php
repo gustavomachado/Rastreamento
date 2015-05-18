@@ -32,11 +32,28 @@ class AppModelStatus extends AppModel {
     }
 
     public function delete($id = NULL, $cascade = NULL) {
+        
+        $usuario = $appController->Auth->user();
+        $pagina = Router::getParams()['controller'];
+        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'excluir'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina)));
+        if (isset($acessos[0]['Acesso']['excluir'])) {
+            if (!$acessos[0]['Acesso']['excluir'] == 1) {
+                $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para excluir registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
+                header("location:../");
+                exit;
+            }
+        } else {
+            $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada<br>Você não tem permissão para excluir registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
+            header("location:../");
+            exit;
+        }        
         if ($this->save(array('id' => $this->id, 'status_reg' => 1))) {
             return true;
         } else {
             return false;
         }
+        
+        $this->gravarLog('Excluir', '[' . $this->id . '] ' . $this->name . ' - ' . Router::getParam('action'));
     }
 
 }
