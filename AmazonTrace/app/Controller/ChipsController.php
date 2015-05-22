@@ -56,7 +56,8 @@ class ChipsController extends AppController {
         if ($this->Chip->save($this->request->data)) {
             $options = array('conditions' => array('Chip.' . $this->Chip->primaryKey => $_REQUEST['id']));
             $chip = $this->Chip->find('first', $options);
-            echo json_encode($chip);
+            $result = array('status' => 1);
+            echo json_encode($result);
         }
     }
 
@@ -70,7 +71,8 @@ class ChipsController extends AppController {
         $updateHistorico = array('id' => $historicoChipRast['HistoricoChip']['id'], 'data_fim' => date('Y-m-d H:i:s'));
         $this->Chip->HistoricoChip->save($updateHistorico);
         if ($this->Chip->save($this->request->data)) {
-            echo 'sucess';
+            $result = array('status' => 1);
+            echo json_encode($result);
         }
     }
 

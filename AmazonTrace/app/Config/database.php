@@ -71,9 +71,9 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => '172.16.15.42',
-		'login' => 'gustavo',
-		'password' => 'gsm@02011986',
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '',
 		'database' => 'db_am_trace',
 		'prefix' => '',
 		'encoding' => 'utf8',

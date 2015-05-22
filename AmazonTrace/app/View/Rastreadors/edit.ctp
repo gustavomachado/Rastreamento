@@ -43,14 +43,7 @@
                     </button>
                 </div>
             </div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->label('Data Instalação') ?>
-                <?php echo $this->Form->date('data_instalacao', array('class' => 'form-control', 'dateFormat' => 'DMY', 'disabled' => 'disabled')); ?>
-            </div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->label('Data Remoção') ?>
-                <?php echo $this->Form->date('data_remocao', array('class' => 'form-control', 'dateFormat' => 'DMY', 'disabled' => 'disabled')); ?>
-            </div>
+      
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
@@ -83,132 +76,88 @@
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true" id="modal-rast-chips" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog" style="width: 680px">
+    <div class="modal-dialog  modal-lg" >
         <div class="modal-content">
             <div class="modal-header  ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Vincular Chips</h4>
             </div>
             <div class="modal-body  ">
-                <div class="row">
-                    <div>
-                        <div>
-                            <script>
-                                function vincularChip() {
-                                    if ($('#chip').val().split(',')[0] && $('#RastreadorId').val()) {
-                                        var exist = new Boolean(false);
-                                        $('#tb-chips-in-rastreadores tr').each(function () {
-                                            if (this.cells[0].innerText.trim() === $('#chip').val().split(',')[0]) {
-                                                alert('Chip já vinculado a este Rastreador');
-                                                exist = true;
-                                            }
-                                        });
-                                        if (exist === true) {
-                                            return false;
-                                        }
-                                        if ($('#chip').val().split(',')[1] && $('#chip').val().split(',')[1] !== $('#RastreadorId').val()) {
-                                            if (!confirm("Este Chip já está vinculado a um Rastreador #" + $('#chip').val().split(',')[1] + ".\nDeseja desfazer o vínculo e vincula-lo a este Rastreador #" + $('#RastreadorId').val() + " ?")) {
-                                                return false;
-                                            }
-                                        }
-                                        $.ajax({
-                                            type: 'GET',
-                                            url: "<?php echo $this->Html->url(array('action' => 'vincularChip', 'controller' => 'Chips')); ?>",
-                                            data: {id: $('#chip').val().split(',')[0], rastreador_id: $('#RastreadorId').val()},
-                                            success: function (data) {
-                                                var json = JSON.parse(data);
-                                                $('#tb-chips-in-rastreadores').append(
-                                                        "<tr>\n\
-                                                            <td>" + json.Chip.id + " &nbsp;</td>\n\
-                                                            <td>" + json.Operadora.nome+ " &nbsp;</td>\n\
-                                                            <td>" + json.Chip.numero_telefone + " &nbsp;</td>\n\
-                                                            <td>" + json.Chip.numero_chip + " &nbsp;</td>\n\
-                                                            <td>" + json.Chip.apn + " &nbsp;</td>\n\
-                                                            <td><a href='#' title='Desvincular Chip' onclick='desvincularChip(" + json.Chip.id + ")'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
-                                                        </tr>"
-                                                        );
-                                            },
-                                            error: function (jqXHR, textStatus, errorThrown) {
-                                                alert(errorThrown);
-                                            }
-                                        });
-                                    }
-                                }
+                <div class=" row">
+                    <div class="col-md-12">
+                        <div class="btn-group btn-group-justified restreadores-header" >
+                            <p  class="btn btn-default ">Operadora</p>
+                            <p  class="btn btn-default">Número Telefone</p>
+                            <p  class="btn btn-default">Número do Chip</p>
+                            <p  class="btn btn-default">Apn</p>
+                         <!--   <p  class="btn btn-default">Local Inst.</p>
+                            <p  class="btn btn-default">Fiação</p> -->
+                        </div> 
+                        <div class="panel panel-default ">
+                            <div class="panel-heading panel-instalados">
+                                <h5>Lista Chips Adicionados 
+                                    <span class="loading loading-adicionados">
+                                        <?php echo $this->Html->image("ajax_loader.gif", array()); ?> salvando . . .
+                                    </span>
+                                    <span class="sort-msg">
 
-                                function desvincularChip(id) {
-                                    if (confirm('Deseja relamente desvincular este Chip?')) {
-                                        if ($('#RastreadorId').val()) {
-                                            $.ajax({
-                                                type: 'GET',
-                                                url: "<?php echo $this->Html->url(array('action' => 'desvincularChip', 'controller' => 'Chips',)); ?>",
-                                                data: {id: id},
-                                                success: function (data) {
-                                                    $('#tb-chips-in-rastreadores tr').each(function () {
-                                                        if (this.cells[0].innerText.trim() == id) {
-                                                            document.getElementById('tb-chips-in-rastreadores').deleteRow(this.rowIndex - 1);
-                                                        }
-                                                    });
-                                                },
-                                                error: function (jqXHR, textStatus, errorThrown) {
-                                                    alert(errorThrown);
-                                                }
-                                            });
-                                        }
-                                    }
-                                }
-                            </script>
-                            <div class="col-md-12">                                
-                                <?php echo $this->Form->label('Chip') ?>
+                                    </span>
+                                </h5>
                             </div>
-                            <div class="col-md-9">
-                                <select id="chip" class="form-control">
-                                    <option value="">Selecione um Chip</option>
-                                    <?php
-                                    foreach ($chips as $chip):
-                                        echo '<option value="' . $chip['Chip']['id'] . ',' . $chip['Chip']['rastreador_id'] . '">[' . $chip['Chip']['id'] . '] ' . $chip['Chip']['operadora'] . ' - ' . $chip['Chip']['numero_telefone'] . '</option>';
-                                    endforeach;
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-default" id="btnVincularChip" onclick="vincularChip()" ><span class="glyphicon glyphicon-link"></span> Vincular</button>
-                            </div>
+                            <div class="panel-body adicionados  scroll-panel ui-widget-content " >
+                                <ul >
+                                    <?php foreach ($chipsInRastreador as $instalado): ?>
+                                    <li class="linha-instalados">
+                                        <div id="<?= $instalado['Chip']['id'] ?>" class=" btn-group btn-group-justified"
+                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
+                                            <p class="btn btn-default"><?= $instalado['Chip']['operadora_id'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Chip']['numero_telefone'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Chip']['numero_chip'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Chip']['apn'] ?></p>
 
-                        </div>
-                        <div class="col-md-12">
-                            <hr/>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-12 scroll-content" style="height: 170px;">
-                                <table class="table table-striped">
-                                    <thead class="fixedHeader">
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Operadora</th>
-                                            <th>Número Telefone</th>
-                                            <th>Número Chip</th>
-                                            <th>Apn</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tb-chips-in-rastreadores">
-                                        <?php foreach ($chipsInRastreador as $chip): ?>
-                                            <tr> 
-                                                <td><?php echo h($chip['Chip']['id']); ?>&nbsp;</td>
-                                                <td><?php echo h($chip['Operadora']['nome']); ?>&nbsp;</td>
-                                                <td><?php echo h($chip['Chip']['numero_telefone']); ?>&nbsp;</td>
-                                                <td><?php echo h($chip['Chip']['numero_chip']); ?>&nbsp;</td>
-                                                <td><?php echo h($chip['Chip']['apn']); ?>&nbsp;</td>
-                                                <td class="actions">
-                                                    <a href="#" title="Desvincular Chip" onclick="desvincularChip(<?php echo $chip['Chip']['id'] ?>)" ><span class='glyphicon glyphicon-remove'></span></a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
+                                        </div>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+
                             </div>
                         </div>
+                        <strong><p>Arraste os Chips para a área de chips disponíeis
+                                para desvincular e torná-los diponiveis para outros Rastreadores</p></strong> 
                     </div>
+                    <div class="col-md-12">
+                        <div class="panel panel-default  ">
+                            <div class="panel-heading panel-disponiveis">
+                                <h5>Lista Chips Disponíveis 
+                                    <span class="loading loading-disponiveis">
+                                        <?php echo $this->Html->image("ajax_loader.gif", array()); ?> removendo . . .
+                                    </span>
+                                    <span class="sort-msg">
+
+                                    </span>
+                                </h5>
+                            </div>
+                            <div class="panel-body disponiveis  scroll-panel  ui-widget-content  ">
+                                <ul>
+                                    <?php foreach ($chips as $disponivel): ?>
+                                    <li class="linha-disponiveis">
+                                        <div id="<?= $disponivel['Chip']['id'] ?>" class=" btn-group btn-group-justified"
+                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
+                                            <p class="btn btn-default"><?= $disponivel['Chip']['operadora_id'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Chip']['numero_telefone'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Chip']['numero_chip'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Chip']['apn'] ?></p>
+
+                                        </div>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <strong><p>Arraste os Chips para a área de chips adicionados
+                                para desvincular do Rastreador</p></strong>
+                    </div>
+
                 </div>
             </div>
             <div class="modal-footer  ">
@@ -218,3 +167,142 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<script>
+    if (typeof ($(".linha-disponiveis")) !== undefined) {
+        $(".linha-disponiveis").draggable({
+            revert: "invalid",
+            appendTo: ".droppable",
+            drag: function () {
+                $('.disponiveis').remove('scroll-panel');
+                console.log('Dragging');
+            }
+        });
+        $(".linha-instalados").draggable({
+            revert: "invalid",
+            appendTo: ".droppable",
+            drag: function () {
+                console.log('Dragging');
+            }
+        });
+        $(".adicionados ul").droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover watting-drop",
+            accept: ".linha-disponiveis",
+            drop: function (event, ui) {
+
+                $('.loading-adicionados').css("display", 'inline-block');
+                var idChip = ui.draggable.find('div').attr('id');
+                var idRastreador = ui.draggable.find('div').attr('data-target');
+                $.ajax({
+                    type: 'GET',
+                    url: "<?php echo $this->Html->url(array('action' => 'vincularChip', 'controller' => 'chips')); ?>",
+                    data: {"id": idChip, "rastreador_id": idRastreador},
+                    async: true,
+                    success: function (dataJson) {
+                        var data = $.parseJSON(dataJson);
+                        $('.loading-adicionados').css("display", 'none');
+                        var msg='';
+                        var classe = "text-warning ";
+                        switch ((data.status)) {
+                            case 0:
+                                msg = ("Falha ao Adicionar Chip");
+                                break;
+                            case 1:
+                                msg = ("Chip Adicionado Com Sucesso!");
+                                classe = "text-success";
+                                break;
+                            case 2:
+                                msg = ("Falha ao Adicionar Chip. Chip está vinculado à Outro Rastreador!");
+                                break;
+                        }
+                        $('.loading-instalados').css("display", 'none');
+                        $('.panel-instalados .sort-msg')
+                                .append($('<strong>')
+                                        .addClass(classe)
+                                        .addClass("pull-right")
+                                        .html(msg.toUpperCase()))
+                                .fadeIn(2000);
+
+                        setTimeout(function () {
+                            $('.panel-instalados .sort-msg strong').fadeOut(1000);
+                        },
+                                2000);
+                        setTimeout(function () {
+                            $('.panel-instalados .sort-msg strong').remove();
+                        },
+                                3100);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(jqXHR);
+                        alert(textStatus);
+                        alert(errorThrown);
+                    }
+                });
+                $(this).append($("<li>").addClass('linha-instalados').append(ui.draggable.html()).draggable({
+                    revert: "invalid",
+                    appendTo: ".droppable"
+                }));
+                ui.draggable.remove();
+            }
+        }).sortable();
+        $(".disponiveis ul").droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover watting-drop",
+            accept: ".linha-instalados",
+            drop: function (event, ui) {
+                $('.loading-disponiveis').css("display", 'inline-block');
+                var idChip = ui.draggable.find('div').attr('id');
+                var idRastreador = ui.draggable.find('div').attr('data-target');
+                $.ajax({
+                    type: 'GET',
+                    url: "<?php echo $this->Html->url(array('action' => 'desvincularChip', 'controller' => 'chips')); ?>",
+                    data: {"id": idRastreador, 'rastreador_id': idRastreador},
+                    async: true,
+                    success: function (dataJson) {
+                        var data = $.parseJSON(dataJson);
+                        var msg='';
+                        var classe = "text-warning ";
+                        switch ((data.status)) {
+                            case 0:
+                                msg = ("Falha ao Remover Chip");
+                                break;
+                            case 1:
+                                msg = ("Chip Removido Com Sucesso!");
+                                classe = "text-success";
+                                break;
+                            case 2:
+                                msg = ("Falha ao Remover chip");
+                                break;
+                        }
+                        $('.loading-disponiveis').css("display", 'none');
+                        $('.panel-disponiveis .sort-msg')
+                                .append($('<strong>')
+                                        .addClass(classe)
+                                        .addClass("pull-right")
+                                        .html(msg.toUpperCase()))
+                                .fadeIn(2000);
+
+                        setTimeout(function () {
+                            $('.panel-disponiveis .sort-msg strong').fadeOut(1000);
+                        },
+                                2000);
+                        setTimeout(function () {
+                            $('.panel-disponiveis .sort-msg strong').remove();
+                        },
+                                3100);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(jqXHR);
+                        alert(textStatus);
+                        alert(errorThrown);
+                    }
+                });
+                $(this).append($("<li>").addClass('linha-disponiveis').append(ui.draggable.html()).draggable({
+                    revert: "invalid",
+                    appendTo: ".droppable"
+                }));
+                ui.draggable.remove();
+            }
+        }).sortable();
+    }
+</script>
