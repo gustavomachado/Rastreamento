@@ -114,7 +114,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo (isset($this->data['Conta']['id']) ? 'Editar Conta' : 'Cadastrar Conta'); ?></h1>
+                <h1><?php echo (isset($this->data['Conta']['id']) ? 'Editar Perfil' : 'Cadastrar Pefil'); ?></h1>
             </div>
         </div>
     </div>

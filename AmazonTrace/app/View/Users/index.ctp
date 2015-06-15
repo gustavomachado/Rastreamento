@@ -29,7 +29,7 @@
                 <thead>
                     <tr>
                         <th><?php echo $this->Paginator->sort('id'); ?></th>
-                        <th><?php echo $this->Paginator->sort('conta_id'); ?></th>
+                        <th><?php echo $this->Paginator->sort('conta_id', 'Perfil'); ?></th>
                         <th><?php echo $this->Paginator->sort('nome'); ?></th>
                         <th><?php echo $this->Paginator->sort('email'); ?></th>
                         <th><?php echo $this->Paginator->sort('observação'); ?></th>
@@ -41,7 +41,7 @@
                     <tr>
                         <td><?php echo h($usuario['User']['id']); ?>&nbsp;</td>
                         <td>
-			<?php echo $this->Html->link($usuario['Conta']['id'] . ' - '.$usuario['Conta']['descricao'], array('controller' => 'contas', 'action' => 'cadastro', $usuario['Conta']['id'])); ?>
+      <?php echo $this->Html->link($usuario['Conta']['id'] . ' - '.$usuario['Conta']['descricao'], array('controller' => 'contas', 'action' => 'cadastro', $usuario['Conta']['id'])); ?>
                         </td>
                         <td><?php echo h($usuario['User']['nome']); ?>&nbsp;</td>
                         <td><?php echo h($usuario['User']['email']); ?>&nbsp;</td>
@@ -63,13 +63,13 @@
                 if ($params['pageCount'] > 1) {
                 ?>
             <ul class="pagination pagination-sm">
-				<?php
-					echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
-					echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
-					echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
-				?>
+        <?php
+          echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
+          echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
+          echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
+        ?>
             </ul>
-			<?php } ?>
+      <?php } ?>
 
         </div> <!-- end col md 9 -->
     </div><!-- end row -->

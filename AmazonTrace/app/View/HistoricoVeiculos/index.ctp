@@ -3,15 +3,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo __('Historico Veiculos'); ?></h1>
+                <h1><?php echo __('Histórico de Veículos'); ?></h1>
             </div>
         </div><!-- end col md 12 -->
     </div><!-- end row -->
 
     <div class="row">
         <div>
-            <div class="form-group col-md-2">
-                <label>Chip</label>
+            <div class="form-group col-md-3">
+                <label>Veículo</label>
                 <?php echo $this->Form->input('filtro', array('options' => $veiculos, 'class' => 'form-control', 'value' => $filtro, 'empty' => array(0 => 'Selecione'), 'label' => false)) ?>
             </div>
             <label>Rastreador</label>
@@ -35,19 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-				<?php foreach ($historicoVeiculos as $historicoVeiculo): ?>
+        <?php foreach ($historicoVeiculos as $historicoVeiculo): ?>
                         <tr>
                             <td><?php echo h($historicoVeiculo['HistoricoVeiculo']['id']); ?>&nbsp;</td>
                             <td>
-			<?php echo $this->Html->link($historicoVeiculo['Veiculo']['marca'] . ' ' . $historicoVeiculo['Veiculo']['modelo'] . ' - ' . $historicoVeiculo['Veiculo']['placa'], array('controller' => 'veiculos', 'action' => 'view', $historicoVeiculo['Veiculo']['id'])); ?>
+      <?php echo $this->Html->link($historicoVeiculo['Veiculo']['marca'] . ' ' . $historicoVeiculo['Veiculo']['modelo'] . ' - ' . $historicoVeiculo['Veiculo']['placa'], array('controller' => 'veiculos', 'action' => 'view', $historicoVeiculo['Veiculo']['id'])); ?>
                             </td>
                             <td>
-			<?php echo $this->Html->link($historicoVeiculo['Rastreador']['id'] . ' - ' . $historicoVeiculo['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'view', $historicoVeiculo['Rastreador']['id'])); ?>
+      <?php echo $this->Html->link($historicoVeiculo['Rastreador']['id'] . ' - ' . $historicoVeiculo['Rastreador']['modelo'], array('controller' => 'rastreadors', 'action' => 'view', $historicoVeiculo['Rastreador']['id'])); ?>
                             </td>
                             <td><?php echo h(date('d/m/Y H:i:s', strtotime($historicoVeiculo['HistoricoVeiculo']['data_inicio']))); ?>&nbsp;</td>
                             <td><?php echo ($historicoVeiculo['HistoricoVeiculo']['data_fim']) ? h(date('d/m/Y H:i:s', strtotime($historicoVeiculo['HistoricoVeiculo']['data_fim']))) : 'Não definida'; ?>&nbsp;</td>
                         </tr>
-				<?php endforeach; ?>
+        <?php endforeach; ?>
                     </tbody>
                 </table>
 

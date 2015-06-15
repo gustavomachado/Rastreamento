@@ -25,9 +25,9 @@ class LogsController extends AppController {
     public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Log->recursive = 0;
         $this->set('filtros', array('Usuario.nome' => 'Usuario', 'Log.created' => 'Data', 'Log.tabela' => 'Tabela', 'Log.acao' => 'Ação'));
-        $this->paginate = array('limit' => 20, 'order' => 'Log.created DESC');
+        $this->paginate = array('limit' => 50, 'order' => 'Log.created DESC');
         if ($filtro && $pesquisa) {            
-            $this->paginate = array('limit' => 20, 'conditions' => array($filtro . ' LIKE' => '%' . $pesquisa . '%'), 'order' => 'Log.created DESC');
+            $this->paginate = array('limit' => 50, 'conditions' => array($filtro . ' LIKE' => '%' . $pesquisa . '%'), 'order' => 'Log.created DESC');
         }        
         $this->set('pesquisa', $pesquisa);
         $this->set('filtro', $filtro);

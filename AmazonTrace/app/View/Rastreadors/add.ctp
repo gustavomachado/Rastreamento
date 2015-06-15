@@ -36,11 +36,7 @@
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->label('Data Instalação') ?>
-                <?php echo $this->Form->date('data_instalacao', array('class' => 'form-control', 'dateFormat' => 'DMY')); ?>
-            </div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->label('Data Remoção') ?>
-                <?php echo $this->Form->date('data_remocao', array('class' => 'form-control', 'dateFormat' => 'DMY')); ?>
+                <?php echo $this->Form->date('data_instalacao', array('class' => 'form-control', 'dateFormat' => 'DMY', 'disabled'=>'disabled')); ?>
             </div>
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>

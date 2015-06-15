@@ -22,12 +22,12 @@
                     <?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
                 </div>
                 <div class="form-group col-md-4">
-                    <?php echo $this->Form->input('conta_id', array('class' => 'form-control', 'placeholder' => 'Conta Id'));?>
+                    <?php echo $this->Form->input('conta_id', array('class' => 'form-control', 'placeholder' => 'Conta Id', 'label' => 'Perfil'));?>
                 </div>
             </div>
             <div class="col-md-12" style="padding-left: 0px">
                 <div class="form-group col-md-3">
-                    <?php echo $this->Form->input('senha', array('class' => 'form-control', 'required' => 'required', 'type'=>'password' , 'placeholder' => 'Senha'));?>
+                    <?php echo $this->Form->input('senha', array('class' => 'form-control', 'required' => 'required', 'type'=>'password' , 'placeholder' => 'Senha', 'value' => ''));?>
                 </div>
                 <div class="form-group col-md-3">
                     <?php echo $this->Form->input('confirmar_senha', array('class' => 'form-control', 'required' => 'required', 'type'=>'password' , 'placeholder' => 'Confirmar Senha', 'label'=>'Confirmar Senha'));?>

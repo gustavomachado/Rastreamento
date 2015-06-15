@@ -39,8 +39,8 @@ class AppModel extends Model {
         $appController = new AppController();
         $appController->constructClasses();
         $usuario = $appController->Auth->user();
-        $pagina = Router::getParams()['controller'];
-        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'excluir'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina)));
+        $pagina = Router::getParams();
+        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'excluir'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina['controller'])));
         if (isset($acessos[0]['Acesso']['excluir'])) {
             if (!$acessos[0]['Acesso']['excluir'] == 1) {
                 $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para excluir registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
@@ -60,9 +60,9 @@ class AppModel extends Model {
         $appController = new AppController();
         $appController->constructClasses();
         $usuario = $appController->Auth->user();
-        $pagina = Router::getParams()['controller'];
-        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina)));
-        if (strtoupper(Router::getParams()['controller']) !== 'INICIO') {
+        $pagina = Router::getParams();
+        $acessos = $appController->Acesso->find('all', array('fields' => array('id', 'editar'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'Pagina.url' => $pagina['controller'])));
+        if (strtoupper($pagina['controller']) !== 'INICIO') {
             if (isset($acessos[0]['Acesso']['editar'])) {
                 if (!$acessos[0]['Acesso']['editar'] == 1) {
                     $appController->Session->setFlash('<span class="flaticon-locked57"></span>Permissão Negada:<br>Você não tem permissão para incluir/editar registros nesta àrea.', 'default', array('class' => 'alert alert-danger'));
@@ -89,8 +89,9 @@ class AppModel extends Model {
         $appController = new AppController();
         $appController->constructClasses();
         $appController->Log = ClassRegistry::init('Log');
+        $usuario = $appController->Auth->user();
         $log = array(
-            'usuario_id' => $appController->Auth->user()['User']['id'],
+            'usuario_id' => $usuario['User']['id'],
             'acao' => $acao,
             'tabela' => $this->name, //Router::getParams()['controller'],
             'dispositivo' => gethostbyaddr($_SERVER['REMOTE_ADDR']),

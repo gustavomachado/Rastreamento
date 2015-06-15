@@ -11,9 +11,10 @@ $(document).ready(function () {
     if (typeof ($(".cep")) !== undefined) {
         $(".cep").mask("99999-999");
     }
-    if (typeof ($(".placa")) !== undefined) {
-        $(".placa").css("text-transform", "uppercase").mask("AAA-9999");
+    if (typeof ($(".data")) !== undefined) {
+        $(".data").mask("99/99/9999");
     }
+     
 
     if (typeof ($(".date-year")) !== undefined) {
         $(".date-year").mask("9999");

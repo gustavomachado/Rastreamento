@@ -25,9 +25,9 @@ class MotoristasController extends AppController {
     public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Motorista->recursive = 0;
         $this->set('filtros', array('nome' => 'Nome', 'telefone' => 'Telefone', 'celular' => 'Celular'));
-        $this->paginate = array('limit' => 20);
+        $this->paginate = array('limit' => 50);
         if ($filtro && $pesquisa) {
-            $this->paginate = array('limit' => 20, 'conditions' => array('Motorista.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $this->paginate = array('limit' => 50, 'conditions' => array('Motorista.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
         }
         $this->set('pesquisa', $pesquisa);
         $this->set('filtro', $filtro);

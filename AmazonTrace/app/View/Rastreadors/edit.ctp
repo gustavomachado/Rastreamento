@@ -110,7 +110,7 @@
                                     <li class="linha-instalados">
                                         <div id="<?= $instalado['Chip']['id'] ?>" class=" btn-group btn-group-justified"
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
-                                            <p class="btn btn-default"><?= $instalado['Chip']['operadora_id'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Operadora']['nome'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Chip']['numero_telefone'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Chip']['numero_chip'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Chip']['apn'] ?></p>
@@ -143,7 +143,7 @@
                                     <li class="linha-disponiveis">
                                         <div id="<?= $disponivel['Chip']['id'] ?>" class=" btn-group btn-group-justified"
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
-                                            <p class="btn btn-default"><?= $disponivel['Chip']['operadora_id'] ?></p>
+                                            <p class="btn btn-default"><?= $disponivel['Operadora']['nome'] ?></p>
                                             <p class="btn btn-default"><?= $disponivel['Chip']['numero_telefone'] ?></p>
                                             <p class="btn btn-default"><?= $disponivel['Chip']['numero_chip'] ?></p>
                                             <p class="btn btn-default"><?= $disponivel['Chip']['apn'] ?></p>
@@ -256,7 +256,7 @@
                 $.ajax({
                     type: 'GET',
                     url: "<?php echo $this->Html->url(array('action' => 'desvincularChip', 'controller' => 'chips')); ?>",
-                    data: {"id": idRastreador, 'rastreador_id': idRastreador},
+                    data: {"id": idChip, 'rastreador_id': idRastreador},
                     async: true,
                     success: function (dataJson) {
                         var data = $.parseJSON(dataJson);

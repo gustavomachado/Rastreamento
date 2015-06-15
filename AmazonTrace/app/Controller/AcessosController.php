@@ -29,7 +29,7 @@ class AcessosController extends AppController {
             $this->add();
         }
         $this->Acesso->recursive = 0;
-        $this->paginate = array('limit' => 10);
+        $this->paginate = array('limit' => 50);
         $this->set('acessos', $this->Paginator->paginate());
         $contas = $this->Acesso->Conta->find('list', array('fields' => array('id', 'descricao')));
         $paginas = $this->Acesso->Pagina->find('list', array('fields' => array('id', 'nome')));
@@ -74,10 +74,10 @@ class AcessosController extends AppController {
         if ($this->request->is('post')) {
             $this->Acesso->create();
             if ($this->Acesso->save($this->request->data)) {
-                $this->Session->setFlash(__('The acesso has been saved.'), 'default', array('class' => 'alert alert-success'));
+              //$this->Session->setFlash(__('The acesso has been saved.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The acesso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+              //$this->Session->setFlash(__('The acesso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         }
         $contas = $this->Acesso->Conta->find('list', array('fields' => array('id', 'descricao')));
@@ -98,10 +98,10 @@ class AcessosController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Acesso->save($this->request->data)) {
-                $this->Session->setFlash(__('The acesso has been saved.'), 'default', array('class' => 'alert alert-success'));
+              // $this->Session->setFlash(__('The acesso has been saved.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The acesso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+              // $this->Session->setFlash(__('The acesso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('Acesso.' . $this->Acesso->primaryKey => $id));

@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="page-header">
                 <h1><?php
-                    echo __('Contas');
+                    echo __('Perfis');
                     echo $this->Html->link('<span class="flaticon-add180"></span>', array('action' => 'cadastro'), array('escape' => false, 'title' => 'Novo'));
                     ?></h1>
             </div>

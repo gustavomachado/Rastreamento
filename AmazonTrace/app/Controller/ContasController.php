@@ -25,9 +25,9 @@ class ContasController extends AppController {
     public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Conta->recursive = 0;
         $this->set('filtros', array('descricao' => 'Descrição'));
-        $this->paginate = array('limit' => 20);
+        $this->paginate = array('limit' => 50);
         if ($filtro && $pesquisa) {
-            $this->paginate = array('limit' => 20, 'conditions' => array('Conta.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $this->paginate = array('limit' => 50, 'conditions' => array('Conta.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
             $contas = $this->Conta->find('all', array('conditions' => array('Conta.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
         }
         $this->set('pesquisa', $pesquisa);

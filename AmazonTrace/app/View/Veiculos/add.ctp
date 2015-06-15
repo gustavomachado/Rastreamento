@@ -183,7 +183,7 @@
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true" id="modal-rastreadores">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg ">
         <div class="modal-content">
             <div class="modal-header  ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -198,9 +198,11 @@
                         <div class="btn-group btn-group-justified restreadores-header" >
                             <p  class="btn btn-default ">Modelo</p>
                             <p  class="btn btn-default">Marca</p>
-                            <p  class="btn btn-default">Núm. Eqp.</p>
-                         <!--   <p  class="btn btn-default">Local Inst.</p>
-                            <p  class="btn btn-default">Fiação</p> -->
+                            <p  class="btn btn-default">Núm. Eqp.</p> 
+                            <p  class="btn btn-default">Data instalação</p> 
+                            <p  class="btn btn-default">Data Remoção</p> 
+                            <p  class="btn btn-default">Fiação</p>
+                            <p  class="btn btn-default">Local Inst.</p>
                         </div> 
                         <div class="panel panel-default ">
                             <div class="panel-heading panel-instalados">
@@ -215,17 +217,43 @@
                             </div>
                             <div class="panel-body adicionados  scroll-panel ui-widget-content " >
                                 <ul >
-                                    <?php foreach ($instalados as $instalado): ?>
+                                    <?php foreach ($instalados as $instalado){?>
+                                    <?php 
+                                        $dataArray = split("-",substr($instalado['Rastreador']['data_install'],0,10));
+                                        $dataInstalacao = $dataArray[2] . "/" . $dataArray[1] . "/" . $dataArray[0];
+                                        if( isset($instalado['Rastreador']['data_remove'] )){
+                                            $dataArray = split("-",substr($instalado['Rastreador']['data_install'],0,10));
+                                            $dataFim = $dataArray[2] . "/" . $dataArray[1] . "/" . $dataArray[0];
+                                        }else{
+                                            $dataFim = date("d/m/Y");
+                                        }                                    
+                                    ?>
                                     <li class="linha-instalados">
                                         <div id="<?= $instalado['Rastreador']['id'] ?>" class=" btn-group btn-group-justified"
-                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                <p class="btn btn-default"><?= $instalado['Rastreador']['modelo'] ?></p>
+                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
+                                            <p class="btn btn-default" ><?= $instalado['Rastreador']['modelo'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Rastreador']['marca'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Rastreador']['numero_equipamento'] ?></p>
-                                        <!--    <p class="btn btn-default"><?= $instalado['Rastreador']['fiacao_utilizada'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Rastreador']['local_instalacao_rastreador'] ?></p> -->
+                                            <div class="btn btn-default"   >
+                                                <input  class="form-control data data_intalacao" type="text" disabled="true" 
+                                                        value="<?=$dataInstalacao ?>" />
+                                            </div>
+                                            <div class="btn btn-default"   >
+                                                <input class="form-control data data_remocao" type="text"  
+                                                       value="<?=$dataFim ?>" />
+                                            </div>
+                                            <div class="btn btn-default"  >
+                                                <input class="form-control fiacao" type="text" disabled="true" 
+                                                       value="<?= $instalado['Rastreador']['fiacao_utilizada'] ?>" />
+                                            </div>
+                                            <div class="btn btn-default" data-toggle="tooltip" data-placement="left" 
+                                                 title="<?=  $instalado['Rastreador']['local_instalacao_rastreador'] ?>">
+                                                <input class="form-control local" type="text" disabled="true" 
+                                                       value="<?= $instalado['Rastreador']['local_instalacao_rastreador'] ?>" />
+                                            </div>
                                         </div>
                                     </li>
-                                    <?php endforeach; ?>
+                                    <?php } ?>
                                 </ul>
 
                             </div>
@@ -247,15 +275,29 @@
                             </div>
                             <div class="panel-body disponiveis  scroll-panel  ui-widget-content  ">
                                 <ul>
-                                    <?php foreach ($disponiveis as $disponivel): ?>
+                                    <?php foreach ($disponiveis as $disponivel):
+                                        $dataInstalacao = date("d/m/Y");
+                                        ?>
                                     <li class="linha-disponiveis">
                                         <div id="<?= $disponivel['Rastreador']['id'] ?>" class=" btn-group btn-group-justified "
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">
-                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['modelo'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['marca'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Rastreador']['numero_equipamento'] ?></p>
-                                        <!--   <p class="btn btn-default"><?= $disponivel['Rastreador']['fiacao_utilizada'] ?></p>
-                                            <p class="btn btn-default"><?=  $disponivel['Rastreador']['local_instalacao_rastreador'] ?></p> -->
+                                            <div class="btn btn-default" ><p ><?= $disponivel['Rastreador']['modelo'] ?></p></div>
+                                            <div class="btn btn-default" ><p ><?= $disponivel['Rastreador']['marca'] ?></p></div>
+                                            <div class="btn btn-default" > <p ><?= $disponivel['Rastreador']['numero_equipamento'] ?></p></div>
+                                            <div class="btn btn-default"   >
+                                                <input class="form-control data data_instalacao" type="text"  value="<?=$dataInstalacao ?>" />
+                                            </div>
+                                            <div class="btn btn-default   " >
+                                                <input class="form-control data data_remocao" type="text" disabled="true"  />
+                                            </div>
+                                            <div class="btn btn-default " data-toggle="tooltip" data-placement="left" 
+                                                 title="<?php echo $disponivel['Rastreador']['fiacao_utilizada'] ?>" >
+                                                <input class="form-control fiacao" type="text"  value="<?= $disponivel['Rastreador']['fiacao_utilizada'] ;?>" />
+                                            </div>
+                                            <div class="btn btn-default " data-toggle="tooltip" data-placement="left" 
+                                                 title="<?php echo $disponivel['Rastreador']['local_instalacao_rastreador'] ?>">
+                                                <input class="form-control local" type="text" value="<?=  $disponivel['Rastreador']['local_instalacao_rastreador'] ;?>" />
+                                            </div>
                                         </div>
                                     </li>
                                     <?php endforeach; ?>
@@ -291,6 +333,7 @@
                 drag: function () {
                     $('.disponiveis').remove('scroll-panel');
                     console.log('Dragging');
+                    
                 }
             });
             $(".linha-instalados").draggable({
@@ -305,14 +348,18 @@
                 hoverClass: "ui-state-hover watting-drop",
                 accept: ".linha-disponiveis",
                 drop: function (event, ui) {
-                    
+
                     $('.loading-adicionados').css("display", 'inline-block');
                     var idRastreador = ui.draggable.find('div').attr('id');
                     var idVeiculo = ui.draggable.find('div').attr('data-target');
+                    var dataInstalacao = ui.draggable.find("input.data_instalacao").val();
+                    var fiacao = ui.draggable.find("input.fiacao").val();
+                    var local = ui.draggable.find("input.local").val();
+
                     $.ajax({
                         type: 'GET',
                         url: "<?php echo $this->Html->url(array('action' => 'vincularVeiculo', 'controller' => 'rastreadors')); ?>",
-                        data: {"id": idRastreador, "veiculo_id": idVeiculo},
+                        data: {"id": idRastreador, "veiculo_id": idVeiculo, "data_instalacao": dataInstalacao, "fiacao": fiacao, "local": local},
                         async: true,
                         success: function (dataJson) {
                             var data = $.parseJSON(dataJson);
@@ -329,6 +376,15 @@
                                     break;
                                 case 2:
                                     msg = ("Falha ao Adicionar Rastreador. Rastreador está vinculado à Outro Veículo!");
+                                    break;
+                                case 3:
+                                    msg = "Falha ao registrar rastreador, impossivel criar histórico em " + data.dataInstalacao;
+                                    break;
+                                case 4:
+                                    msg = data.msg;
+                                    break;
+                                case 5:
+                                    msg = "Informe a data corretamente!";
                                     break;
                             }
                             $('.loading-instalados').css("display", 'none');
@@ -354,10 +410,22 @@
                             alert(errorThrown);
                         }
                     });
-                    $(this).append($("<li>").addClass('linha-instalados').append(ui.draggable.html()).draggable({
+                    ui.draggable.find("input").prop("disabled", true);
+                    ui.draggable.find("input.data_remocao").prop("disabled", false).mask("99/99/9999");
+                    ui.draggable.find("input.data_instalacao").prop("disabled", true);
+                    var li = $("<li>").addClass('linha-instalados').append(ui.draggable.html()).draggable({
                         revert: "invalid",
                         appendTo: ".droppable"
-                    }));
+                    });
+
+                    li.find("input.data_remocao").mask("99/99/9999");
+                    li.find("input.fiacao").val(fiacao)
+                    li.find("input.local").val(local);
+
+                    $(this).append(li).find("input.data_instalacao").val(dataInstalacao)
+
+
+
                     ui.draggable.remove();
                 }
             }).sortable();
@@ -369,10 +437,12 @@
                     $('.loading-disponiveis').css("display", 'inline-block');
                     var idRastreador = ui.draggable.find('div').attr('id');
                     var idVeiculo = ui.draggable.find('div').attr('data-target');
+                    var dataRemocao = ui.draggable.find("input.data_remocao").val();
+
                     $.ajax({
                         type: 'GET',
                         url: "<?php echo $this->Html->url(array('action' => 'desvincularVeiculo', 'controller' => 'rastreadors')); ?>",
-                        data: {"id": idRastreador, 'veiculo_id': idVeiculo},
+                        data: {"id": idRastreador, "veiculo_id": idVeiculo, "data_remocao": dataRemocao},
                         async: true,
                         success: function (dataJson) {
                             var data = $.parseJSON(dataJson);
@@ -389,6 +459,13 @@
                                 case 2:
                                     msg = ("Falha ao Remover rastreador");
                                     break;
+                                case 3:
+                                    msg = "Falha ao remover, impossivel criar historico em " + data.dataRemocao;
+                                    break;
+                                case 4:
+                                    msg=" Excecao, " + data.msg;
+                                    break;
+                                    
                             }
                             $('.loading-disponiveis').css("display", 'none');
                             $('.panel-disponiveis .sort-msg')
@@ -413,6 +490,10 @@
                             alert(errorThrown);
                         }
                     });
+
+                    ui.draggable.find("input").prop("disabled", false);
+                    ui.draggable.find("input.data_instalacao").prop("disabled", false).mask("99/99/9999");
+                    ui.draggable.find("input.data_remocao").val(dataRemocao).prop("disabled", true).mask("99/99/9999");
                     $(this).append($("<li>").addClass('linha-disponiveis').append(ui.draggable.html()).draggable({
                         revert: "invalid",
                         appendTo: ".droppable"

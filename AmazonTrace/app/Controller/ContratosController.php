@@ -25,13 +25,13 @@ class ContratosController extends AppController {
     public function index($filtro = NULL, $pesquisa = NULL) {
         $this->Contrato->recursive = 0;
         $this->set('filtros', array('numero_contrato' => 'Nº Contrato', 'nome' => 'Cliente', 'dia_vencimento' => 'Dia Vencimento', 'doc' => 'Doc', 'status' => 'Status'));
-        $this->paginate = array('limit' => 20);
+        $this->paginate = array('limit' => 50);
         if ($filtro && $pesquisa) {
             if ($filtro == 'nome') {
-                $this->paginate = array('limit' => 20, 'conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+                $this->paginate = array('limit' => 50, 'conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
                 $contratos = $this->Contrato->find('all', array('conditions' => array('Cliente.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
             } else {
-                $this->paginate = array('limit' => 20, 'conditions' => array('Contrato.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+                $this->paginate = array('limit' => 50, 'conditions' => array('Contrato.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
                 $contratos = $this->Contrato->find('all', array('conditions' => array('Contrato.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
             }
         }

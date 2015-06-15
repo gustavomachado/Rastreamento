@@ -104,28 +104,40 @@
                 <?php echo $this->Form->input('numero_contrato', array('class' => 'form-control', 'disabled' => 'true', 'placeholder' => 'Número Contrato', 'label' => 'Nº Contrato')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('doc', array('class' => 'form-control', 'placeholder' => 'Doc')); ?>
+                <?php echo $this->Form->input('doc', array('class' => 'form-control', 'placeholder' => 'Documentação', 'label' => 'Documentação', 'options' => array('Pendente' => 'Pendente', 'OK' => 'OK'))); ?>
             </div>
             <div class="form-group col-md-3">
                 <?php
-                echo $this->Form->label('Data Início');
-                echo $this->Form->date('data_inicio', array('class' => 'form-control', 'placeholder' => 'Data Inicio'));
+                echo $this->Form->label('Início do Contrato');
+                echo $this->Form->date('data_inicio', array('class' => 'form-control', 'placeholder' => 'Início do Contrato', 'value' => date('Y-m-d')));
                 ?>
             </div>
             <div class="form-group col-md-3">
                 <?php
-                echo $this->Form->label('Data Vencimento');
-                echo $this->Form->date('data_vencimento', array('class' => 'form-control', 'placeholder' => 'Data Vencimento'));
+                echo $this->Form->label('Validade do Contrato');
+                echo $this->Form->date('data_vencimento', array('class' => 'form-control', 'placeholder' => 'Validade do Contrato'));
                 ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('dia_vencimento', array('class' => 'form-control dia-mes numberOnly', 'min'=> '1', 'max'=>'31', 'placeholder' => 'Dia Vencimento')); ?>
+                <?php echo $this->Form->input('dia_vencimento', array('class' => 'form-control dia-mes numberOnly', 'min' => '1', 'max' => '31', 'value' => '1', 'placeholder' => 'Vencimento das Mensalidades', 'label' => 'Vencimento das Mensalidades')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('valor_mensalidade', array('class' => 'form-control money', 'type' => 'text', 'placeholder' => 'Valor Mensalidade')); ?>
+                <?php echo $this->Form->input('valor_mensalidade', array('class' => 'form-control money', 'type' => 'text', 'placeholder' => 'Mensalidade (R$)', 'label' => 'Mensalidade (R$)')); ?>
             </div>
             <div class="form-group col-md-4">
-                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
+                <?php
+                echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status', 'options' => array(
+                        'OK - ATIVO' => 'OK - ATIVO',
+                        'AGUARDANDO COLETA‏' => 'AGUARDANDO COLETA',
+                        'APENAS ELABORADO' => 'APENAS ELABORADO',
+                        'CANCELADO' => 'CANCELADO',
+                        'ENVIADO AO CLIENTE' => 'ENVIADO AO CLIENTE',
+                        'EXPIRADO/VENCIDO‏' => 'EXPIRADO/VENCIDO',
+                        'PENDENTE' => 'PENDENTE',
+                        'SOLICITOU CANCELAMENTO' => 'SOLICITOU CANCELAMENTO',
+                        'SUSPENSO' => 'SUSPENSO'
+                )));
+                ?>
             </div>
             <div class="form-group col-md-12">
                 <?php echo $this->Form->label('Veiculos'); ?><a href="#" title="Adicionar Veículo" data-toggle="modal" data-target="#modal-veiculos-cliente" ><span class="flaticon-add180"></span></a>

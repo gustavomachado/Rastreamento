@@ -27,23 +27,26 @@ App::uses('Controller', 'Controller');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package		app.Controller
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @package    app.Controller
+ * @link    http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
 
     public $uses = array('Pagina', 'Acesso');
+  
     public $components = array(
         'Session',
         'Auth' => array(
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'loginError' => 'ERRO',
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
             'authError' => '<div class="alert alert-danger"><span class="flaticon-locked57"></span>É necessário realizar Login para acessar o sistema.</div>',
         )
-    );
+    );  
 
     public function beforeFilter() {
         $this->layout = 'bootstrap';
+        
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('user', $this->Auth->user());
         if ($this->Auth->user()) {
@@ -53,12 +56,13 @@ class AppController extends Controller {
             }
         }
     }
-
+    
     public function converteArrayParaMauisculo($value) {
         return strtoupper($value);
     }
+  
     public function permitirPagina() {
-        $usuario = $this->Auth->user();		
+        $usuario = $this->Auth->user();    
         $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'visualizar' => 1)));
         $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('id','url'), 'conditions' => array('id' => $acessos)));
         $urlPaginas = array();

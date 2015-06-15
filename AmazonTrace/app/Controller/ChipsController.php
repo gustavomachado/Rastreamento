@@ -24,11 +24,11 @@ class ChipsController extends AppController {
      */
     public function index($filtro = null, $pesquisa = null) {
         $this->Chip->recursive = 0;
-        $this->set('filtros', array('numero_chip' => 'Número Chip', 'numero_telefone' => 'Número Telefone', 'apn' => 'APN'));
-        $this->paginate = array('limit' => 10);
+        $this->set('filtros', array( 'numero_telefone' => 'Número Telefone', 'numero_chip' => 'Número Chip', 'apn' => 'APN'));
+        $this->paginate = array('limit' => 50);
 
         if ($filtro && $pesquisa) {
-            $this->paginate = array('limit' => 20, 'conditions' => array('Chip.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
+            $this->paginate = array('limit' => 50, 'conditions' => array('Chip.' . $filtro . ' LIKE' => '%' . $pesquisa . '%'));
             $chips = $this->Chip->find('all', array('conditions' => array('Chip.' . $filtro . ' LIKE' => '%' . $pesquisa . '%')));
         }
         $this->set('pesquisa', $pesquisa);
