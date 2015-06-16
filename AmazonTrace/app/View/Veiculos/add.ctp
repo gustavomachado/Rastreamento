@@ -88,18 +88,30 @@
               <?php echo $this->Form->textArea('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiacao Utilizada')); */ ?>
                </div>-->
             <div class="form-group   col-md-2 ">
-                <?php echo $this->Form->input('sms_notificacao', array('class' => 'form-control tel', 'placeholder' => 'Sms Notificacao')); ?>
+                <?php echo $this->Form->input('sms_notificacao_01', array('class' => 'form-control tel', 'placeholder' => 'Sms Notificacao 1')); ?>
+            </div>
+            <div class="form-group   col-md-2 ">
+                <?php echo $this->Form->input('sms_notificacao_02', array('class' => 'form-control tel', 'placeholder' => 'Sms Notificacao 2')); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('plano_notificacao_sms', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Sms')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('email_notificacao', array('class' => 'form-control', 'placeholder' => 'Email Notificacao')); ?>
+                <?php echo $this->Form->input('email_notificacao_01', array('class' => 'form-control', 'placeholder' => 'Email Notificacao 01')); ?>
+            </div>
+            <div class="form-group col-md-3">
+                <?php echo $this->Form->input('email_notificacao_02', array('class' => 'form-control', 'placeholder' => 'Email Notificacao 02')); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('plano_notificacao_email', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Email')); ?>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-2">
+                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
+            </div>
+            <div class="form-group col-md-2">
+                <?php echo $this->Form->input('bloqueio', array('options' => array(0 => 'Não', 1 => 'Sim'), 'class' => 'form-control', 'placeholder' => 'Status')); ?>
+            </div>
+            <div class="form-group col-md-6">
                 <label>Motorista</label>
                 <div class="input-group">
                     <span class="input-group-addon">
@@ -112,16 +124,11 @@
                     ?>
                 </div>
             </div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
-            </div>
-            <div class="form-group col-md-2">
-                <?php echo $this->Form->input('bloqueio', array('options' => array(0 => 'Não', 1 => 'Sim'), 'class' => 'form-control', 'placeholder' => 'Status')); ?>
-            </div>
+
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('senha_panico', array('class' => 'form-control', 'placeholder' => 'Senha panico')); ?>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-10">
                 <?php echo $this->Form->input('medidas_panico', array('class' => 'form-control', 'placeholder' => 'Medida Panico')); ?>
             </div>
             <div class="form-group col-md-3">
@@ -333,7 +340,7 @@
                 drag: function () {
                     $('.disponiveis').remove('scroll-panel');
                     console.log('Dragging');
-                    
+
                 }
             });
             $(".linha-instalados").draggable({
@@ -343,7 +350,7 @@
                     console.log('Dragging');
                 }
             });
-            $(".adicionados ul").droppable({
+            $(".adicionados ").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover watting-drop",
                 accept: ".linha-disponiveis",
@@ -422,14 +429,14 @@
                     li.find("input.fiacao").val(fiacao)
                     li.find("input.local").val(local);
 
-                    $(this).append(li).find("input.data_instalacao").val(dataInstalacao)
+                    $(this).find('ul').append(li).find("input.data_instalacao").val(dataInstalacao)
 
 
 
                     ui.draggable.remove();
                 }
             }).sortable();
-            $(".disponiveis ul").droppable({
+            $(".disponiveis ").droppable({
                 activeClass: "ui-state-default",
                 hoverClass: "ui-state-hover watting-drop",
                 accept: ".linha-instalados",
@@ -463,9 +470,9 @@
                                     msg = "Falha ao remover, impossivel criar historico em " + data.dataRemocao;
                                     break;
                                 case 4:
-                                    msg=" Excecao, " + data.msg;
+                                    msg = " Excecao, " + data.msg;
                                     break;
-                                    
+
                             }
                             $('.loading-disponiveis').css("display", 'none');
                             $('.panel-disponiveis .sort-msg')
@@ -494,7 +501,7 @@
                     ui.draggable.find("input").prop("disabled", false);
                     ui.draggable.find("input.data_instalacao").prop("disabled", false).mask("99/99/9999");
                     ui.draggable.find("input.data_remocao").val(dataRemocao).prop("disabled", true).mask("99/99/9999");
-                    $(this).append($("<li>").addClass('linha-disponiveis').append(ui.draggable.html()).draggable({
+                    $(this).find('ul').append($("<li>").addClass('linha-disponiveis').append(ui.draggable.html()).draggable({
                         revert: "invalid",
                         appendTo: ".droppable"
                     }));

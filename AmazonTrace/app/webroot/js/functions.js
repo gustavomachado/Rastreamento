@@ -1,6 +1,9 @@
 $(document).ready(function () {
     if (typeof ($(".tel")) !== undefined) {
-        $(".tel").mask("(99)99999-9999");
+        $(".tel").mask("(99)9999-9999");
+    }
+    if (typeof ($(".cel")) !== undefined) {
+        $(".cel").mask("(99)99999-9999");
     }
     if (typeof ($(".cpf")) !== undefined) {
         $(".cpf").mask("999.999.999-99");
@@ -15,7 +18,6 @@ $(document).ready(function () {
         $(".data").mask("99/99/9999");
     }
      
-
     if (typeof ($(".date-year")) !== undefined) {
         $(".date-year").mask("9999");
     }
