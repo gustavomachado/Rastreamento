@@ -205,7 +205,7 @@
                         <div class="btn-group btn-group-justified restreadores-header" >
                             <p  class="btn btn-default ">Modelo</p>
                             <p  class="btn btn-default">Marca</p>
-                            <p  class="btn btn-default">Núm. Eqp.</p> 
+                            <p  class="btn btn-default">Série</p> 
                             <p  class="btn btn-default">Data instalação</p> 
                             <p  class="btn btn-default">Data Remoção</p> 
                             <p  class="btn btn-default">Fiação</p>
@@ -240,7 +240,7 @@
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
                                             <p class="btn btn-default" ><?= $instalado['Rastreador']['modelo'] ?></p>
                                             <p class="btn btn-default"><?= $instalado['Rastreador']['marca'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Rastreador']['numero_equipamento'] ?></p>
+                                            <p class="btn btn-default"><?= $instalado['Rastreador']['numero_serie'] ?></p>
                                             <div class="btn btn-default"   >
                                                 <input  class="form-control data data_intalacao" type="text" disabled="true" 
                                                         value="<?=$dataInstalacao ?>" />
@@ -290,7 +290,7 @@
                                              data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">
                                             <div class="btn btn-default" ><p ><?= $disponivel['Rastreador']['modelo'] ?></p></div>
                                             <div class="btn btn-default" ><p ><?= $disponivel['Rastreador']['marca'] ?></p></div>
-                                            <div class="btn btn-default" > <p ><?= $disponivel['Rastreador']['numero_equipamento'] ?></p></div>
+                                            <div class="btn btn-default" > <p ><?= $disponivel['Rastreador']['numero_serie'] ?></p></div>
                                             <div class="btn btn-default"   >
                                                 <input class="form-control data data_instalacao" type="text"  value="<?=$dataInstalacao ?>" />
                                             </div>

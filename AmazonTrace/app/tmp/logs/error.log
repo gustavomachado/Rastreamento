@@ -38700,3 +38700,23 @@ Stack Trace:
 #3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2015-07-01 18:26:18 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 83701548 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\View\View.php, line 964]
+2015-07-01 18:26:18 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 83701548 bytes)
+Request URL: /AmazonTrace/veiculos/add/18/208
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-07-01 18:26:50 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 82898504 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\View\View.php, line 964]
+2015-07-01 18:26:51 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 82898504 bytes)
+Request URL: /AmazonTrace/veiculos/add/19/260
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 964, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
