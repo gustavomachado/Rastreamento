@@ -1,6 +1,6 @@
 <?php
 
-App::uses('AppModel', 'Model');
+App::uses('AppModelStatus', 'Model');
 
 /**
  * Veiculo Model
@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @property Contrato $Contrato
  * @property Rastreador $Rastreador
  */
-class Veiculo extends AppModel {
+class Veiculo extends AppModelStatus {
 
     public $virtualFields = array(
         'marca_modelo_placa' => 'CONCAT("[", Veiculo.id, "] ", Veiculo.marca, " ", Veiculo.modelo, " - ", Veiculo.placa)'

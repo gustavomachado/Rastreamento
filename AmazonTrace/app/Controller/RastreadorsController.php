@@ -166,20 +166,30 @@ class RastreadorsController extends AppController {
         }
     }
 
-    public function desvincularVeiculo() {
+    public function desvincularVeiculo($id = null, $veiculoId = null) {
         try {
             $this->render(false, false);
-            $id = $_REQUEST['id'];
-            $dataRemocao = $_REQUEST['data_remocao'];
-            if (!$dataRemocao) {
-                $dataRemocao = date("Y-m-d");
+            if ($id) {
+                $_REQUEST['id'] = $id;
             } else {
-                $dataArray = split("/", $dataRemocao);
-                $dataRemocao = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
+                $id = $_REQUEST['id'];
             }
-            $veiculoId = $_REQUEST['veiculo_id'];
+            if ($veiculoId) {
+                $_REQUEST['veiculo_id'] = $veiculoId;
+            } else {
+                $veiculoId = $_REQUEST['veiculo_id'];
+            }
+
+            if (isset($_REQUEST['data_remocao'])) {
+                $dataRemocao = $_REQUEST['data_remocao'];
+            } else {
+                $dataRemocao = date("d/m/Y");
+            }
+            $dataArray = split("/", $dataRemocao);
+            $dataRemocao = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
+
             $this->request->data['Rastreador']['id'] = $id;
-            //  $this->request->data['Rastreador']['id'] = 15;
+//  $this->request->data['Rastreador']['id'] = 15;
             $this->request->data['Rastreador']['veiculo_id'] = NULL;
             $options = array('HistoricoVeiculo.rastreador_id' => $id,
                 'HistoricoVeiculo.veiculo_id' => $veiculoId,

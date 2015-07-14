@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>AmazonTrace-local</name>
+            <name>AmazonTrace</name>
         </data>
     </configuration>
 </project>
