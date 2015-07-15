@@ -112,7 +112,12 @@ class RastreadorsController extends AppController {
             throw new NotFoundException(__('Rastreador inválido.'));
         }
         $this->request->onlyAllow('post', 'delete');
+		$chips = $this->Rastreador->Chip->find('list', array('conditions' => array('rastreador_id' => $id)));
         if ($this->Rastreador->delete()) {
+			foreach ($chips as $chip) {
+                $_REQUEST['id'] = $chip;
+                $this->requestAction(array("controller"=>"Chips","action"=>"desvincularChip"));
+            }
             $this->Session->setFlash(__('Rastreador excluído com sucesso.'), 'default', array('class' => 'alert alert-success'));
         } else {
             $this->Session->setFlash(__('O Rastreador não pôde ser excluído. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
