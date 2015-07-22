@@ -109,7 +109,7 @@
             <div class="form-group col-md-3">
                 <?php
                 echo $this->Form->label('Início do Contrato');
-                echo $this->Form->date('data_inicio', array('class' => 'form-control', 'placeholder' => 'Início do Contrato', 'value' => date('Y-m-d')));
+                echo $this->Form->date('data_inicio', array('class' => 'form-control', 'placeholder' => 'Início do Contrato'));
                 ?>
             </div>
             <div class="form-group col-md-3">
@@ -119,7 +119,7 @@
                 ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('dia_vencimento', array('class' => 'form-control dia-mes numberOnly', 'min' => '1', 'max' => '31', 'value' => '1', 'placeholder' => 'Vencimento das Mensalidades', 'label' => 'Vencimento das Mensalidades')); ?>
+                <?php echo $this->Form->input('dia_vencimento', array('class' => 'form-control dia-mes numberOnly', 'min' => '1', 'max' => '31', 'placeholder' => 'Vencimento das Mensalidades', 'label' => 'Vencimento das Mensalidades')); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('valor_mensalidade', array('class' => 'form-control money', 'type' => 'text', 'placeholder' => 'Mensalidade (R$)', 'label' => 'Mensalidade (R$)')); ?>

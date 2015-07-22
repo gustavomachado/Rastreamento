@@ -225,7 +225,7 @@
                     </div>
                     <div class="form-group col-md-3 ">
                         <label>Celular</label>
-                        <input class="form-control cel" type="text" name="celular">
+                        <input class="form-control tel" type="text" name="celular">
                     </div>
 
                     <div class="form-group col-md-3">

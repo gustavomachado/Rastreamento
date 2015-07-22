@@ -104,7 +104,7 @@
                 <?php echo $this->Form->input('numero_contrato', array('class' => 'form-control', 'placeholder' => 'Número Contrato', 'label' => 'Nº Contrato')); ?>
             </div>
             <div class="form-group col-md-3">
-                <?php echo $this->Form->input('doc', array('class' => 'form-control', 'placeholder' => 'Documentação', 'label' => 'Documentação', 'options' => array('Pendente' => 'Pendente', 'OK' => 'OK'))); ?>
+                <?php echo $this->Form->input('doc', array('class' => 'form-control', 'placeholder' => 'Documentação', 'label' => 'Documentação', 'options' => array('0' => 'Pendente', '1' => 'OK'))); ?>
             </div>
             <div class="form-group col-md-3">
                 <?php
