@@ -1,6 +1,6 @@
 <?php
 
-App::uses('AppModel', 'Model');
+App::uses('AppModelStatus', 'Model');
 
 /**
  * Cliente Model
@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  * @property Contato $Contato
  * @property Veiculo $Veiculo
  */
-class Cliente extends AppModel {
+class Cliente extends AppModelStatus {
 
     public $virtualFields = array(
         'nome_cpjCnpj' => 'CONCAT(Cliente.nome, " [", cpf_cnpj, "]")'
