@@ -23,7 +23,7 @@
                 <?php echo $this->Form->input('placa', array('class' => 'form-control placa', 'placeholder' => 'Placa')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo')); ?>
+                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos)); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('marca', array('class' => 'form-control', 'placeholder' => 'Marca')); ?>

@@ -76,5 +76,12 @@ class AppController extends Controller {
             return false;
         }
     }
+    
+     function getLista($nomeDaLista = null){
+         
+         
+         
+         
+     }
 
 }
