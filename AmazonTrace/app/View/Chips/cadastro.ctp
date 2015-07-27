@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('numero_telefone', array('class' => 'form-control tel', 'placeholder' => 'Número Telefone')); ?>
+                <?php echo $this->Form->input('numero_telefone', array('class' => 'form-control cel', 'placeholder' => 'Número Telefone')); ?>
             </div>
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('numero_chip', array('class' => 'form-control', 'placeholder' => 'Número Chip')); ?>
