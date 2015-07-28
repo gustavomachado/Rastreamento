@@ -70,7 +70,22 @@ class Veiculo extends AppModelStatus {
      *
      * @var array
      */
-    public $hasMany = array(
+  /*  public $hasMany = array(
+        'Rastreador' => array(
+            'className' => 'Rastreador',
+            'foreignKey' => 'veiculo_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );*/
+    public $hasOne = array(
         'Rastreador' => array(
             'className' => 'Rastreador',
             'foreignKey' => 'veiculo_id',

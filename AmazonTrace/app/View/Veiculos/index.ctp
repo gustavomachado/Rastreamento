@@ -24,24 +24,26 @@
                         <th><?php echo $this->Paginator->sort('marca'); ?></th>
                         <th><?php echo $this->Paginator->sort('modelo'); ?></th>
                         <th><?php echo $this->Paginator->sort('cor'); ?></th>
-                        <th><?php echo $this->Paginator->sort('ano_fabricacao'); ?></th>
-                        <th><?php echo $this->Paginator->sort('ano_modelo'); ?></th>
+                 <!--        <th><?php echo $this->Paginator->sort('ano_fabricacao'); ?></th>
+                        <th><?php echo $this->Paginator->sort('ano_modelo'); ?></th> -->
                       
+                        <th><?php echo $this->Paginator->sort('rastreador'); ?></th>
                         <th><?php echo $this->Paginator->sort('status'); ?></th>
                         <th class="actions"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($veiculos as $veiculo): ?>
+                    <?php foreach ($veiculos as $veiculo):  ?>
                         <tr>
                             <td><?php echo h($veiculo['Veiculo']['placa']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['tipo_veiculo']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['marca']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['modelo']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['cor']); ?>&nbsp;</td>
-                            <td><?php echo h($veiculo['Veiculo']['ano_fabricacao']); ?>&nbsp;</td>
-                            <td><?php echo h($veiculo['Veiculo']['ano_modelo']); ?>&nbsp;</td>
-                      
+                  <!--          <td><?php echo h($veiculo['Veiculo']['ano_fabricacao']); ?>&nbsp;</td>
+                            <td><?php echo h($veiculo['Veiculo']['ano_modelo']); ?>&nbsp;</td> -->
+                            
+                            <td><?php echo h($veiculo['Rastreador']['numero_equipamento']); ?>&nbsp;</td>
                             <td><?php echo h($veiculo['Veiculo']['status']); ?>&nbsp;</td>
                             <td class="actions">
 

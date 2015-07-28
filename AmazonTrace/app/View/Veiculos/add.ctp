@@ -19,11 +19,17 @@
             <div class="form-group">
                 <?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id')); ?>
             </div>
+            <?php// if($tipo == 1){ ?>
             <div class="form-group col-md-2 ">
                 <?php echo $this->Form->input('placa', array('class' => 'form-control placa', 'placeholder' => 'Placa')); ?>
             </div>
+            <?php// }else{ ?>
+            <div class="form-group col-md-2 ">
+                <?php echo $this->Form->input('apelido', array('class' => 'form-control ', 'placeholder' => 'Apelido')); ?>
+            </div>
+            <?php// } ?>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos)); ?>
+                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos_veic)); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('marca', array('class' => 'form-control', 'placeholder' => 'Marca')); ?>
@@ -65,7 +71,7 @@
                 <?php echo $this->Form->input('renavan', array('class' => 'form-control', 'placeholder' => 'Renavan')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('combustivel', array('class' => 'form-control', 'placeholder' => 'Combustivel')); ?>
+                <?php echo $this->Form->input('combustivel', array('class' => 'form-control', 'placeholder' => 'Combustivel',"options"=>$tipos_comb)); ?>
             </div>
             <div class="form-group col-md-1">
                 <?php
@@ -78,6 +84,19 @@
                 echo $this->Form->input('consumo_litro_hr', array('class' => 'form-control', 'placeholder' => 'L/h', 'type' => 'number',
                     'label' => array('text' => 'Litro/h'), 'min' => '0'));
                 ?>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Motorista</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <a href="/AmazonTrace/Motoristas/add" target="_blank">  
+                            <span class="glyphicon glyphicon-plus"></span></a>
+                    </span>
+                    <?php
+                    echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
+                        'Motorista Id', 'label' => FALSE, 'div' => FALSE, 'options' => $motoristas, 'empty' => 'Selecione o motorista'));
+                    ?>
+                </div>
             </div>
 
             <!---   <div class="form-group col-md-4">
@@ -106,24 +125,12 @@
                 <?php echo $this->Form->input('plano_notificacao_email', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Email')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
+                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status',"options"=>$tipos_status)); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('bloqueio', array('options' => array(0 => 'Não', 1 => 'Sim'), 'class' => 'form-control', 'placeholder' => 'Status')); ?>
             </div>
-            <div class="form-group col-md-6">
-                <label>Motorista</label>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <a href="/AmazonTrace/Motoristas/add" target="_blank">  
-                            <span class="glyphicon glyphicon-plus"></span></a>
-                    </span>
-                    <?php
-                    echo $this->Form->input('motorista_id', array('class' => 'form-control', 'placeholder' =>
-                        'Motorista Id', 'label' => FALSE, 'div' => FALSE, 'options' => $motoristas, 'empty' => 'Selecione o motorista'));
-                    ?>
-                </div>
-            </div>
+
 
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('senha_panico', array('class' => 'form-control', 'placeholder' => 'Senha panico')); ?>

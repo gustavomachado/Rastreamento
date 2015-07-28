@@ -2,48 +2,48 @@
     "Arrays":
         {
             "tipo_veiculo":
-                [
-                    "Motocicleta",
-                    "Camionete",
-                    "Carro",
-                    "SUV",
-                    "Furgão",
-                    "Caminhão",
-                    "Van",
-                    "Jipe",
-                    "Baú(Caminhão)",
-                    "Carroceria(Caminhão)",
-                    "Cavalo(Caminhão)",
-                    "Retro-Escavadeira",
-                    "Robot",
-                    "Caçamba(Caminhão)",
-                    "Carreta",
-                    "Pipa(Caminhão)",
-                    "Ônibus",
-                    "Munck(Caminhão)",
-                    "BombaLança(Caminhão)",
-                    "Betoneira(Caminhão)",
-                    "Cimento(Caminhão)",
-                    "Lubrificante(Caminhão)",
-                    "Guindaste",
-                    "Empilhadeira",
-                    "LinhaViva(Caminhão)",
-                    "Barco",
-                    "Passeio",
-                    "Embarcação",
-                    "Picape",
-                    "veiculo"
-                ]
-            ,
+                {
+                    "Barco":"Barco",
+                    "Baú (Caminhão)":"Baú (Caminhão)",
+                    "Betoneira (Caminhão)":"Betoneira (Caminhão)",
+                    "Bomba Lança (Caminhão)":"Bomba Lança (Caminhão)",
+                    "Caçamba (Caminhão)":"Caçamba (Caminhão)",
+                    "Caminhão":"Caminhão",
+                    "Camionete":"Camionete",
+                    "Carreta":"Carreta",
+                    "Carro":"Carro",
+                    "Carroceria (Caminhão)":"Carroceria (Caminhão)",
+                    "Cavalo (Caminhão)":"Cavalo (Caminhão)",
+                    "Cimento (Caminhão)":"Cimento (Caminhão)",
+                    "Embarcaçao":"Embarcaçao",
+                    "Empilhadeira":"Empilhadeira",
+                    "Furgão":"Furgão",
+                    "Guindaste":"Guindaste",
+                    "Jipe":"Jipe",
+                    "Linha Viva (Caminhão)":"Linha Viva (Caminhão)",
+                    "Lubrificante (Caminhão)":"Lubrificante (Caminhão)",
+                    "Motocicleta":"Motocicleta",
+                    "Munck (Caminhão)":"Munck (Caminhão)",
+                    "Ônibus":"Ônibus",
+                    "Passeio":"Passeio",
+                    "Pick-up":"Pick-up",
+                    "Pipa (Caminhão)":"Pipa (Caminhão)",
+                    "Retro-Escavadeira":"Retro-Escavadeira",
+                    "Robot":"Robot",
+                    "SUV":"SUV",
+                    "Van":"Van",
+                    "Veiculo":"Veiculo"
+                },
             "tipo_combustivel":
-                [
-                    "Gasolina",
-                    "Alcool",
-                    "Diesel"
-                ]
-            ,
+                {
+                    "Gasolina":"Gasolina",
+                    "Alcool":"Alcool",
+                    "Diesel":"Diesel",
+                    "Querosene":"Querosene",
+                    "Gás":"Gás"
+                },
             "tipo_status":
-                [
-                ]
+                {
+                }
         }
 }

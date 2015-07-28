@@ -14,11 +14,11 @@
 
         echo $this->Html->css("bootstrap.min");
         echo $this->Html->css("bootstrap-theme.min");
-        echo $this->Html->css("style");
         echo $this->Html->css("flaticon/flaticon");
         echo $this->Html->css("bootstrap-datetimepicker");
         echo $this->Html->css("bootstrap-datetimepicker-site");
-
+        echo $this->Html->css("style");
+        
         echo $this->Html->script("jquery-1.11.2.min");
         echo $this->Html->script("jquery-ui");
         echo $this->Html->script("bootstrap.min");
