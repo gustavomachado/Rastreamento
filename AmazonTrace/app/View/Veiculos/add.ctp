@@ -23,7 +23,7 @@
                 <?php echo $this->Form->input('placa', array('class' => 'form-control placa', 'placeholder' => 'Placa')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos_veic)); ?>
+                <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos)); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('marca', array('class' => 'form-control', 'placeholder' => 'Marca')); ?>
@@ -65,7 +65,7 @@
                 <?php echo $this->Form->input('renavan', array('class' => 'form-control', 'placeholder' => 'Renavan')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('combustivel', array('class' => 'form-control', 'placeholder' => 'Combustivel',"options"=>$tipos_comb)); ?>
+                <?php echo $this->Form->input('combustivel', array('class' => 'form-control', 'placeholder' => 'Combustivel')); ?>
             </div>
             <div class="form-group col-md-1">
                 <?php
@@ -106,7 +106,7 @@
                 <?php echo $this->Form->input('plano_notificacao_email', array('class' => 'form-control', 'placeholder' => 'Plano Notificacao Email')); ?>
             </div>
             <div class="form-group col-md-2">
-                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status',"options"=>$tipos_status)); ?>
+                <?php echo $this->Form->input('status', array('class' => 'form-control', 'placeholder' => 'Status')); ?>
             </div>
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('bloqueio', array('options' => array(0 => 'Não', 1 => 'Sim'), 'class' => 'form-control', 'placeholder' => 'Status')); ?>
