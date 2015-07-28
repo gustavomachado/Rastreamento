@@ -93,7 +93,22 @@ class Contrato extends AppModel {
             'exclusive' => '',
             'finderQuery' => '',
             'counterQuery' => ''
+        ),
+        'Mensalidade' => array(
+            'className' => 'Mensalidade',
+            'foreignKey' => 'contrato_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
         )
     );
+    
+    
 
 }

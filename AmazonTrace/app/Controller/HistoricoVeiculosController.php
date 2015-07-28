@@ -22,22 +22,59 @@ class HistoricoVeiculosController extends AppController {
      *
      * @return void
      */
-    public function index($filtro = NULL, $pesquisa = NULL) {
+    public function index($campoVeiculo = NULL, $valCampoVeiculo = NULL, $campoRastreador = NULL, $valCampoRastreador = NULL) {
         $this->HistoricoVeiculo->recursive = 0;
         $this->paginate = array('limit' => 50);
-        if (strcmp($filtro, '0') != -1 && strcmp($pesquisa, '0') != -1) {
-            if ($filtro != '0' && $pesquisa != '0') {
-                $this->paginate = array('limit' => 50, 'conditions' => array('HistoricoVeiculo.veiculo_id' => $filtro, 'HistoricoVeiculo.rastreador_id' => $pesquisa), 'order' => 'HistoricoVeiculo.data_fim DESC');
-            } else if ($filtro != '0' || $pesquisa != '0') {
-                $this->paginate = array('limit' => 50, 'conditions' => 'HistoricoVeiculo.veiculo_id = ' . $filtro . ' OR HistoricoVeiculo.rastreador_id = ' . $pesquisa, 'order' => 'HistoricoVeiculo.data_fim DESC');
+        $this->set('camposVeiculo', array('placa' => 'Placa', 'apelido' => 'Apelido', 'marca' => 'Marca', 'renavan' => 'Renavan'));
+        $this->set('camposRastreador', array('numero_serie' => 'Número Série', 'modelo' => 'Modelo', 'marca' => 'Marca', 'numero_equipamento' => 'Número Equipamento'));
+
+        if (strcmp($campoVeiculo, '0') != -1 && strcmp($campoRastreador, '0') != -1) {
+            if ($campoVeiculo != '0' && $campoRastreador != '0') {
+                $arrayVeiculos = $this->HistoricoVeiculo->Veiculo->find('list', array('conditions' => array('Veiculo.' . $campoVeiculo . ' LIKE ' => '%' . $valCampoVeiculo . '%')));
+                $arrayRastreadores = $this->HistoricoVeiculo->Rastreador->find('list', array('conditions' => array('Rastreador.' . $campoRastreador . ' LIKE ' => '%' . $valCampoRastreador . '%')));
+                $this->paginate = array('limit' => 50,
+                    'conditions' => array(
+                        'HistoricoVeiculo.veiculo_id' => $arrayVeiculos,
+                        'HistoricoVeiculo.rastreador_id' => $arrayRastreadores),
+                    'order' => 'HistoricoVeiculo.data_fim DESC');
+            } else if ($campoVeiculo != '0') {
+                $arrayVeiculos = $this->HistoricoVeiculo->Veiculo->find('list', array('conditions' => array('Veiculo.' . $campoVeiculo . ' LIKE ' => '%' . $valCampoVeiculo . '%')));
+                $this->paginate = array('limit' => 50,
+                    'conditions' => array('HistoricoVeiculo.veiculo_id' => $arrayVeiculos),
+                    'order' => 'HistoricoVeiculo.data_fim DESC');
+            } else if ($campoRastreador != '0') {
+                $arrayRastreadores = $this->HistoricoVeiculo->Rastreador->find('list', array('conditions' => array('Rastreador.' . $campoRastreador . ' LIKE ' => '%' . $valCampoRastreador . '%')));
+                $this->paginate = array('limit' => 50,
+                    'conditions' => array('HistoricoVeiculo.rastreador_id' => $arrayRastreadores),
+                    'order' => 'HistoricoVeiculo.data_fim DESC');
             }
         }
-        $this->set('veiculos', $this->HistoricoVeiculo->Veiculo->find('list', array('fields' => array('id', 'Veiculo.marca_modelo_placa'), 'order' => array('Veiculo.id ASC'))));
-        $this->set('rastreadores', $this->HistoricoVeiculo->Rastreador->find('list', array('fields' => array('id', 'Rastreador.id_modelo'), 'order' => array('Rastreador.id ASC'))));
-        $this->set('filtro', $filtro);
-        $this->set('pesquisa', $pesquisa);
+        if($valCampoVeiculo == null || $valCampoVeiculo == 'null'){
+            $valCampoVeiculo = NULL;
+        }
+        $this->set('campoVeiculo', $campoVeiculo);
+        $this->set('valCampoVeiculo', $valCampoVeiculo);
+        $this->set('campoRastreador', $campoRastreador);
+        $this->set('valCampoRastreador', $valCampoRastreador);
         $this->set('historicoVeiculos', $this->Paginator->paginate());
     }
+
+    /* public function index($filtro = NULL, $pesquisa = NULL) {
+      $this->HistoricoVeiculo->recursive = 0;
+      $this->paginate = array('limit' => 50);
+      if (strcmp($filtro, '0') != -1 && strcmp($pesquisa, '0') != -1) {
+      if ($filtro != '0' && $pesquisa != '0') {
+      $this->paginate = array('limit' => 50, 'conditions' => array('HistoricoVeiculo.veiculo_id' => $filtro, 'HistoricoVeiculo.rastreador_id' => $pesquisa), 'order' => 'HistoricoVeiculo.data_fim DESC');
+      } else if ($filtro != '0' || $pesquisa != '0') {
+      $this->paginate = array('limit' => 50, 'conditions' => 'HistoricoVeiculo.veiculo_id = ' . $filtro . ' OR HistoricoVeiculo.rastreador_id = ' . $pesquisa, 'order' => 'HistoricoVeiculo.data_fim DESC');
+      }
+      }
+      $this->set('veiculos', $this->HistoricoVeiculo->Veiculo->find('list', array('fields' => array('id', 'Veiculo.marca_modelo_placa'), 'order' => array('Veiculo.id ASC'))));
+      $this->set('rastreadores', $this->HistoricoVeiculo->Rastreador->find('list', array('fields' => array('id', 'Rastreador.id_modelo'), 'order' => array('Rastreador.id ASC'))));
+      $this->set('filtro', $filtro);
+      $this->set('pesquisa', $pesquisa);
+      $this->set('historicoVeiculos', $this->Paginator->paginate());
+      } */
 
     /**
      * view method
