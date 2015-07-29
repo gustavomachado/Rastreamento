@@ -44,8 +44,8 @@
                             <td><?php echo h($contrato['Contrato']['numero_contrato']); ?>&nbsp;</td>                        
                             <td><?php echo $this->Html->link($contrato['Cliente']['id'] . ' - ' . $contrato['Cliente']['nome'], array('action' => 'edit', $contrato['Contrato']['id'])); ?>&nbsp;</td>
                             <td><?php echo ($contrato['Contrato']['data_vencimento']) ? date('d/m/Y', strtotime($contrato['Contrato']['data_vencimento'])) : 'Não definada'; ?>&nbsp;</td>
-                            <td style="text-align: right; width: 150px"><?php echo h($contrato['Contrato']['valor_mensalidade']); ?>&nbsp;</td>
-                            <td style="text-align: right; width: 135px"><?php echo h($contrato['Contrato']['dia_vencimento']); ?>&nbsp;</td>
+                            <td style="width: 150px"><?php echo h($contrato['Contrato']['valor_mensalidade']); ?>&nbsp;</td>
+                            <td style="width: 135px"><?php echo h($contrato['Contrato']['dia_vencimento']); ?>&nbsp;</td>
                             <td><?php echo h($contrato['Contrato']['doc']); ?>&nbsp;</td>
                             <td><?php echo h($contrato['Contrato']['status']); ?>&nbsp;</td>
                             <td class="actions">
