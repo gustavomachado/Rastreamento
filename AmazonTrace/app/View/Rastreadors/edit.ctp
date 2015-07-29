@@ -12,11 +12,11 @@
         <div>
             <?php echo $this->Form->create('Rastreador', array('role' => 'form')); ?>
             <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
-            <div class="form-group col-md-4">
-                <?php echo $this->Form->input('modelo', array('class' => 'form-control', 'placeholder' => 'Modelo', 'required' => 'required')); ?>
-            </div>
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('marca', array('class' => 'form-control', 'placeholder' => 'Marca')); ?>
+            </div>
+            <div class="form-group col-md-4">
+                <?php echo $this->Form->input('modelo', array('class' => 'form-control', 'placeholder' => 'Modelo', 'required' => 'required')); ?>
             </div>
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('numero_equipamento', array('class' => 'form-control', 'label' => 'Número Equipamento', 'placeholder' => 'Número Equipamento')); ?>
