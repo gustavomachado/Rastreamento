@@ -38,7 +38,7 @@ class HistoricoChipsController extends AppController {
                         'HistoricoChip.rastreador_id' => $arrayRastreadores),
                     'order' => 'HistoricoChip.data_fim DESC');
             } else if ($campoChip != '0') {
-                $arrayVeiculos = $this->HistoricoChip->Chip->find('list', array('conditions' => array('Chip.' . $campoChip . ' LIKE ' => '%' . $valCampoChip . '%')));
+                $arrayChips = $this->HistoricoChip->Chip->find('list', array('conditions' => array('Chip.' . $campoChip . ' LIKE ' => '%' . $valCampoChip . '%')));
                 $this->paginate = array('limit' => 50,
                     'conditions' => array('HistoricoChip.chip_id' => $arrayChips),
                     'order' => 'HistoricoChip.data_fim DESC');
