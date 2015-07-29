@@ -71,10 +71,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'db_am_trace',
+		'host' => 'mysql07.amazontrace.hospedagemdesites.ws',
+		'login' => 'amazontrace5',
+		'password' => 'satamtrace0231',
+		'database' => 'amazontrace5',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
