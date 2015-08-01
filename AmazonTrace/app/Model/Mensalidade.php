@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  * @property Contrato $Contrato
  */
 class Mensalidade extends AppModel {
+    //The Associations below have been created with all possible keys, those that are not needed can be removed
 
     /**
      * belongsTo associations

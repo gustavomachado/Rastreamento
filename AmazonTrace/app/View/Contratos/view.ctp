@@ -14,48 +14,48 @@
                     <tbody>
                         <tr>
                             <th style="width: 160px; text-align: right"><?php echo __('Numero Contrato'); ?></th>
-                            <td style="width: 160px; text-align: left">
+                            <td style="width: 160px;">
                                 <?php echo h($contrato['Contrato']['numero_contrato']); ?>
                                 &nbsp;
                             </td>
                             <th style="width: 160px; text-align: right"><?php echo __('Doc'); ?></th>
-                            <td style="text-align: left">
+                            <td>
                                 <?php echo h($contrato['Contrato']['doc']); ?>
                                 &nbsp;
                             </td>
                         </tr>
                         <tr>                         
                             <th style="width: 160px; text-align: right"><?php echo __('Data Inicio'); ?></th>
-                            <td style="width: 160px; text-align: left">
+                            <td style="width: 160px;">
                                 <?php echo h($contrato['Contrato']['data_inicio']); ?>
                                 &nbsp;
                             </td>
                             <th style="width: 160px; text-align: right"><?php echo __('Dia Vencimento'); ?></th>
-                            <td style="text-align: left">
+                            <td>
                                 <?php echo h($contrato['Contrato']['dia_vencimento']); ?>
                                 &nbsp;
                             </td>
                         </tr>
                         <tr>
                             <th style="width: 160px; text-align: right"><?php echo __('Data Vencimento'); ?></th>
-                            <td style="width: 160px; text-align: left">
+                            <td style="width: 160px;">
                                 <?php echo h($contrato['Contrato']['data_vencimento']); ?>
                                 &nbsp;
                             </td>
                             <th style="width: 160px; text-align: right"><?php echo __('Valor Mensalidade'); ?></th>
-                            <td style="text-align: left">
+                            <td>
                                 <?php echo h($contrato['Contrato']['valor_mensalidade']); ?>
                                 &nbsp;
                             </td>
                         </tr>
                         <tr>
                             <th style="width: 160px; text-align: right"><?php echo __('Status'); ?></th>
-                            <td style="text-align: left">
+                            <td >
                                 <?php echo h($contrato['Contrato']['status']); ?>
                                 &nbsp;
                             </td>
                             <th style="width: 160px; text-align: right"><?php echo __('Obs'); ?></th>
-                            <td colspan="4" style="text-align: left">
+                            <td colspan="4">
                                 <?php echo h($contrato['Contrato']['obs']); ?>
                                 &nbsp;
                             </td>

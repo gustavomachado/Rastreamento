@@ -76,16 +76,16 @@ class AppController extends Controller {
         }
     }
     
-    function getLista($nomeDaLista = null) {
-        $nomeArquivo = "dados_selects";
-        $arquivo = fopen($nomeArquivo, "r+");
-        $dados = fread($arquivo, filesize($nomeArquivo));
-        $dadosArray = json_decode($dados, TRUE);
-        fclose($arquivo);
-        if ($nomeDaLista) {
-            return $dadosArray['Arrays'][$nomeDaLista]; //->{$nomeDaLista};
-        }
-        return $dadosArray['Arrays'];
-    }
+     function getLista($nomeDaLista = null){
+         $nomeArquivo  = "dados_selects";
+         $arquivo = fopen($nomeArquivo, "r+");
+         $dados = fread($arquivo, filesize($nomeArquivo));
+         $dadosArray = json_decode($dados,TRUE)['Arrays'];
+         fclose($arquivo);
+         if($nomeDaLista){
+             return $dadosArray[$nomeDaLista];//->{$nomeDaLista};
+         }
+         return $dadosArray;         
+     }
 
 }

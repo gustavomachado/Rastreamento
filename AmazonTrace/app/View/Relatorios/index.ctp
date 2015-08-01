@@ -6,10 +6,9 @@
             </div>
         </div><!-- end col md 12 -->
     </div><!-- end row -->
-
     <div class="row">
         <div class="col-md-12">
-            <div>
+            <div >
                 <?php foreach ($paginas_permitidas as $pagina): ?>
                     <div class="col-md-3 icon-menu-cadastros">
                         <?php echo '<a href="' . $pagina['Pagina']['url'] . '">
