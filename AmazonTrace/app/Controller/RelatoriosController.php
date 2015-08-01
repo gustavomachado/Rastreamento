@@ -21,7 +21,7 @@ class RelatoriosController extends AppController {
         parent::beforeFilter();
         $usuarios = $this->Auth->user();
         $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $usuarios['Conta']['id'], 'visualizar' => 1)));
-        $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('nome', 'url', 'class_icon'), 'conditions' => array('id' => $acessos, "url in ('Relatorios\\\\gerencial','Logs', 'HistoricoChips', 'HistoricoVeiculos')")));
+        $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('nome', 'url', 'class_icon'), 'conditions' => array('id' => $acessos, "url in ('Relatorios/gerencial','Logs', 'HistoricoChips', 'HistoricoVeiculos')")));
         $this->set(compact('paginas_permitidas'));
     }
 
