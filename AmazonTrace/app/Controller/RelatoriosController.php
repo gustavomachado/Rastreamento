@@ -52,7 +52,7 @@ class RelatoriosController extends AppController {
                     COALESCE(ras.modelo ,'Sem Rastreador') AS modelo, 
                     COALESCE(ras.numero_equipamento,'Sem Rastreador') AS numero_equipamento,
                     COALESCE(ras.numero_serie,'Sem Rastreador') AS numero_serie,
-                    COALESCE(ras.status_reg,'Sem Rastreador') AS status, hvei.data_inicio,hvei.data_fim,
+                    COALESCE(ras.status,'Sem Rastreador') AS status, hvei.data_inicio,hvei.data_fim,
                     hvei.fiacao_utilizada,hvei.local_instalacao_rastreador, con.numero_contrato,
                     con.status,con.data_vencimento
                 FROM 

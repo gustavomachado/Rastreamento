@@ -22,7 +22,11 @@
         $colunas=array( "cli.nome"=>"Nome Cliente","vei.placa"=>"Placa","vei.apelido"=>"Apelido","vei.modelo"=>"Modelo Veículo",
                         "vei.marca"=>"Marca Veículo","vei.status"=>"Status Veículo","ch.numero_telefone"=>"Linha Chip",
                         "ch.numero_chip"=>"Número Chip","ras.marca"=>"Marca Rastreador","ras.modelo"=>"Modelo Rastreador",
-                        "ras.numero_equipamento"=>"Número Rastreador"
+                        "ras.numero_equipamento"=>"Número Rastreador","ras.numero_serie"=>"Nº Série Rastreador",
+                        "ras.status"=>"Status Rastreador","hvei.data_inicio"=>"Data Instalação",
+                        "hvei.data_fim"=>"Data remoção","hvei.fiacao_utilizada"=>"Fiação Utilizada",
+                        "hvei.local_instalacao_rastreador"=>"Local Instalação","con.numero_contrato"=>"Número Rastreador",
+                        "con.status"=>"Status Contrato","con.data_vencimento"=>"Vencimento Contrato"
                         );
         $relacoes=array("like"=>"contém","="=>"igual a","!="=>"diferente de","<"=>"menor do que",
                         ">"=>"maior do que","<="=>"menor ou igual a",">="=>"maior ou igual a");
