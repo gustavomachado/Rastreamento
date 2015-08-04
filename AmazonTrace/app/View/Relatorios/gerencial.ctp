@@ -16,6 +16,12 @@
                 </a>
             </div>
             <?php endif; ?>
+            <div class="col-lg-2">
+                <button data-target="#relatorio" class="table-center btn btn-info btn-block">
+                    <span class="glyphicon glyphicon-align-center"></span>
+                    Centralizar
+                </button>
+            </div>
         </div><!-- end col md 12 -->
     </div><!-- end row -->
     <?php 
@@ -33,7 +39,7 @@
     ?>
     <div class="row"  >
         <div class="col-lg-12" style="overflow: scroll ; height: 450px;">
-            <table class="table table-bordered table-striped gerencial ">
+            <table id="relatorio" class="table table-bordered  table-striped gerencial ">
                 <thead>
                     <tr>
                         <th style="min-width: 250px">Cliente</th>
