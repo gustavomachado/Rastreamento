@@ -31,6 +31,7 @@
                         <th><?php echo $this->Paginator->sort('id'); ?></th>
                         <th><?php echo $this->Paginator->sort('conta_id', 'Perfil'); ?></th>
                         <th><?php echo $this->Paginator->sort('nome'); ?></th>
+                        <th><?php echo $this->Paginator->sort('login'); ?></th>
                         <th><?php echo $this->Paginator->sort('email'); ?></th>
                         <th><?php echo $this->Paginator->sort('observação'); ?></th>
                         <th class="actions"></th>
@@ -44,6 +45,7 @@
       <?php echo $this->Html->link($usuario['Conta']['id'] . ' - '.$usuario['Conta']['descricao'], array('controller' => 'contas', 'action' => 'cadastro', $usuario['Conta']['id'])); ?>
                         </td>
                         <td><?php echo h($usuario['User']['nome']); ?>&nbsp;</td>
+                        <td><?php echo h($usuario['User']['login']); ?>&nbsp;</td>
                         <td><?php echo h($usuario['User']['email']); ?>&nbsp;</td>
                         <td><?php echo h($usuario['User']['obs']); ?>&nbsp;</td>
                         <td class="actions">
