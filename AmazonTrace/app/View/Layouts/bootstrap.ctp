@@ -61,7 +61,7 @@
 
         <?php echo $this->Element('navigation'); ?>
 
-        <div class="container">
+        <div class="container" style="width: 90% !important">
 
             <?php echo $this->Session->flash(); ?>
 

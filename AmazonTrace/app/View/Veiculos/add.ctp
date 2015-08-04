@@ -19,15 +19,15 @@
             <div class="form-group">
                 <?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id')); ?>
             </div>
-            <?php// if($tipo == 1){ ?>
+            
             <div class="form-group col-md-2 ">
                 <?php echo $this->Form->input('placa', array('class' => 'form-control placa', 'placeholder' => 'Placa')); ?>
             </div>
-            <?php// }else{ ?>
+            
             <div class="form-group col-md-2 ">
                 <?php echo $this->Form->input('apelido', array('class' => 'form-control ', 'placeholder' => 'Apelido')); ?>
             </div>
-            <?php// } ?>
+            
             <div class="form-group col-md-2">
                 <?php echo $this->Form->input('tipo_veiculo', array('class' => 'form-control', 'placeholder' => 'Tipo Veiculo' ,"options"=> $tipos_veic)); ?>
             </div>

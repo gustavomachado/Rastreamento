@@ -80,12 +80,12 @@ class AppController extends Controller {
          $nomeArquivo  = "dados_selects";
          $arquivo = fopen($nomeArquivo, "r+");
          $dados = fread($arquivo, filesize($nomeArquivo));
-         $dadosArray = json_decode($dados,TRUE)['Arrays'];
+         $dadosArray = json_decode($dados,TRUE);
          fclose($arquivo);
          if($nomeDaLista){
-             return $dadosArray[$nomeDaLista];//->{$nomeDaLista};
+             return $dadosArray['Arrays'][$nomeDaLista];//->{$nomeDaLista};
          }
-         return $dadosArray;         
+         return $dadosArray['Arrays'];         
      }
 
 }

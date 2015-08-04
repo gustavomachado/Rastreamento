@@ -1,5 +1,5 @@
 <div class="navbar   navbar-fixed-top">
-    <div class="container">
+    <div class="container" style="width: 90% !important">
         <div class="navbar-header">
             <?php echo $this->Html->image('logo.png', array('alt' => "teste", 'border' => '0', 'style' => 'width: 130px')); ?>
         </div>
