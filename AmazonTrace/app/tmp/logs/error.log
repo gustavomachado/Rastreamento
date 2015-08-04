@@ -38056,3 +38056,21 @@ Stack Trace:
 #8 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest))
 #9 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2015-08-04 22:27:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as classe
+                FROM 
+                        db_am_trace.clientes' at line 13
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(75): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

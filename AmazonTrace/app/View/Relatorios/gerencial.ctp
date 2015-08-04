@@ -1,26 +1,28 @@
 <div class="cadastros index">
     <div class="row">
         <div class="page-header col-md-12">
-            <div class="col-lg-12" >
+            <div class="col-lg-6"  style=" margin-top: 0; padding-top: 0;">
                 <h1><?php echo __('Relatório Gerencial'); ?></h1>
             </div>
-            <div class="col-lg-2" >
-                <a href="#modal-filtro" class="btn btn-success btn-block" data-toggle="modal" data-target="#modal-filtro" >
-                    <span class="glyphicon glyphicon-filter"></span>Filtrar Relatório
-                </a>
-            </div>
+            <div class="row botoes "  >
+                <div class="col-lg-2" >
+                    <a href="#modal-filtro" class="btn btn-success btn-block" data-toggle="modal" data-target="#modal-filtro" >
+                        <span class="glyphicon glyphicon-filter"></span>Filtrar Relatório
+                    </a>
+                </div>
             <?php if($filtro):?>
-            <div class="col-lg-2" >
-                <a class="btn btn-warning btn-block" href="<?php echo $this->Html->url(array('controller'=>'relatorios','action'=>'gerencial')); ?>">
-                    <span class="glyphicon glyphicon-filter"></span>Remover Filtro
-                </a>
-            </div>
+                <div class="col-lg-2" >
+                    <a class="btn btn-warning btn-block" href="<?php echo $this->Html->url(array('controller'=>'relatorios','action'=>'gerencial')); ?>">
+                        <span class="glyphicon glyphicon-filter"></span>Remover Filtro
+                    </a>
+                </div>
             <?php endif; ?>
-            <div class="col-lg-2">
-                <button data-target="#relatorio" class="table-center btn btn-info btn-block">
-                    <span class="glyphicon glyphicon-align-center"></span>
-                    Centralizar
-                </button>
+                <div class="col-lg-2">
+                    <button data-target="#relatorio" class="table-center btn btn-info btn-block">
+                        <span class="glyphicon glyphicon-align-center"></span>
+                        Centralizar
+                    </button>
+                </div>
             </div>
         </div><!-- end col md 12 -->
     </div><!-- end row -->
@@ -38,7 +40,7 @@
                         ">"=>"maior do que","<="=>"menor ou igual a",">="=>"maior ou igual a");
     ?>
     <div class="row"  >
-        <div class="col-lg-12" style="overflow: scroll ; height: 450px;">
+        <div class="col-lg-12" style="overflow: scroll ; height: 550px;">
             <table id="relatorio" class="table table-bordered  table-striped gerencial ">
                 <thead>
                     <tr>
@@ -65,7 +67,7 @@
                 </thead>
                 <tbody >
                     <?php   foreach ($dados as $linha): ?>
-                    <tr>
+                    <tr class="<?=$linha['0']['classe']?>">
                         <td title="Nome Cliente">
                             <?= 
                                 $this->Html->link($linha['cli']['nome'],
@@ -149,7 +151,7 @@
                 <div class="filter-container row" style="padding-top: 100px " >
                     <div class="col-md-12" style="max-height: 300px; overflow-y: auto; padding:0 40px ;">
                         <ul class="row " style="min-height: 290px; list-style: none;border: 3px #d4d4d4 dashed;">
-                           
+
                         </ul>
                     </div>
                 </div>

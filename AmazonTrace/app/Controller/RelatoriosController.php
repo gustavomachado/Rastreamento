@@ -43,33 +43,34 @@ class RelatoriosController extends AppController {
         }  
         $this->loadModel("Cliente");
         $sql = "  
-                SELECT 
-                    cli.nome,cli.id, COALESCE(vei.apelido,vei.placa) AS placa_apelido  ,vei.modelo, 
+              select 
+                    cli.nome,cli.id, coalesce(vei.apelido,vei.placa) as placa_apelido  ,vei.modelo, 
                     vei.id,vei.marca, vei.status,ch.id,ras.id,con.id,
-                    COALESCE(ch.numero_telefone,'Sem Chip') AS numero_telefone, 
-                    COALESCE(ch.numero_chip,'Sem Chip')AS numero_chip , 
-                    COALESCE(ras.marca,'Sem Rastreador') AS marca,
-                    COALESCE(ras.modelo ,'Sem Rastreador') AS modelo, 
-                    COALESCE(ras.numero_equipamento,'Sem Rastreador') AS numero_equipamento,
-                    COALESCE(ras.numero_serie,'Sem Rastreador') AS numero_serie,
-                    COALESCE(ras.status,'Sem Rastreador') AS status, hvei.data_inicio,hvei.data_fim,
+                    coalesce(ch.numero_telefone,'sem chip') as numero_telefone, 
+                    coalesce(ch.numero_chip,'sem chip')as numero_chip , 
+                    coalesce(ras.marca,'sem rastreador') as marca,
+                    coalesce(ras.modelo ,'sem rastreador') as modelo, 
+                    coalesce(ras.numero_equipamento,'sem rastreador') as numero_equipamento,
+                    coalesce(ras.numero_serie,'sem rastreador') as numero_serie,
+                    coalesce(ras.status,'sem rastreador') as status, hvei.data_inicio,hvei.data_fim,
                     hvei.fiacao_utilizada,hvei.local_instalacao_rastreador, con.numero_contrato,
-                    con.status,con.data_vencimento
-                FROM 
-                        db_am_trace.clientes AS cli
-                INNER JOIN 
-                        db_am_trace.veiculos AS vei ON vei.cliente_id = cli.id
-                LEFT JOIN 
-                        db_am_trace.rastreadors AS ras ON ras.veiculo_id = vei.id
-                LEFT JOIN 
-                        db_am_trace.chips AS ch ON ch.rastreador_id = ras.id
-                LEFT JOIN
-                        db_am_trace.historico_veiculos AS hvei ON ( hvei.rastreador_id=ras.id AND hvei.veiculo_id=vei.id)
-                LEFT JOIN
-                        db_am_trace.contratos AS con ON ( con.cliente_id=cli.id AND con.id=vei.contrato_id )
+                    con.status,con.data_vencimento,
+                    (case when vei.status_reg = 1 then 'inativo' else 'ativo' end) as classe
+                from 
+                        db_am_trace.clientes as cli
+                inner join 
+                        db_am_trace.veiculos as vei on vei.cliente_id = cli.id
+                left join 
+                        db_am_trace.rastreadors as ras on ras.veiculo_id = vei.id
+                left join 
+                        db_am_trace.chips as ch on ch.rastreador_id = ras.id
+                left join
+                        db_am_trace.historico_veiculos as hvei on ( hvei.rastreador_id=ras.id and hvei.veiculo_id=vei.id)
+                left join
+                        db_am_trace.contratos as con on ( con.cliente_id=cli.id and con.id=vei.contrato_id )
                 $whereClause
-                ORDER BY 
-                        cli.nome ASC , vei.status DESC , hvei.data_inicio ;";
+                order by 
+                        cli.nome asc , vei.status_reg desc , hvei.data_inicio ;";
         
         $dados = $this->Cliente->query($sql);
         $this->set("dados", $dados);

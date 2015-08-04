@@ -23,7 +23,7 @@ echo $this->Session->flash('auth');
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-user"></span>
                         </span>
-                        <?php echo $this->Form->input('login', array('label' => false, 'class' => 'form-control', 'style' => 'border-bottom-right-radius: 4px; border-top-right-radius: 4px', 'placeholder' => 'Usuário')); ?>
+                        <?php echo $this->Form->input('nome', array('label' => false, 'class' => 'form-control', 'style' => 'border-bottom-right-radius: 4px; border-top-right-radius: 4px', 'placeholder' => 'Usuário')); ?>
                     </div>
                     <div class="input-group col-lg-12" style="margin-top: 10px">
                         <span class="input-group-addon">
