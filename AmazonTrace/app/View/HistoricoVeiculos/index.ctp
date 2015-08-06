@@ -58,6 +58,8 @@
                             <th><?php echo $this->Paginator->sort('rastreador_id'); ?></th>
                             <th><?php echo $this->Paginator->sort('data_inicio'); ?></th>
                             <th><?php echo $this->Paginator->sort('data_fim'); ?></th>
+                            <th><?php echo $this->Paginator->sort('local_instalacao_rastreador'); ?></th>
+                            <th><?php echo $this->Paginator->sort('fiacao_utilizada'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +74,8 @@
                                 </td>
                                 <td><?php echo h(date('d/m/Y H:i:s', strtotime($historicoVeiculo['HistoricoVeiculo']['data_inicio']))); ?>&nbsp;</td>
                                 <td><?php echo ($historicoVeiculo['HistoricoVeiculo']['data_fim']) ? h(date('d/m/Y H:i:s', strtotime($historicoVeiculo['HistoricoVeiculo']['data_fim']))) : 'Não definida'; ?>&nbsp;</td>
+                                <td><?php echo h($historicoVeiculo['HistoricoVeiculo']['local_instalacao_rastreador']); ?>&nbsp;</td>
+                                <td><?php echo h($historicoVeiculo['HistoricoVeiculo']['fiacao_utilizada']); ?>&nbsp;</td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
