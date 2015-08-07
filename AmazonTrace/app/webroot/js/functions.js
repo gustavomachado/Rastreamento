@@ -26,7 +26,18 @@ $(document).ready(function () {
             });
         });
     }
-
+    
+    if( typeof ($(".table-hover")) !== undefined ){
+         $(".table-hover tr").hover(
+                 function(){
+                     //    $(this).css("background-color","red");
+                    //    alert("in");
+                        },
+                    function (){
+                      //  $(this).css("background-color","write");
+                        });  
+    }
+    
     if (typeof ($(".tel")) !== undefined) {
         $(".tel").mask("(99)9999-9999");
     }

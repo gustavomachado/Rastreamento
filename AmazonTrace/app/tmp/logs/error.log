@@ -38074,3 +38074,407 @@ Stack Trace:
 #10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
 #11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
+2015-08-05 16:23:22 Error: [NotFoundException] Invalid veiculo
+Request URL: /AmazonTrace/veiculos/add/18/207
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\app\Controller\VeiculosController.php(118): VeiculosController->edit('18', '207')
+#1 [internal function]: VeiculosController->add('18', '207')
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(VeiculosController), Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#4 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(VeiculosController), Object(CakeRequest))
+#5 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-08-05 19:06:07 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 925913 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 19:06:07 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 925913 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:06:22 Error: Fatal Error (1): Call to undefined function utf8_dencode() in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 85]
+2015-08-05 19:06:22 Error: [FatalErrorException] Call to undefined function utf8_dencode()
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:07:37 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 925919 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 19:07:37 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 925919 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:34:48 Error: Fatal Error (1): Call to undefined method View::subString() in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 85]
+2015-08-05 19:34:48 Error: [FatalErrorException] Call to undefined method View::subString()
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:37:24 Error: Fatal Error (1): Call to undefined method View::subString() in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 85]
+2015-08-05 19:37:24 Error: [FatalErrorException] Call to undefined method View::subString()
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:38:36 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 925441 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 19:38:36 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 925441 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:39:27 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 925799 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 19:39:27 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 925799 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:41:49 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 925799 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 19:41:49 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 925799 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 19:50:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as subPlacaApelido,
+                    vei.modelo, 
+                    vei' at line 5
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(89): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-05 19:51:16 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') as subPlacaApelido,
+                    vei.modelo, 
+                    vei' at line 5
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(89): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-05 19:52:15 Error: Fatal Error (1): Call to undefined function subString() in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 85]
+2015-08-05 19:52:15 Error: [FatalErrorException] Call to undefined function subString()
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\Ama...', 85, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:07:36 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ch.id,
+                    ras.id,
+                    con.id,
+              ' at line 11
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(90): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-05 20:12:07 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'coalesce(ch.numero_chip,'sem chip')as numero_chip , 
+                    coales' at line 16
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(91): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-05 20:12:16 Error: Fatal Error (4): syntax error, unexpected '"', expecting ',' or ';' in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 93]
+2015-08-05 20:12:17 Error: [FatalErrorException] syntax error, unexpected '"', expecting ',' or ';'
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:32:10 Error: Fatal Error (4): syntax error, unexpected '"', expecting ',' or ';' in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 93]
+2015-08-05 20:32:10 Error: [FatalErrorException] syntax error, unexpected '"', expecting ',' or ';'
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 93, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:49:34 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1066091 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 20:49:34 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1066091 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:53:58 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1066420 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 20:53:58 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1066420 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:55:42 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065868 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 20:55:42 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065868 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 20:58:25 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065868 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 20:58:25 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065868 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:18:26 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1064315 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 21:18:26 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1064315 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:24:44 Error: Fatal Error (4): syntax error, unexpected 'if' (T_IF) in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 75]
+2015-08-05 21:24:44 Error: [FatalErrorException] syntax error, unexpected 'if' (T_IF)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:25:10 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 78]
+2015-08-05 21:25:10 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 78)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 78, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 78, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:25:23 Error: Fatal Error (4): syntax error, unexpected 'if' (T_IF) in [C:\wamp\www\AmazonTrace\app\View\Relatorios\gerencial.ctp, line 75]
+2015-08-05 21:25:23 Error: [FatalErrorException] syntax error, unexpected 'if' (T_IF)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\Ama...', 75, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:40:09 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065914 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 21:40:09 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065914 bytes)
+Request URL: /AmazonTrace/Relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-05 21:54:25 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065948 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-05 21:54:25 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1065948 bytes)
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-07 11:22:38 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S.*
+                from(
+                    select 
+                       ' at line 10
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-07 11:23:29 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 1097160 bytes) in [C:\wamp\www\AmazonTrace\lib\Cake\Utility\String.php, line 240]
+2015-08-07 11:23:30 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 1097160 bytes)
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\Ama...', 240, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-08-07 11:31:57 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; delete from db_am_trace
+                        order by cli.nome asc , vei.s' at line 32
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-07 11:34:13 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';delete from usuarios -- 
+                        order by cli.nome asc , vei.s' at line 32
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-07 11:36:16 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(delete from usuarios)
+                        order by cli.nome asc , vei.stat' at line 32
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-07 11:39:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-08-07 12:18:30 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias
+Request URL: /AmazonTrace/relatorios/gerencial
+Stack Trace:
+#0 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('  \r\n           ...', Array)
+#2 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(668): DboSource->execute('  \r\n           ...', Array, Array)
+#3 C:\wamp\www\AmazonTrace\lib\Cake\Model\Datasource\DboSource.php(539): DboSource->fetchAll('  \r\n           ...')
+#4 [internal function]: DboSource->query('  \r\n           ...')
+#5 C:\wamp\www\AmazonTrace\lib\Cake\Model\Model.php(3443): call_user_func_array(Array, Array)
+#6 C:\wamp\www\AmazonTrace\app\Controller\RelatoriosController.php(81): Model->query('  \r\n           ...')
+#7 [internal function]: RelatoriosController->gerencial()
+#8 C:\wamp\www\AmazonTrace\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatoriosController), Array)
+#9 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\AmazonTrace\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(RelatoriosController), Object(CakeRequest))
+#11 C:\wamp\www\AmazonTrace\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

@@ -33,7 +33,6 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     public $uses = array('Pagina', 'Acesso');
-  
     public $components = array(
         'Session',
         'Auth' => array(
@@ -42,7 +41,7 @@ class AppController extends Controller {
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
             'authError' => '<div class="alert alert-danger"><span class="flaticon-locked57"></span>É necessário realizar Login para acessar o sistema.</div>',
         )
-    );  
+    );
 
     public function beforeFilter() {
         $this->layout = 'bootstrap';
@@ -50,42 +49,44 @@ class AppController extends Controller {
         $this->set('user', $this->Auth->user());
         if ($this->Auth->user()) {
             if (!$this->permitirPagina()) {
-                $this->Session->setFlash('<span class="flaticon-locked57"></span>Acesso negado:<br>Você não têm acesso à página '.strtoupper($this->params['controller']), 'default', array('class' => 'alert alert-danger'));
+                $this->Session->setFlash('<span class="flaticon-locked57"></span>Acesso negado:<br>Você não têm acesso à página ' . strtoupper($this->params['controller']), 'default', array('class' => 'alert alert-danger'));
                 $this->redirect(array('controller' => 'cadastros'));
             }
         }
     }
-    
+
     public function converteArrayParaMauisculo($value) {
         return strtoupper($value);
     }
-  
+
     public function permitirPagina() {
-        $usuario = $this->Auth->user();    
+        $usuario = $this->Auth->user();
         $acessos = $this->Acesso->find('list', array('fields' => array('pagina_id'), 'conditions' => array('conta_id' => $usuario['Conta']['id'], 'visualizar' => 1)));
-        $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('id','url'), 'conditions' => array('id' => $acessos)));
+        $paginas_permitidas = $this->Pagina->find('all', array('fields' => array('id', 'url'), 'conditions' => array('id' => $acessos)));
         $urlPaginas = array();
-        foreach ($paginas_permitidas as $page){
+        foreach ($paginas_permitidas as $page) {
             array_push($urlPaginas, strtoupper($page['Pagina']['url']));
         }
         $paginas = array_map($this->converteArrayParaMauisculo, $urlPaginas);
-        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' ) || strtoupper($this->params['controller'])  == 'INICIO' || strtoupper($this->params['controller'])  == 'PAGES') {
+        if (in_array(strtoupper($this->params['controller']), $paginas) || strtoupper($this->params['controller']) == strtoupper('cadastros') || (strtoupper($this->params['controller']) == strtoupper('Users') && $this->action == 'logout' ) || strtoupper($this->params['controller']) == 'INICIO' || strtoupper($this->params['controller']) == 'PAGES') {
             return true;
         } else {
             return false;
         }
     }
-    
-     function getLista($nomeDaLista = null){
-         $nomeArquivo  = "dados_selects";
-         $arquivo = fopen($nomeArquivo, "r+");
-         $dados = fread($arquivo, filesize($nomeArquivo));
-         $dadosArray = json_decode($dados,TRUE);
-         fclose($arquivo);
-         if($nomeDaLista){
-             return $dadosArray['Arrays'][$nomeDaLista];//->{$nomeDaLista};
-         }
-         return $dadosArray['Arrays'];         
-     }
+
+    function getLista($nomeDaLista = null) {
+        $nomeArquivo = "dados_selects";
+        $arquivo = fopen($nomeArquivo, "r+");
+        $dados = fread($arquivo, filesize($nomeArquivo));
+        $dadosArray = json_decode($dados, TRUE);
+        fclose($arquivo);
+        if ($nomeDaLista) {
+            return $dadosArray['Arrays'][$nomeDaLista]; //->{$nomeDaLista};
+        }
+        return $dadosArray['Arrays'];
+    }
+
+  
 
 }

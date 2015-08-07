@@ -40,78 +40,128 @@
                         ">"=>"maior do que","<="=>"menor ou igual a",">="=>"maior ou igual a");
     ?>
     <div class="row"  >
-        <div class="col-lg-12" style="overflow: scroll ; height: 550px;">
-            <table id="relatorio" class="table table-bordered  table-striped gerencial ">
+        <div class="table-container col-lg-12" style="overflow: auto;   ">
+            <table id="relatorio" class="table table-bordered  table-hover table-striped gerencial ">
                 <thead>
                     <tr>
-                        <th style="min-width: 250px">Cliente</th>
+                        <th style="min-width: 150px">Cliente</th>
                         <th  >Placa</th>
-                        <th style="min-width: 200px">Modelo</th>
+                        <th >Modelo</th>
                         <th >Marca</th>
                         <th >Status Veic.</th>
                         <th>Linha</th>
                         <th>Chip</th>
                         <th>Marca Rastr.</th>
-                        <th>Modelo Rastr.</th>
-                        <th>Nº Eqp. Rastr.</th>
-                        <th>Nº Série Rastr.</th>
+                        <th>Mod. Rastr.</th>
+                        <th >Nº Eqp. Rastr.</th>
+                        <th>Nº S Rastr.</th>
                         <th>Status Rastr.</th>
-                        <th>Data Instalação</th>
-                        <th>Data Remoção</th>
-                        <th>Fiação Utilizada</th>
-                        <th>Local Instalação</th>
+                        <th>Data Inst.</th>
+                        <th>Data Rem.</th>
+
                         <th>Nº Contrato</th>
-                        <th style="min-width: 200px">Status Contrato</th>
-                        <th style="min-width: 200px;">Validade Contrato</th>
+                        <th  >Status Cont.</th>
+                        <th >Val. Contrato</th>
+                        <th style="min-width: 250px">Fiação Utilizada</th>
+                        <th style="min-width: 250px">Local Instalação</th>
                     </tr>
                 </thead>
                 <tbody >
                     <?php   foreach ($dados as $linha): ?>
-                    <tr class="<?=$linha['0']['classe']?>">
-                        <td title="Nome Cliente">
-                            <?= 
-                                $this->Html->link($linha['cli']['nome'],
-                                array('controller'=>'clientes','action'=>'add',$linha['cli']['id']))
+                    <?php $classe = $linha['S']['classe']; ?>
+                    <tr class="<?= $classe ?>">
+                        <td title="Nome Cliente: <?= $linha['S']['nome_cli'] ?> ">
+                            <?php
+                                if(strcmp($classe  , "ativo" ) === 0){
+                                    echo    $this->Html->link( $linha['0']['subNomeCliente'] ,
+                                            array('controller'=>'clientes','action'=>'add',$linha['S']['cId']));
+                                }else{
+                                    echo    $linha['0']['subNomeCliente'];
+                                }
                             ?>
                         </td>
-                        <td title="Placa/Apelido">
-                            <?= 
-                                $this->Html->link($linha['0']['placa_apelido'],
-                                array('controller'=>'veiculos','action'=>'add',$linha['cli']['id'],$linha['vei']['id']));
+                        <td title="Placa/Apelido: <?= $linha['S']['placa_apelido']?>">
+                            <?php 
+                                if(strcmp($classe, "ativo") === 0 ){
+                                    echo    $this->Html->link($linha['0']['subPlacaApelido'],
+                                            array('controller'=>'veiculos','action'=>'add',$linha['S']['cId'],$linha['S']['vId']));
+                                }else{
+                                    echo    $linha['0']['subPlacaApelido'];
+                                }
                             ?>
                         </td>
-                        <td title="Modelo Veículo"><?= $linha['vei']['modelo']?></td>
-                        <td title="Marca Veículo"><?= $linha['vei']['marca']?></td>
-                        <td title="Status Veículo"><?= $linha['vei']['status']?></td>
-                        <td title="Número Linha" ><?= $linha['0']['numero_telefone']?></td>
-                        <td title="Número Chip">
-                            <?= 
-                                $this->Html->link($linha['0']['numero_chip'],
-                                array('controller'=>'chips','action'=>'cadastro',$linha['ch']['id']));
+                        <td title="Modelo Veículo: <?= $linha['S']['modelo']?>">
+                                    <?= ($linha['0']['subModeloVeiculo']) ?>
+                        </td>
+                        <td title="Marca Veículo: <?= $linha['S']['marca']?>">
+                                    <?= $linha['0']['subMarcaVeiculo']?>
+                        </td>
+                        <td title="Status Veículo: <?= $linha['S']['status_vei']?> ">
+                                    <?= $linha['0']['subStatusVeiculo']?>
+                        </td>
+                        <td title="Número Linha:  <?= $linha['S']['numero_telefone']?> " >
+                                    <?= $linha['0']['subLinha']?>
+                        </td>
+                        <td title="Número Chip: <?= $linha['S']['numero_chip'] ?>">
+                            <?php
+                                if( strcmp($classe, "ativo") === 0){
+                                    echo    $this->Html->link($linha['S']['numero_chip'],
+                                            array('controller'=>'chips','action'=>'cadastro',$linha['S']['chId']));
+                                }else{
+                                    echo    $linha['S']['numero_chip'];
+                                }
                             ?>
                         </td>
-                        <td title="Marca Rastreador"><?= $linha['0']['marca']?></td>
-                        <td title="Modelo Rastreador"><?= $linha['0']['modelo']?></td>
-                        <td title="Número Rastreador">
-                            <?= 
-                                $this->Html->link($linha['0']['numero_equipamento'],
-                                array('controller'=>'rastreadors','action'=>'edit',$linha['ras']['id']))
+                        <td title="Marca Rastreador: <?= $linha['S']['marca_ras']?>">
+                                    <?= $linha['0']['subMarcaRastreador']?>
+                        </td>
+                        <td title="Modelo Rastreador: <?= $linha['S']['modelo_ras']?>">
+                                    <?= $linha['0']['subModeloRastreador']?>
+                        </td>
+                        <td title="Número Rastreador: <?= $linha['S']['numero_equipamento'] ?>">
+                            <?php
+                                if( strcmp($classe, "ativo") === 0 ){
+                                    echo    $this->Html->link($linha['0']['subNumEquipamento'],
+                                            array('controller'=>'rastreadors','action'=>'edit',$linha['S']['rId']));
+                                }else{
+                                    echo    $linha['0']['subNumEquipamento'];
+                                }
                             ?>
                         </td>
-                        <td title="Série Rastreador"><?= $linha['0']['numero_serie']?></td>
-                        <td title="Status Rastreador"><?= $linha['0']['status']?></td>
-                        <td title="Data Instalação"><?= $linha['hvei']['data_inicio']?date("d/m/Y",strtotime($linha['hvei']['data_inicio'])):"" ?></td>
-                        <td title="Data Remoção"><?= $linha['hvei']['data_fim']?date("d/m/Y",strtotime($linha['hvei']['data_fim'])):"" ?></td>
-                        <td title="Fiação Utilizada"><?= $linha['hvei']['fiacao_utilizada']?></td>
-                        <td title="Local Instalacao"><?= $linha['hvei']['local_instalacao_rastreador']?></td>
-                        <td title="Número Contrato">
-                            <?= 
-                                $this->Html->link($linha['con']['numero_contrato'],
-                                array('controller'=>'contratos','action'=>'edit',$linha['con']['id']))
+                        <td title="Série Rastreador: <?= $linha['S']['numero_serie'] ?>">
+                            <?= $linha['0']['subSerieRastreador'] ?>
+                        </td>
+                        <td title="Status Rastreador: <?= $linha['S']['status_ras']?>">
+                            <?= $linha['0']['subStatusRastreador']?>
+                        </td>
+                        <td title="Data Instalação: ">
+                            <?= $linha['S']['data_inicio']?date("d/m/Y",strtotime($linha['S']['data_inicio'])):"" ?>
+                        </td>
+                        <td title="Data Remoção: ">
+                                <?= $linha['S']['data_fim']?date("d/m/Y",strtotime($linha['S']['data_fim'])):"" ?>
+                        </td>
+                        <td title="Número Contrato: <?= $linha['S']['numero_contrato'] ?> ">
+                            <?php
+                                if(strcmp($classe, "ativo") === 0 ){
+                                    echo    $this->Html->link($linha['0']['subNumeroContrato'],
+                                            array('controller'=>'contratos','action'=>'edit',$linha['S']['conId']));
+                                }else{
+                                    echo    $linha['0']['subNumeroContrato'];
+                                }
                             ?>
                         </td>
-                        <td title="Status Contrato"><?= $linha['con']['status']?></td>
-                        <td title="Vencimento Contrato"><?=  $linha['con']['data_vencimento']?date("d/m/Y",strtotime($linha['con']['data_vencimento'])):"" ?></td>  
+                        <td title="Status Contrato: <?= $linha['S']['status']?>">
+                            <?= $linha['0']['subStatusContrato']?>
+                        </td>
+                        <td title="Vencimento Contrato: ">
+                            <?=  $linha['S']['data_vencimento']?date("d/m/Y",strtotime($linha['S']['data_vencimento'])):"" ?>
+                        </td>
+                        <td title="Fiação Utilizada: <?= $linha['S']['fiacao_utilizada']?>">
+                            <?= $linha['0']['subFiacao']?>
+                        </td>
+                        <td title="Local Instalacao: <?= $linha['S']['local_instalacao_rastreador']?>">
+                            <?= $linha['0']['subLocalFiacao']?>
+                        </td>
                     </tr>
                     <?php endforeach; ?> 
                 </tbody>
@@ -181,7 +231,10 @@
         }
         var select = $("<select>").append($("<option>").val("AND").html(" E "))
                 .append($("<option>").val("OR").html(" OU "))
-                .addClass("form-control");
+                .addClass("form-control")
+                .change(function(){
+                    montaSql();
+                });
         novaLI.append($("<div>").attr("id", "campo")
                 .attr("data-target", campo)
                 .addClass("col-md-3 btn btn-default")
@@ -227,4 +280,12 @@
         $("#filtra-relatorio input[name='whereClause']").val(sql);
         console.log(sql);
     }
+    $(document).ready(function () {
+        var height = screen.height;
+        var PORC = 70;
+        var valorAplicado = 0;
+        valorAplicado = PORC * height / 100;
+        $(".table-container").css("height", valorAplicado);
+    });
 </script>
+

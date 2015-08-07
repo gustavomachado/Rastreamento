@@ -43,37 +43,45 @@ class RelatoriosController extends AppController {
         }  
         $this->loadModel("Cliente");
         $sql = "  
-              select 
-                    cli.nome,cli.id, coalesce(vei.apelido,vei.placa) as placa_apelido  ,vei.modelo, 
-                    vei.id,vei.marca, vei.status,ch.id,ras.id,con.id,
-                    coalesce(ch.numero_telefone,'sem chip') as numero_telefone, 
-                    coalesce(ch.numero_chip,'sem chip')as numero_chip , 
-                    coalesce(ras.marca,'sem rastreador') as marca,
-                    coalesce(ras.modelo ,'sem rastreador') as modelo, 
-                    coalesce(ras.numero_equipamento,'sem rastreador') as numero_equipamento,
-                    coalesce(ras.numero_serie,'sem rastreador') as numero_serie,
-                    coalesce(ras.status,'sem rastreador') as status, hvei.data_inicio,hvei.data_fim,
-                    hvei.fiacao_utilizada,hvei.local_instalacao_rastreador, con.numero_contrato,
-                    con.status,con.data_vencimento,
-                    (case when vei.status_reg = 1 then 'inativo' else 'ativo' end) as classe
-                from 
-                        db_am_trace.clientes as cli
-                inner join 
-                        db_am_trace.veiculos as vei on vei.cliente_id = cli.id
-                left join 
-                        db_am_trace.rastreadors as ras on ras.veiculo_id = vei.id
-                left join 
-                        db_am_trace.chips as ch on ch.rastreador_id = ras.id
-                left join
-                        db_am_trace.historico_veiculos as hvei on ( hvei.rastreador_id=ras.id and hvei.veiculo_id=vei.id)
-                left join
-                        db_am_trace.contratos as con on ( con.cliente_id=cli.id and con.id=vei.contrato_id )
-                $whereClause
-                order by 
-                        cli.nome asc , vei.status_reg desc , hvei.data_inicio ;";
-        
+                select 
+                    substring(nome_cli,1,20) as subNomeCliente ,substring(placa_apelido,1,10) as subPlacaApelido,
+                    substring(S.modelo,1,8) as subModeloVeiculo,substring(S.marca,1,8) as subMarcaVeiculo,
+                    substring(S.status_vei,1,15) as subStatusVeiculo,substring(S.numero_telefone,1,14) as subLinha,
+                    substring(S.marca_ras,1,8) as subMarcaRastreador,substring(S.modelo_ras,1,12) as subModeloRastreador,
+                    substring(S.numero_serie,1,12) as subSerieRastreador, substring(S.status_ras,1,10) as subStatusRastreador,
+                    substring(S.numero_contrato,1,10) as subNumeroContrato,substring(S.status,1,12) as subStatusContrato,
+                    substring(S.fiacao_utilizada,1,100) as subFiacao,substring(S.local_instalacao_rastreador,1,100) as subLocalFiacao,
+                    substring(S.numero_equipamento,1,16) as subNumEquipamento,
+                    S.*
+                from(
+                    select 
+                        cli.id as cId, cli.nome as nome_cli, 
+                        coalesce(vei.apelido,vei.placa) as placa_apelido ,
+                        vei.modelo, vei.id as vId, vei.marca, vei.status as status_vei, ch.id as chId, ras.id as  rId, con.id as conId,
+                        coalesce(ch.numero_telefone,'sem chip') as numero_telefone,
+                        coalesce(ch.numero_chip,'sem chip')as numero_chip ,
+                        coalesce(ras.marca,'sem rastreador') as marca_ras,
+                        coalesce(ras.modelo ,'sem rastreador') as modelo_ras, 
+                        coalesce(ras.numero_equipamento,'sem rastreador') as numero_equipamento,
+                        coalesce(ras.numero_serie,'sem rastreador') as numero_serie,
+                        coalesce(ras.status,'sem rastreador') as status_ras , hvei.data_inicio, hvei.data_fim,
+                        hvei.fiacao_utilizada, hvei.local_instalacao_rastreador, con.numero_contrato, con.status,
+                        con.data_vencimento, (case when vei.status_reg = 1 then 'inativo' else 'ativo' end) as classe 
+                    from 
+                        db_am_trace.clientes as cli 
+                        inner join db_am_trace.veiculos as vei on vei.cliente_id = cli.id 
+                        left join db_am_trace.rastreadors as ras on ras.veiculo_id = vei.id 
+                        left join db_am_trace.chips as ch on ch.rastreador_id = ras.id 
+                        left join db_am_trace.historico_veiculos as hvei on ( hvei.rastreador_id=ras.id and hvei.veiculo_id=vei.id) 
+                        left join db_am_trace.contratos as con on ( con.cliente_id=cli.id and con.id=vei.contrato_id )
+                        $whereClause
+                        order by cli.nome asc , vei.status_reg desc , hvei.data_inicio 
+                 ) as S;";
+      //  echo $sql;
         $dados = $this->Cliente->query($sql);
+     //   var_dump($dados);exit;
         $this->set("dados", $dados);
+     //   $this->set("dados", array());
         $this->set("filtro",$filtro);
     }
 

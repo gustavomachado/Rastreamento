@@ -18,6 +18,10 @@
                         <span class='flaticon-screen47'></span><br/>
                         Contratos</a></li>
                 <li>
+                    <a href="javascript:history.go(-1);"><span class="flaticon-back57"></span><br/>
+                        Voltar</a>
+                </li>
+                <li>
                     <a href="/AmazonTrace/Users/logout"><span class="flaticon-exit13"></span><br/>
                         Sair</a>
                 </li>
