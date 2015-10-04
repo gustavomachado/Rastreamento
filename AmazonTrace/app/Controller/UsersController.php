@@ -39,7 +39,7 @@ class UsersController extends AppController {
     public function login() {
         $this->render('login', false);
         if (isset($this->data['User'])) {
-            $user = $this->User->find('first', array('conditions' => array('nome' => $this->data['User']['nome'], 'senha' => AuthComponent::password($this->data['User']['senha']))));
+            $user = $this->User->find('first', array('conditions' => array('login' => $this->data['User']['nome'], 'senha' => AuthComponent::password($this->data['User']['senha']))));
             if ($user) {
                 if ($this->Auth->login($user)) {
                     $this->User->gravarLog('Login', '[' . $user['User']['id'] . '] ' . 'User - Login');

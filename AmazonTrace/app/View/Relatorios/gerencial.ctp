@@ -44,7 +44,7 @@
             <table id="relatorio" class="table table-bordered  table-hover table-striped gerencial ">
                 <thead>
                     <tr>
-                        <th style="min-width: 150px">Cliente</th>
+                        <th  >Cliente</th>
                         <th  >Placa</th>
                         <th >Modelo</th>
                         <th >Marca</th>
@@ -62,8 +62,8 @@
                         <th>Nº Contrato</th>
                         <th  >Status Cont.</th>
                         <th >Val. Contrato</th>
-                        <th style="min-width: 250px">Fiação Utilizada</th>
-                        <th style="min-width: 250px">Local Instalação</th>
+                        <th  >Fiação Utilizada</th>
+                        <th  >Local Instalação</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -180,16 +180,17 @@
             </div>
             <div class="modal-body  " style="min-height: 290px" >
                 <div id="filtro" >
-                    <div class="col-lg-4">
-                            <?= $this->Form->input("Coluna",array("name"=>"coluna", "class"=>"form-control","options"=>$colunas))?>    
+                    <div class="col-lg-4 ">
+                            <?= $this->Form->input("Coluna",array("name"=>"coluna","onChange"=>"isData(this.options[this.selectedIndex].text);", "class"=>"form-control","options"=>$colunas))?>    
                     </div>
                     <div class="col-lg-3">
                                 <?= $this->Form->input("Relação",array("name"=>"relacao", "class"=>"form-control","options"=>$relacoes)) ?>
                     </div>
                     <div class="col-lg-5">
                         <label>Valor filtro</label>
-                        <div class="input-group">
-                            <input type="text" class=" form-control">        
+                        <div class="input-group " >
+
+                            <input id='valor-filtro-input' type="text" class=" form-control">        
                             <span class="input-group-addon " onclick="addfilter();">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </span>
@@ -229,10 +230,12 @@
         if (relacao === "like") {
             relacao = "contém";
         }
+
         var select = $("<select>").append($("<option>").val("AND").html(" E "))
                 .append($("<option>").val("OR").html(" OU "))
                 .addClass("form-control")
-                .change(function(){
+                .change(function () {
+
                     montaSql();
                 });
         novaLI.append($("<div>").attr("id", "campo")
@@ -244,9 +247,18 @@
                 .attr("data-target", relacao === "contém" ? "like" : relacao)
                 .addClass("col-md-2 btn btn-default")
                 .html("<strong>" + relacao + "</strong>"));
+        var valoroculto = valorFiltro.val();
+        if (campoLabel.match(/Data/)) {
+            var dataArray = valoroculto.split("/");
+          //  alert(dataArray);
+            valoroculto = dataArray[2] + "-" + dataArray[1] + "-" + dataArray[0];
+
+        }
+       // alert(valoroculto);
+        console.log("data: " + valoroculto);
         novaLI.append($("<div>")
                 .attr("id", "valorFiltro")
-                .attr("data-target", valorFiltro.val())
+                .attr("data-target", valoroculto)
                 .addClass("col-md-4 btn btn-default")
                 .html(valorFiltro.val()));
         novaLI.append($("<div>").addClass("col-md-2 ").append(select));
@@ -260,7 +272,7 @@
         montaSql();
     }
     function montaSql() {
-        var sql = "WHERE";
+        var sql = "WHERE ";
         var cont = 0;
         $(".filter-container").find("li").each(function () {
             cont++;
@@ -273,6 +285,7 @@
             }
             sql += " " + campo + " " + relacao + " '" + filtro + "' " + conexao;
         });
+         console.log(sql);
         sql = sql.substring(0, (sql.length - 3));
         if (cont < 1) {
             sql = '';
@@ -280,6 +293,26 @@
         $("#filtra-relatorio input[name='whereClause']").val(sql);
         console.log(sql);
     }
+    function isData(element) {
+
+
+        var valorFiltro = $("#valor-filtro-input");
+
+
+        if (element.match(/Data/)) {
+
+            valorFiltro.datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd/mm/yyyy"
+            });
+            //alert("data");
+        } else {
+
+
+        }
+    }
+
     $(document).ready(function () {
         var height = screen.height;
         var PORC = 70;
