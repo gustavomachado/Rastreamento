@@ -68,6 +68,19 @@
  */
 class DATABASE_CONFIG {
 
+	/*public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'db_am_trace',
+		'prefix' => '',
+		'encoding' => 'utf8',
+	);*/
+    
+    
+    
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
