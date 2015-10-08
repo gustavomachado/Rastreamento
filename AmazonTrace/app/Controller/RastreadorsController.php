@@ -209,14 +209,20 @@ class RastreadorsController extends AppController {
     }
 
     public function vincularVeiculo() {
-
+        /* echo $_REQUEST['id'];
+          echo $_REQUEST['data_install'];
+          echo $_REQUEST['marca'];
+          echo $_REQUEST['modelo'];
+          echo $_REQUEST['veiculo_id'];
+          exit;
+         */
         try {
 
             $this->render(false, false);
 
             $id = $_REQUEST['id'];
 
-            $dataInstalacao = $_REQUEST['data_instalacao'];
+            $dataInstalacao = $_REQUEST['data_install'];
 
             if (!$dataInstalacao) {
 
@@ -234,11 +240,9 @@ class RastreadorsController extends AppController {
 
             $this->request->data['Rastreador']['id'] = $id;
 
-            $this->request->data['Rastreador']['fiacao_utilizada'] = $_REQUEST['fiacao'];
+            $this->request->data['Rastreador']['fiacao_utilizada'] = $_REQUEST['fiacao_utilizada'];
 
-            $this->request->data['Rastreador']['local_instalacao_rastreador'] = $_REQUEST['local'];
-
-
+            $this->request->data['Rastreador']['local_instalacao_rastreador'] = $_REQUEST['local_instalacao_rastreador'];
 
             $rastreador = $this->Rastreador->find('first', array('conditions' => array('Rastreador.id' => $id, 'veiculo_id' => NULL)));
 
@@ -263,7 +267,10 @@ class RastreadorsController extends AppController {
 
                     $historicoRastVeic = array('veiculo_id' => $veiculoId,
                         'rastreador_id' => $id,
-                        'data_inicio' => $dataInstalacao . " " . date("H:i:s"));
+                        'data_inicio' => $dataInstalacao . " " . date("H:i:s"),
+                        'informacao_adicional' => $_REQUEST['info_add'],
+                        'local_instalacao_rastreador' => $_REQUEST['local_instalacao_rastreador'],
+                        'fiacao_utilizada' => $_REQUEST['fiacao_utilizada']);
 
                     $this->Rastreador->HistoricoVeiculo->set($historicoRastVeic);
 
@@ -309,9 +316,9 @@ class RastreadorsController extends AppController {
 
 
 
-            if (isset($_REQUEST['data_remocao'])) {
+            if (isset($_REQUEST['data_remove'])) {
 
-                $dataRemocao = $_REQUEST['data_remocao'];
+                $dataRemocao = $_REQUEST['data_remove'];
             } else {
 
                 $dataRemocao = date("d/m/Y");
@@ -355,6 +362,39 @@ class RastreadorsController extends AppController {
         } catch (Exception $e) {
 
             echo json_encode(array('status' => 4, 'msg' => $e->getMessage()));
+        }
+    }
+
+    public function editarInfoHistorico() {
+        $this->render(false, false);
+        
+        $id = $_REQUEST['id'];
+        $veiculoId = $_REQUEST['veiculo_id'];
+
+        $dataInstall = $_REQUEST['data_install'];
+        $dataArray = split("/", $dataInstall);
+        $dataInstall = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
+
+        $options = array('HistoricoVeiculo.rastreador_id' => $id,
+            'HistoricoVeiculo.veiculo_id' => $veiculoId,
+            'HistoricoVeiculo.data_fim IS  NULL');
+        $historicoRastreador = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options, 'order' => 'HistoricoVeiculo.id desc'));
+        if (count($historicoRastreador) > 0) {
+
+            $historicoRastreador['HistoricoVeiculo']['data_inicio'] = $dataInstall . " " . date("H:i:s");
+            $historicoRastreador['HistoricoVeiculo']['local_instalacao_rastreador'] = $_REQUEST['local_instalacao_rastreador'];
+            $historicoRastreador['HistoricoVeiculo']['fiacao_utilizada'] = $_REQUEST['fiacao_utilizada'];
+            $historicoRastreador['HistoricoVeiculo']['informacao_adicional'] = $_REQUEST['info_add'];
+
+            $this->Rastreador->HistoricoVeiculo->set($historicoRastreador);
+
+            if ($this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data)) {
+                echo json_encode(array('status' => 1));
+                exit;
+            } else {
+                echo json_encode(array('status' => 0)); 
+                exit;
+            }
         }
     }
 

@@ -18,12 +18,15 @@
         echo $this->Html->css("bootstrap-datetimepicker");
         echo $this->Html->css("bootstrap-datetimepicker-site");
         echo $this->Html->css("style");
-        
+
         echo $this->Html->script("jquery-1.11.2.min");
         echo $this->Html->script("jquery-ui");
         echo $this->Html->script("bootstrap.min");
         echo $this->Html->script("jquery.mask");
         echo $this->Html->script("jquery.maskMoney.min");
+        echo $this->Html->script("angular.min");
+        echo $this->Html->script("angular-resource.min");
+       // echo $this->Html->script("app");
         echo $this->Html->script("moment");
         echo $this->Html->script("bootstrap-datetimepicker");
 
