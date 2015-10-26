@@ -95,11 +95,11 @@ class RastreadorsController extends AppController {
 
             $this->Rastreador->create();
 
-            if ($this->Rastreador->save($this->request->data)) {
+            if ($retorno = $this->Rastreador->save($this->request->data)) {
 
                 $this->Session->setFlash(__('Rastreador salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
 
-                return $this->redirect(array('action' => 'index'));
+                 return $this->redirect(array('action' => 'edit', $retorno['Rastreador']['id']));
             } else {
 
                 $this->Session->setFlash(__('Rastreador não pôde ser salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
@@ -208,7 +208,7 @@ class RastreadorsController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    public function vincularVeiculo() {
+    public function vincularVeiculo($rastreadorTemp = NULL) {
         /* echo $_REQUEST['id'];
           echo $_REQUEST['data_install'];
           echo $_REQUEST['marca'];
@@ -216,74 +216,129 @@ class RastreadorsController extends AppController {
           echo $_REQUEST['veiculo_id'];
           exit;
          */
+        
+        
         try {
-
             $this->render(false, false);
 
-            $id = $_REQUEST['id'];
+            if ($rastreadorTemp) {
+                                
+                $rastreadorTemp = $_SESSION['rastreador_temp'];
+                $dataInstalacao = $rastreadorTemp['data_install'];
+                if (!$dataInstalacao) {
+                    $dataInstalacao = date("Y-m-d");
+                } else {
+                    $dataArray = split("/", $dataInstalacao);
+                    $dataInstalacao = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
+                }
+                
+                $this->request->data['Rastreador']['veiculo_id'] = $rastreadorTemp['veiculo_id'];
+                $this->request->data['Rastreador']['id'] = $rastreadorTemp['id'];
+                $this->request->data['Rastreador']['fiacao_utilizada'] = $rastreadorTemp['fiacao_utilizada'];
+                $this->request->data['Rastreador']['local_instalacao_rastreador'] = $rastreadorTemp['local_instalacao_rastreador'];
 
-            $dataInstalacao = $_REQUEST['data_install'];
+                $rastreador = $this->Rastreador->find('first', array('conditions' => array('Rastreador.id' => $rastreadorTemp['id'], 'veiculo_id' => NULL)));
 
-            if (!$dataInstalacao) {
+                if (count($rastreador) < 1) {
 
-                $dataInstalacao = date("Y-m-d");
-            } else {
+                    $result = array('status' => 2);
 
-                $dataArray = split("/", $dataInstalacao);
+                    echo json_encode($result);
 
-                $dataInstalacao = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
-            }
+                    return;
+                } else {
 
-            $veiculoId = $_REQUEST['veiculo_id'];
+                    $this->Rastreador->HistoricoVeiculo->create();
 
-            $this->request->data['Rastreador']['veiculo_id'] = $veiculoId;
+                    $options = array('HistoricoVeiculo.rastreador_id' => $rastreadorTemp['id'],
+                        'HistoricoVeiculo.veiculo_id' => $rastreadorTemp['veiculo_id'],
+                        'HistoricoVeiculo.data_fim IS NULL');
 
-            $this->request->data['Rastreador']['id'] = $id;
+                    $historico = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options));
 
-            $this->request->data['Rastreador']['fiacao_utilizada'] = $_REQUEST['fiacao_utilizada'];
+                    if (count($historico) < 1) {
 
-            $this->request->data['Rastreador']['local_instalacao_rastreador'] = $_REQUEST['local_instalacao_rastreador'];
+                        $historicoRastVeic = array('veiculo_id' => $rastreadorTemp['veiculo_id'],
+                            'rastreador_id' => $rastreadorTemp['id'],
+                            'data_inicio' => $dataInstalacao . " " . date("H:i:s"),
+                            'informacao_adicional' => $rastreadorTemp['info_add'],
+                            'local_instalacao_rastreador' => $rastreadorTemp['local_instalacao_rastreador'],
+                            'fiacao_utilizada' => $rastreadorTemp['fiacao_utilizada']);
 
-            $rastreador = $this->Rastreador->find('first', array('conditions' => array('Rastreador.id' => $id, 'veiculo_id' => NULL)));
+                        $this->Rastreador->HistoricoVeiculo->set($historicoRastVeic);
 
-            if (count($rastreador) < 1) {
+                        if (!$this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data)) {
 
-                $result = array('status' => 2);
+                            echo json_encode(array('status' => 3, 'dataInstalacao' => $dataInstalacao));
 
-                echo json_encode($result);
-
-                return;
-            } else {
-
-                $this->Rastreador->HistoricoVeiculo->create();
-
-                $options = array('HistoricoVeiculo.rastreador_id' => $id,
-                    'HistoricoVeiculo.veiculo_id' => $veiculoId,
-                    'HistoricoVeiculo.data_fim IS NULL');
-
-                $historico = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options));
-
-                if (count($historico) < 1) {
-
-                    $historicoRastVeic = array('veiculo_id' => $veiculoId,
-                        'rastreador_id' => $id,
-                        'data_inicio' => $dataInstalacao . " " . date("H:i:s"),
-                        'informacao_adicional' => $_REQUEST['info_add'],
-                        'local_instalacao_rastreador' => $_REQUEST['local_instalacao_rastreador'],
-                        'fiacao_utilizada' => $_REQUEST['fiacao_utilizada']);
-
-                    $this->Rastreador->HistoricoVeiculo->set($historicoRastVeic);
-
-                    if (!$this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data)) {
-
-                        echo json_encode(array('status' => 3, 'dataInstalacao' => $dataInstalacao));
-
-                        exit;
+                            exit;
+                        }
                     }
                 }
-            }
 
-            $this->concluir();
+                $this->concluir();
+            } else {
+                $id = $_REQUEST['id'];
+                $dataInstalacao = $_REQUEST['data_install'];
+                if (!$dataInstalacao) {
+                    $dataInstalacao = date("Y-m-d");
+                } else {
+                    $dataArray = split("/", $dataInstalacao);
+                    $dataInstalacao = $dataArray[2] . "-" . $dataArray[1] . "-" . $dataArray[0];
+                }
+                $veiculoId = $_REQUEST['veiculo_id'];
+                $this->request->data['Rastreador']['veiculo_id'] = $veiculoId;
+                $this->request->data['Rastreador']['id'] = $id;
+                $this->request->data['Rastreador']['fiacao_utilizada'] = $_REQUEST['fiacao_utilizada'];
+                $this->request->data['Rastreador']['local_instalacao_rastreador'] = $_REQUEST['local_instalacao_rastreador'];
+                if ($veiculoId == '' || !$veiculoId) {
+                    $_SESSION['rastreador_temp'] = $_REQUEST;
+                    $result = array('status' => '6');
+                    echo json_encode($result);
+                    exit;
+                }
+
+                $rastreador = $this->Rastreador->find('first', array('conditions' => array('Rastreador.id' => $id, 'veiculo_id' => NULL)));
+
+                if (count($rastreador) < 1) {
+
+                    $result = array('status' => 2);
+
+                    echo json_encode($result);
+
+                    return;
+                } else {
+
+                    $this->Rastreador->HistoricoVeiculo->create();
+
+                    $options = array('HistoricoVeiculo.rastreador_id' => $id,
+                        'HistoricoVeiculo.veiculo_id' => $veiculoId,
+                        'HistoricoVeiculo.data_fim IS NULL');
+
+                    $historico = $this->Rastreador->HistoricoVeiculo->find('first', array('conditions' => $options));
+
+                    if (count($historico) < 1) {
+
+                        $historicoRastVeic = array('veiculo_id' => $veiculoId,
+                            'rastreador_id' => $id,
+                            'data_inicio' => $dataInstalacao . " " . date("H:i:s"),
+                            'informacao_adicional' => $_REQUEST['info_add'],
+                            'local_instalacao_rastreador' => $_REQUEST['local_instalacao_rastreador'],
+                            'fiacao_utilizada' => $_REQUEST['fiacao_utilizada']);
+
+                        $this->Rastreador->HistoricoVeiculo->set($historicoRastVeic);
+
+                        if (!$this->Rastreador->HistoricoVeiculo->save($this->Rastreador->HistoricoVeiculo->data)) {
+
+                            echo json_encode(array('status' => 3, 'dataInstalacao' => $dataInstalacao));
+
+                            exit;
+                        }
+                    }
+                }
+
+                $this->concluir();
+            }
         } catch (Exception $e) {
 
             echo json_encode(array('status' => 4, 'msg' => $e->getMessage()));
@@ -367,7 +422,7 @@ class RastreadorsController extends AppController {
 
     public function editarInfoHistorico() {
         $this->render(false, false);
-        
+
         $id = $_REQUEST['id'];
         $veiculoId = $_REQUEST['veiculo_id'];
 
@@ -392,7 +447,7 @@ class RastreadorsController extends AppController {
                 echo json_encode(array('status' => 1));
                 exit;
             } else {
-                echo json_encode(array('status' => 0)); 
+                echo json_encode(array('status' => 0));
                 exit;
             }
         }
