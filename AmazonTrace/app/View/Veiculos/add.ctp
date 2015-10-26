@@ -55,6 +55,9 @@
         $scope.selecionarRastreador = function (rastreador) {
             $scope.rastreador = rastreador;
             $scope.rastreador.veiculo_id = $('#VeiculoId').val();
+
+            console.log($scope.rastreador);
+
             $("#modal-rastreador").modal('hide');
         };
 
@@ -76,27 +79,34 @@
                         var data = $.parseJSON(dataJson);
                         $('.loading-adicionados').css("display", 'none');
                         var msg;
-                        switch ((data.status)) {
-                            case 0:
-                                msg = ("Falha ao Adicionar Rastreador");
-                                break;
-                            case 1:
-                                msg = ("Rastreador Adicionado Com Sucesso!");
-                                break;
-                            case 2:
-                                msg = ("Falha ao Adicionar Rastreador. Rastreador está vinculado à Outro Veículo!");
-                                break;
-                            case 3:
-                                msg = "Falha ao registrar rastreador, impossivel criar histórico em " + data.dataInstalacao;
-                                break;
-                            case 4:
-                                msg = data.msg;
-                                break;
-                            case 5:
-                                msg = "Informe a data corretamente!";
-                                break;
+                        if (data.status != 6) {
+                            switch ((data.status)) {
+                                case 0:
+                                    msg = ("Falha ao Adicionar Rastreador");
+                                    break;
+                                case 1:
+                                    msg = ("Rastreador Adicionado Com Sucesso!");
+                                    break;
+                                case 2:
+                                    msg = ("Falha ao Adicionar Rastreador. Rastreador está vinculado à Outro Veículo!");
+                                    break;
+                                case 3:
+                                    msg = "Falha ao registrar rastreador, impossivel criar histórico em " + data.dataInstalacao;
+                                    break;
+                                case 4:
+                                    msg = data.msg;
+                                    break;
+                                case 5:
+                                    msg = "Informe a data corretamente!";
+                                    break;
+                                case 6:
+                                    msg = "Em sessão!";
+                                    break;
+                            }
+                            alert(msg);
+                        } else {
+                            alert("Para que o vínculo do rastreador seja válidado por favor conclua o cadastro do Veículo e salve.");
                         }
-                        alert(msg);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log("ERRO");
@@ -351,7 +361,7 @@
                         </button>
                     <?php endif; ?>
                 </div>
-                <div class="col-md-12" style="padding: 0px; display: <?php echo isset($this->data['Veiculo']['id']) ? "block" : "none"; ?>">
+                <div class="col-md-12" style="padding: 0px; display: <?php echo isset($this->data['Veiculo']['id']) ? "block" : "block"; ?>">
                     <div class="col-md-12">
                         <h2><?php echo __('Rastreador'); ?></h2>
                     </div>
@@ -359,7 +369,7 @@
                         <div class="col-md-12" style="padding: 5px;border-radius: 10px ;border: solid 1px #cccccc;">
                             <div class="form-group col-md-8">
                                 <label>Rastreador (marca, modelo, nº série, nº equip.)</label><br/>
-                                <button type="button" <?php echo $this->data['Rastreador']['id'] ? "disabled='true'" : "" ?>  data-toggle="modal" data-target="#modal-rastreador" class="btn btn-default" style="width: 100%">
+                                <button type="button" <?php echo isset($this->data['Rastreador']['id']) ? "disabled='true'" : "" ?>  data-toggle="modal" data-target="#modal-rastreador" class="btn btn-default" style="width: 100%">
                                     {{rastreador.id ? rastreador.marca + ", " + rastreador.modelo + ", " + rastreador.numero_serie + ", " + rastreador.numero_equipamento : "Selecione aqui um rastreador"}}
                                 </button>
                             </div> 
@@ -480,7 +490,7 @@
                                             <td colspan="4">
                                                 <div style="overflow-y: auto; height: 500px;">
                                                     <table ellpadding="0" cellspacing="0" class="table table-striped">
-                                                        <tr style="cursor: pointer" ng-repeat="item in rastreadores | filter:searchRastreador:strict" ng-click="selecionarRastreador(item.Rastreador)">
+                                                        <tr style="cursor: pointer" ng-repeat="item in rastreadores| filter:searchRastreador:strict" ng-click="selecionarRastreador(item.Rastreador)">
                                                             <td style="width: 210px;">{{item.Rastreador.modelo}}</td>
                                                             <td style="width: 200px;">{{item.Rastreador.marca}}</td>
                                                             <td style="width: 210px;">{{item.Rastreador.numero_serie}}</td>

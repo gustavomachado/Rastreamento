@@ -37,50 +37,26 @@
                 <div class="form-group col-md-3">
                     <?php echo $this->Form->input('senha_sms', array('class' => 'form-control', 'placeholder' => 'Senha Sms', 'label' => false)); ?>
                 </div>
-                <div class="form-group col-md-2">
-                    <button type="button" style="padding: 4px" data-toggle="modal" data-target="#modal-rast-chips" class="btn btn-default right">
-                        <span class="flaticon-sim2"></span>Chips Vinculados
-                    </button>
-                </div>
+                <!-- <div class="form-group col-md-2">
+                     <button type="button" style="padding: 4px" data-toggle="modal" data-target="#modal-rast-chips" class="btn btn-default right">
+                         <span class="flaticon-sim2"></span>Chips Vinculados
+                     </button>
+                 </div> -->
             </div>
-      
+
             <div class="form-group col-md-3">
                 <?php echo $this->Form->input('imei', array('class' => 'form-control', 'placeholder' => 'Imei', 'label' => 'IMEI')); ?>
             </div>
             <div class="form-group col-md-4">
                 <?php echo $this->Form->input('tipo_instalacao', array('class' => 'form-control', 'placeholder' => 'Tipo instalação', 'label' => 'Tipo instalação')); ?>
             </div>
-            <div class="form-group col-md-4">
-                <?php echo $this->Form->input('fiacao_utilizada', array('class' => 'form-control', 'placeholder' => 'Fiação utilizada', 'label' => 'Fiação utilizada')); ?>
-            </div>
-            <div class="form-group col-md-4">
-                <?php echo $this->Form->input('local_instalacao_rastreador', array('class' => 'form-control', 'placeholder' => 'Local instalação', 'label' => 'Local instalação')); ?>
-            </div>
+
             <div class="form-group col-md-12">
                 <?php echo $this->Form->label('Observa&ccedil;&atilde;o') ?>
                 <?php echo $this->Form->textarea('obs', array('class' => 'form-control', 'rows' => '2', 'cols' => '10')); ?>
             </div>
             <div class="col-md-12">
                 <hr>
-            </div>
-            <div class="form-group col-md-offset-10  col-md-1">
-                <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('escape' => false, 'class' => 'btn btn-default')); ?>
-            </div>
-            <div class="form-group col-md-1 right">
-                <?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-success')); ?>
-            </div>
-            <?php echo $this->Form->end() ?>
-        </div>
-    </div><!-- end row -->
-</div>
-
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-     aria-hidden="true" id="modal-rast-chips" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog  modal-lg" >
-        <div class="modal-content">
-            <div class="modal-header  ">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Vincular Chips</h4>
             </div>
             <div class="modal-body  ">
                 <div class=" row">
@@ -107,16 +83,22 @@
                             <div class="panel-body adicionados  scroll-panel ui-widget-content " >
                                 <ul >
                                     <?php foreach ($chipsInRastreador as $instalado): ?>
-                                    <li class="linha-instalados">
-                                        <div id="<?= $instalado['Chip']['id'] ?>" class=" btn-group btn-group-justified"
-                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
-                                            <p class="btn btn-default"><?= $instalado['Operadora']['nome'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Chip']['numero_telefone'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Chip']['numero_chip'] ?></p>
-                                            <p class="btn btn-default"><?= $instalado['Chip']['apn'] ?></p>
+                                        <li class="linha-instalados">
+                                            <div id="<?= $instalado['Chip']['id'] ?>" class=" btn-group btn-group-justified"
+                                                 data-target="<?php
+                                                 if (isset($id)) {
+                                                     echo $id;
+                                                 } else {
+                                                     echo NULL;
+                                                 }
+                                                 ?>">                                                
+                                                <p class="btn btn-default"><?= $instalado['Operadora']['nome'] ?></p>
+                                                <p class="btn btn-default"><?= $instalado['Chip']['numero_telefone'] ?></p>
+                                                <p class="btn btn-default"><?= $instalado['Chip']['numero_chip'] ?></p>
+                                                <p class="btn btn-default"><?= $instalado['Chip']['apn'] ?></p>
 
-                                        </div>
-                                    </li>
+                                            </div>
+                                        </li>
                                     <?php endforeach; ?>
                                 </ul>
 
@@ -140,16 +122,22 @@
                             <div class="panel-body disponiveis  scroll-panel  ui-widget-content  ">
                                 <ul>
                                     <?php foreach ($chips as $disponivel): ?>
-                                    <li class="linha-disponiveis">
-                                        <div id="<?= $disponivel['Chip']['id'] ?>" class=" btn-group btn-group-justified"
-                                             data-target="<?php if (isset($id)) { echo $id; } else { echo NULL; } ?>">                                                
-                                            <p class="btn btn-default"><?= $disponivel['Operadora']['nome'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Chip']['numero_telefone'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Chip']['numero_chip'] ?></p>
-                                            <p class="btn btn-default"><?= $disponivel['Chip']['apn'] ?></p>
+                                        <li class="linha-disponiveis">
+                                            <div id="<?= $disponivel['Chip']['id'] ?>" class=" btn-group btn-group-justified"
+                                                 data-target="<?php
+                                                 if (isset($id)) {
+                                                     echo $id;
+                                                 } else {
+                                                     echo NULL;
+                                                 }
+                                                 ?>">                                                
+                                                <p class="btn btn-default"><?= $disponivel['Operadora']['nome'] ?></p>
+                                                <p class="btn btn-default"><?= $disponivel['Chip']['numero_telefone'] ?></p>
+                                                <p class="btn btn-default"><?= $disponivel['Chip']['numero_chip'] ?></p>
+                                                <p class="btn btn-default"><?= $disponivel['Chip']['apn'] ?></p>
 
-                                        </div>
-                                    </li>
+                                            </div>
+                                        </li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
@@ -160,11 +148,35 @@
 
                 </div>
             </div>
-            <div class="modal-footer  ">
-                <button class="btn btn-warning" data-dismiss="modal">Fechar</button>
+            <div class="form-group col-md-offset-10  col-md-1">
+                <?php echo $this->Html->link('Cancelar', array('action' => 'index'), array('escape' => false, 'class' => 'btn btn-default')); ?>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+            <div class="form-group col-md-1 right">
+                <?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-success')); ?>
+            </div>
+            <?php echo $this->Form->end() ?>
+        </div>
+    </div><!-- end row -->
+</div>
+
+<!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true" id="modal-rast-chips" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog  modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header  ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Vincular Chips</h4>
+            </div> -->
+<!-- MODAL ERA AQUI -->
+
+
+
+<!-- MODAL ERA AQUI -->
+<!--   <div class="modal-footer  ">
+       <button class="btn btn-warning" data-dismiss="modal">Fechar</button>
+   </div>
+</div><!-- /.modal-content - ->
+</div><!-- /.modal-dialog - ->
 </div><!-- /.modal -->
 
 <script>
@@ -201,7 +213,7 @@
                     success: function (dataJson) {
                         var data = $.parseJSON(dataJson);
                         $('.loading-adicionados').css("display", 'none');
-                        var msg='';
+                        var msg = '';
                         var classe = "text-warning ";
                         switch ((data.status)) {
                             case 0:
@@ -260,7 +272,7 @@
                     async: true,
                     success: function (dataJson) {
                         var data = $.parseJSON(dataJson);
-                        var msg='';
+                        var msg = '';
                         var classe = "text-warning ";
                         switch ((data.status)) {
                             case 0:

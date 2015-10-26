@@ -43,7 +43,7 @@ class VeiculosController extends AppController {
         }
         $cliente = $this->Veiculo->Cliente->find("first", array('conditions' => array('Cliente.' . $this->Veiculo->Cliente->primaryKey => $id_cliente)));
         $this->set("id_cliente", $id_cliente);
-        
+
         $this->set("nome_cliente", $cliente['Cliente']['nome']);
 
         $this->Veiculo->recursive = 0;
@@ -55,9 +55,9 @@ class VeiculosController extends AppController {
             if ($idRastreador) {
                 $options = array('conditions' => array("Chip.rastreador_id" => $idRastreador));
                 $result = $this->Veiculo->Rastreador->Chip->find("first", $options);
-            }else{
+            } else {
                 $dadosPaginacao[$i]['Rastreador']['numero_equipamento'] = "Sem Rastreador";
-                $result="";
+                $result = "";
             }
             if (isset($result['Chip'])) {
                 $dadosPaginacao[$i]['Chip'] = $result['Chip'];
@@ -80,7 +80,7 @@ class VeiculosController extends AppController {
 
      */
     public function view($id = null) {
-        
+
         if (!$this->Veiculo->exists($id)) {
 
             throw new NotFoundException(__('Invalid veiculo'));
@@ -104,9 +104,9 @@ class VeiculosController extends AppController {
         if (!$id_cliente || !$this->Veiculo->Cliente->exists($id_cliente)) {
             throw new NotFoundException(__('Necessário um cliente'));
         }
-        
+
         $historicoVeiculos = $this->Veiculo->Rastreador->HistoricoVeiculo->find("all", array('conditions' => array('HistoricoVeiculo.veiculo_id' => $id), 'order' => 'HistoricoVeiculo.id desc'));
-        
+
         $this->set('id_cliente', $id_cliente);
         $fields = array('Rastreador.id', 'Rastreador.marca', 'Rastreador.modelo', 'Rastreador.numero_serie', 'Rastreador.numero_equipamento', 'Rastreador.data_install',
             'Rastreador.data_remove', 'Rastreador.fiacao_utilizada', 'Rastreador.local_instalacao_rastreador', 'Rastreador.info_add');
@@ -117,7 +117,7 @@ class VeiculosController extends AppController {
         $this->set("tipos_status", $this->getLista("tipo_status"));
         $this->set('disponiveis', $disponiveis);
         $this->set('historicoVeiculos', $historicoVeiculos);
-        
+
         if ($id) {
             $this->edit($id_cliente, $id);
             $this->set('id', $id);
@@ -127,6 +127,9 @@ class VeiculosController extends AppController {
                 $this->request->data['Veiculo']['cliente_id'] = $id_cliente;
                 if ($this->Veiculo->save($this->request->data)) {
                     $this->Session->setFlash(__('Veículo salvo com sucesso.'), 'default', array('class' => 'alert alert-success'));
+                    $_SESSION['rastreador_temp']['veiculo_id'] = $this->Veiculo->id;
+                    $rastreadorTemp = $_SESSION['rastreador_temp'];
+                    $this->requestAction(array('controller' => 'Rastreadors', 'action' => 'vincularVeiculo'), $rastreadorTemp);
                     return $this->redirect(array('action' => 'add', $id_cliente, $this->Veiculo->id));
                 } else {
                     $this->Session->setFlash(__('Não foi possível salvar o veículo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
@@ -146,7 +149,7 @@ class VeiculosController extends AppController {
         $disponiveis = $this->Veiculo->Rastreador->find('all', array('conditions' => array('Rastreador.veiculo_id  ' => NULL), 'fields' => $fields));
         echo json_encode($disponiveis);
     }
-    
+
     public function getRastreadorVinculado($id) {
         $this->render(false, false);
         $fields = array('Rastreador.id', 'Rastreador.marca', 'Rastreador.modelo', 'Rastreador.numero_serie', 'Rastreador.numero_equipamento', 'Rastreador.data_install',
@@ -154,7 +157,6 @@ class VeiculosController extends AppController {
         $rastreadorVinculado = $this->Veiculo->Rastreador->find('first', array('conditions' => array('Rastreador.veiculo_id  ' => $id), 'fields' => $fields));
         echo json_encode($rastreadorVinculado);
     }
-
 
     /**
 
@@ -188,7 +190,7 @@ class VeiculosController extends AppController {
             'Rastreador.data_remove', 'Rastreador.fiacao_utilizada', 'Rastreador.local_instalacao_rastreador', 'Rastreador.info_add');
         $instalados = $this->Veiculo->Rastreador->find('all', array('conditions' => array('veiculo_id' => $id), 'fields' => $fields));
         $motoristas = $this->Veiculo->Motorista->find('list', array('fields' => 'nome'));
-        
+
         $this->set('instalados', $instalados);
         $this->set('motoristas', $motoristas);
 
